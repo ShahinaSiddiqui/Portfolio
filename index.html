@@ -1,16 +1,103 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shahina Siddiqui — Portfolio</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Shahina Siddiqui — Portfolio</title>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+<style>
+:root{
+  --blue1:#008CDB; --blue2:#034C8C; --blue3:#2481A6;
+  --ink:#0D0D0D; --bg:#263241; --light:#F2F2F2;
+}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;color:#1d232b;background:#fff;line-height:1.55}
+.container{width:min(1120px,92vw);margin-inline:auto}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:10;background:#ffffffe6;backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid #e9edf2}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-weight:700;font-size:20px}
+.brand span{color:var(--blue1)}
+.nav a{color:#1c2733;text-decoration:none;font-weight:600;margin-left:18px;padding:8px 10px;border-radius:8px}
+.nav a:hover{background:#f1f6fb}
+.nav a.is-active{color:#fff;background:linear-gradient(135deg,var(--blue2),var(--blue1))}
+
+/* HERO */
+.hero{background:var(--bg);color:#fff;padding:54px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.2fr .9fr;gap:40px;align-items:center;padding:40px 0 24px}
+.headline{font-family:"Caveat",cursive;font-size:56px;line-height:1;margin:0 0 8px;color:#aee4ff}
+.role{font-weight:700;color:#f9fbff;margin:0 0 16px}
+.intro{color:#d7e7f5;max-width:58ch}
+.hero-photo img{width:330px;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid #e6f4ff12;box-shadow:0 18px 60px #0006;display:block;margin-inline:auto}
+
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;text-decoration:none;cursor:pointer;font-weight:700;border:2px solid transparent;transition:.25s}
+.btn-solid{color:#fff;background:linear-gradient(135deg,var(--blue1),var(--blue3))}
+.btn-solid:hover{filter:brightness(1.07)}
+.btn-outline{color:#fff;border-color:#9dd5ff;background:transparent}
+.btn-outline:hover{background:#ffffff14}
+
+/* Partners */
+.partners{padding:28px 0 42px;background:var(--bg)}
+.partners-title{color:#d2e7f7;margin-bottom:12px;font-weight:600}
+.logo-row{display:grid;grid-template-columns:repeat(8,minmax(90px,1fr));gap:26px;align-items:center}
+.logo-row img{width:100%;max-height:50px;object-fit:contain}
+
+/* Sections */
+.section{padding:74px 0}
+.section-alt{background:#f9fafc}
+.section-title{font-size:32px;margin:0}
+.section-sub{color:#5a6b7c;margin:6px 0 28px}
+
+/* Projects */
+.project{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center;margin:40px 0}
+.project-reverse{grid-template-columns:1fr 1.1fr}
+.project-reverse .project-media{order:2}
+.project-reverse .project-copy{order:1}
+.media-frame{position:relative;background:#0b1220;border-radius:16px;overflow:hidden;box-shadow:0 16px 50px #0b122020}
+.media-frame video,.media-frame img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Carousel */
+.carousel{display:grid;grid-template-columns:1fr}
+.carousel .car-img{grid-area:1/1;opacity:0;transform:scale(.98);transition:.35s}
+.carousel .car-img.active{opacity:1;transform:scale(1)}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;color:#fff;background:#0c1825bb;display:grid;place-items:center;font-size:28px}
+.carousel .prev{left:10px}.carousel .next{right:10px}
+
+/* Skills */
+.skill-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.skill-card{background:#fff;border:1px solid #eef2f6;border-radius:16px;padding:22px;box-shadow:0 6px 20px #0b122008}
+.skill-ico{width:56px;height:56px;object-fit:contain;margin-bottom:10px}
+.tools-title{margin-top:34px}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:14px}
+.tool{background:#fff;border:1px solid #eef2f6;border-radius:16px;padding:22px;box-shadow:0 6px 20px #0b122008}
+.tool-label{margin:8px 0 4px}
+.ring{--val:0;width:96px;height:96px;border-radius:50%;
+  background:conic-gradient(var(--blue1) calc(var(--val)*1%), #e6edf5 0),
+             radial-gradient(circle 38px,#fff 98%,transparent 100%);
+  display:grid;place-items:center;font-weight:700;color:#102030;margin-bottom:10px}
+.ring span{z-index:2}
+
+/* Contact */
+.contact{background:linear-gradient(180deg,#f9fafc,#fff)}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+.contact-photo img{width:270px;aspect-ratio:1;object-fit:cover;border-radius:50%;border:6px solid #eef6ff}
+.site-footer{border-top:1px solid #eef2f6;padding:16px 0;color:#57697b;background:#fff}
+
+@media (max-width:980px){
+  .hero-grid,.project,.project-reverse,.contact-grid{grid-template-columns:1fr}
+  .project-reverse .project-media,.project-reverse .project-copy{order:initial}
+  .logo-row{grid-template-columns:repeat(4,1fr)}
+  .skill-cards,.tools-grid{grid-template-columns:1fr}
+  .hero-photo img{width:270px}
+}
+</style>
 </head>
 <body>
 
@@ -26,32 +113,25 @@
   </div>
 </header>
 
-<!-- HOME / HERO -->
+<!-- HOME -->
 <section id="home" class="hero">
   <div class="container hero-grid">
     <div class="hero-copy">
       <h1 class="headline">Shahina Siddiqui</h1>
-      <p class="role">
-        Corporate &amp; Game-Based Learning Specialist |
-        Instructional Designer &amp; Developer | K-12 Experience
-      </p>
-
+      <p class="role">Corporate &amp; Game-Based Learning Specialist | Instructional Designer &amp; Developer | K-12 Experience</p>
       <p class="intro">
-        I design and develop engaging digital learning experiences that turn complex topics
-        into interactive, learner-friendly journeys. With over 9 years of experience, I bring a
-        unique strength in creating game-based and corporate e-learning modules that capture
-        attention and deliver measurable results.
+        I design and develop engaging digital learning experiences that turn complex topics into interactive,
+        learner-friendly journeys. With over 9 years of experience, I bring a unique strength in creating game-based and
+        corporate e-learning modules that capture attention and deliver measurable results.
       </p>
-
       <div class="cta-row">
-        <a id="resumeBtn" class="btn btn-solid" href="assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
+        <a class="btn btn-solid" href="assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
         <a class="btn btn-outline" href="#projects">Projects</a>
         <a class="btn btn-outline" href="#contact">Connect</a>
       </div>
     </div>
-
     <div class="hero-photo">
-      <img src="assets/img/profile.jpg" alt="Shahina Siddiqui headshot" />
+      <img src="assets/img/profile.jpg" alt="Shahina photo"/>
     </div>
   </div>
 
@@ -59,14 +139,14 @@
     <div class="container">
       <div class="partners-title">Proudly partnered with</div>
       <div class="logo-row">
-        <img src="assets/logos/indusind.png" alt="IndusInd Bank logo">
-        <img src="assets/logos/maxlife.png" alt="Max Life logo">
-        <img src="assets/logos/learningmate.png" alt="LearningMate logo">
-        <img src="assets/logos/coverfox.png" alt="Coverfox logo">
-        <img src="assets/logos/motilal-oswal.png" alt="Motilal Oswal logo">
-        <img src="assets/logos/5paisa.png" alt="5paisa logo">
-        <img src="assets/logos/english-impression.png" alt="English Impression logo">
-        <img src="assets/logos/zinnion.png" alt="Zinnion logo">
+        <img src="assets/logos/indusind.png" alt="IndusInd">
+        <img src="assets/logos/maxlife.png" alt="MaxLife">
+        <img src="assets/logos/learningmate.png" alt="LearningMate">
+        <img src="assets/logos/coverfox.png" alt="Coverfox">
+        <img src="assets/logos/motilal-oswal.png" alt="Motilal Oswal">
+        <img src="assets/logos/5paisa.png" alt="5paisa">
+        <img src="assets/logos/english-impression.png" alt="English Impression">
+        <img src="assets/logos/zinnion.png" alt="Zinnion">
       </div>
     </div>
   </div>
@@ -78,55 +158,41 @@
     <h2 class="section-title">Projects</h2>
     <p class="section-sub">Designed for attention, built for retention.</p>
 
-    <!-- Project 1: Counterfeit -->
     <article class="project">
       <div class="project-media">
         <div class="media-frame">
-          <video controls preload="metadata" poster="assets/projects/counterfeit/poster.jpg">
-            <source src="assets/projects/counterfeit/counterfeit.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
+          <video controls preload="metadata" poster="">
+            <source src="assets/projects/counterfeit/counterfeit.mp4" type="video/mp4"/>
+            Your browser does not support video.
           </video>
         </div>
       </div>
       <div class="project-copy">
         <h3>Counterfeit Detection — Bank Tellers Module</h3>
-        <p>
-          A specialized e-learning module for bank tellers to identify counterfeit currency with
-          accuracy and confidence. It covered all denominations in circulation in India, with
-          detailed guidance on security features and red flags aligned with RBI guidelines.
-        </p>
-        <p>
-          The module included interactive assessments that simulate real-world scenarios and
-          reinforce key concepts through hands-on practice. The client appreciated the practical
-          relevance, clean design, and easy on-the-job application.
-        </p>
+        <p>A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy and confidence,
+           aligned with RBI guidelines.</p>
+        <p>Includes interactive assessments that simulate real scenarios to reinforce key concepts. Praised for practical
+           relevance, clean design, and easy on-the-job application.</p>
       </div>
     </article>
 
-    <!-- Project 2: Vikram Bhetal -->
     <article class="project project-reverse">
       <div class="project-media">
         <div class="media-frame carousel" data-gallery="vikram">
-          <button class="car-btn prev" aria-label="Previous image">‹</button>
-          <img class="car-img" src="assets/projects/vikram/vikram-1.jpg" alt="Vikram & Bhetal scene 1">
-          <img class="car-img" src="assets/projects/vikram/vikram-2.jpg" alt="Vikram & Bhetal scene 2">
-          <img class="car-img" src="assets/projects/vikram/vikram-3.jpg" alt="Vikram & Bhetal scene 3">
-          <img class="car-img" src="assets/projects/vikram/vikram-4.jpg" alt="Vikram & Bhetal scene 4">
-          <img class="car-img" src="assets/projects/vikram/vikram-5.jpg" alt="Vikram & Bhetal scene 5">
-          <button class="car-btn next" aria-label="Next image">›</button>
+          <button class="car-btn prev" aria-label="Previous">‹</button>
+          <img class="car-img" src="assets/projects/vikram/vikram-1.jpg" alt="Vikram 1">
+          <img class="car-img" src="assets/projects/vikram/vikram-2.jpg" alt="Vikram 2">
+          <img class="car-img" src="assets/projects/vikram/vikram-3.jpg" alt="Vikram 3">
+          <img class="car-img" src="assets/projects/vikram/vikram-4.jpg" alt="Vikram 4">
+          <img class="car-img" src="assets/projects/vikram/vikram-5.jpg" alt="Vikram 5">
+          <button class="car-btn next" aria-label="Next">›</button>
         </div>
       </div>
       <div class="project-copy">
         <h3>Ethics Assessment — Vikram Bhetal Inspired</h3>
-        <p>
-          An engaging ethics assessment for a leading financial institution, blending the timeless
-          Indian tale of Vikram &amp; Bhetal with modern workplace dilemmas. The narrative woven through
-          the assessment turned compliance into an immersive experience.
-        </p>
-        <p>
-          The module received excellent feedback for originality, cultural relevance, and learner
-          engagement, with decisions, feedback, and progression designed to feel like a real game.
-        </p>
+        <p>Ethics training that blends the timeless tale of Vikram &amp; Bhetal with modern workplace dilemmas to make
+           compliance immersive and memorable.</p>
+        <p>Great feedback for originality, cultural relevance, and engagement.</p>
       </div>
     </article>
   </div>
@@ -142,32 +208,20 @@
       <div class="skill-card">
         <img class="skill-ico" src="assets/icons/instructional.png" alt="">
         <h3>Instructional Designing</h3>
-        <p>
-          I turn raw content into objective-aligned, dev-ready learning paths. Starting with design
-          documents and storyboards, I restructure material into learner-friendly content that’s
-          chunked, sequenced, and written in clear language. Specs guide video, e-learning, or LMS builds,
-          with measurable objectives mapped to activities, checks, and feedback.
-        </p>
+        <p>I turn raw content into objective-aligned, dev-ready learning paths — from design documents and storyboards
+           to clear, sequenced content with measurable objectives mapped to activities, checks, and feedback.</p>
       </div>
-
       <div class="skill-card">
         <img class="skill-ico" src="assets/icons/builds.png" alt="">
         <h3>Learning Builds</h3>
-        <p>
-          SCORM/xAPI-ready e-learning, microlearning, and product/onboarding modules built for LMS at scale.
-          Interactive, mobile-first experiences, with case studies, scenario flows, and varied assessments
-          aligned with (and evidencing) the learning objectives.
-        </p>
+        <p>SCORM/xAPI-ready e-learning, microlearning, and onboarding — interactive, mobile-first, with scenarios and
+           varied assessments that evidence the objectives.</p>
       </div>
-
       <div class="skill-card">
         <img class="skill-ico" src="assets/icons/game.png" alt="">
         <h3>Game-based Learning</h3>
-        <p>
-          More than rewards and badges — objectives map to levels with lock/unlock gates, checkpoints, and
-          boss-style challenges. Content, decision points, feedback, and a game-like UI/UX are co-designed so
-          engagement fuels retention and transfer.
-        </p>
+        <p>More than badges — objectives map to levels with lock/unlock gates, checkpoints, and boss-style challenges;
+           content, choices, feedback, and UI/UX are co-designed so engagement fuels retention and transfer.</p>
       </div>
     </div>
 
@@ -176,15 +230,13 @@
       <div class="tool">
         <div class="ring" data-val="100"><span>100%</span></div>
         <div class="tool-label"><strong>Articulate Storyline 360</strong></div>
-        <p>Complete mastery in building interactive, SCORM-compliant courses.</p>
+        <p>Complete mastery building interactive, SCORM-compliant courses.</p>
       </div>
-
       <div class="tool">
         <div class="ring" data-val="60"><span>60%</span></div>
         <div class="tool-label"><strong>Design Tools</strong></div>
-        <p>Solid working knowledge for layout, visual hierarchy, and aesthetics.</p>
+        <p>Solid working knowledge for layout, hierarchy, and aesthetics.</p>
       </div>
-
       <div class="tool">
         <div class="ring" data-val="95"><span>95%</span></div>
         <div class="tool-label"><strong>AI Tools</strong></div>
@@ -202,7 +254,8 @@
       <div class="cta-row">
         <button id="callBtn" class="btn btn-solid">Call</button>
         <a class="btn btn-outline" href="mailto:siddiquishahina01@gmail.com">Email</a>
-        <a class="btn btn-outline" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+        <a class="btn btn-outline" target="_blank" rel="noreferrer"
+           href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
       </div>
     </div>
     <div class="contact-photo">
@@ -211,12 +264,29 @@
   </div>
 </section>
 
-<footer class="site-footer">
-  <div class="container">
-    © 2025 Shahina Siddiqui — Portfolio
-  </div>
-</footer>
+<footer class="site-footer"><div class="container">© 2025 Shahina Siddiqui — Portfolio</div></footer>
 
-<script src="script.js"></script>
+<script>
+/* Smooth nav + active state */
+const links=[...document.querySelectorAll('.nav-link')];
+links.forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href'); if(id.startsWith('#')){e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});}
+}));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id; const l=links.find(x=>x.getAttribute('href')===id); if(l){links.forEach(x=>x.classList.remove('is-active')); l.classList.add('is-active');}}})},{rootMargin:'-48% 0px -48% 0px',threshold:0});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+
+/* Carousel */
+document.querySelectorAll('.carousel').forEach(car=>{
+  const imgs=[...car.querySelectorAll('.car-img')]; let i=0; const show=k=>imgs.forEach((im,ix)=>im.classList.toggle('active',ix===k));
+  if(imgs.length){show(0); car.querySelector('.next').addEventListener('click',()=>{i=(i+1)%imgs.length;show(i)}); car.querySelector('.prev').addEventListener('click',()=>{i=(i-1+imgs.length)%imgs.length;show(i)});}
+});
+
+/* Rings */
+document.querySelectorAll('.ring').forEach(r=>r.style.setProperty('--val', +r.dataset.val||0));
+
+/* Call reveal then dial */
+const callBtn=document.getElementById('callBtn');
+if(callBtn){let seen=false; callBtn.addEventListener('click',()=>{ if(!seen){callBtn.textContent='Call (+91 70874 33166)'; seen=true;} else {location.href='tel:+917087433166';} });}
+</script>
 </body>
 </html>
