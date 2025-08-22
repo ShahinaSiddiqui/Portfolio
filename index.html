@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shahina Siddiqui — Portfolio</title>
+
+  <!-- Google Fonts (professional + clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ================= Header / Nav ================= -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#home">Shahina Siddiqui</a>
+      <button class="nav-toggle" aria-label="toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a class="nav-link active" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= HOME / HERO ================= -->
+  <section id="home" class="section hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1 class="title-xl">Shahina Siddiqui</h1>
+
+        <h2 class="subtitle">
+          Corporate &amp; Game-Based Learning Specialist |
+          Instructional Designer &amp; Developer | K-12 Experience
+        </h2>
+
+        <p class="lead">
+          I design and develop engaging digital learning experiences that transform
+          complex topics into interactive, learner-friendly journeys. With over 9 years
+          of experience, I bring a unique strength in creating game-based and
+          corporate e-learning modules that not only capture attention but also
+          deliver measurable results. My K-12 background sharpens my focus on
+          standards-aligned, inclusive learning for diverse learners.
+        </p>
+
+        <div class="btn-row">
+          <a id="resumeBtn" class="btn btn-primary" href="assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
+          <a class="btn btn-secondary" href="#projects">Projects</a>
+          <a class="btn btn-outline" href="#contact">Connect</a>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <img src="assets/img/profile.jpg" alt="Profile picture of Shahina" />
+      </div>
+    </div>
+
+    <div class="container clients">
+      <p class="clients-kicker">Built for outcomes. Trusted by clients.</p>
+      <ul class="logo-strip">
+        <li><img src="assets/logos/indusind.png" alt="IndusInd Bank" /></li>
+        <li><img src="assets/logos/maxlife.png" alt="Max Life" /></li>
+        <li><img src="assets/logos/learningmate.png" alt="LearningMate" /></li>
+        <li><img src="assets/logos/coverfox.png" alt="Coverfox" /></li>
+        <li><img src="assets/logos/motilal-oswal.png" alt="Motilal Oswal" /></li>
+        <li><img src="assets/logos/5paisa.png" alt="5paisa" /></li>
+        <li><img src="assets/logos/english-impression.png" alt="English Impression" /></li>
+        <li><img src="assets/logos/zinnion.png" alt="Zinnion" /></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title">Designed for attention, built for retention.</h2>
+
+      <!-- Project A: Counterfeit currency (video) -->
+      <article class="project">
+        <div class="project-media">
+          <video controls playsinline class="video" src="assets/projects/counterfeit/counterfeit.mp4">
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+        </div>
+        <div class="project-copy">
+          <h3>Counterfeit Currency Identification — Bank Tellers</h3>
+          <p>
+            A specialized e-learning module for bank tellers to identify counterfeit
+            currency with greater accuracy and confidence. The interactive module
+            covers all denominations in circulation in India, aligning with RBI
+            guidance and focusing on security features and red flags.
+          </p>
+          <p>
+            Scenario-based assessments simulate real-world situations, reinforce
+            key concepts, and support on-the-job skill transfer. The client
+            appreciated the practical relevance, clean design, and immediate
+            applicability for frontline employees.
+          </p>
+        </div>
+      </article>
+
+      <!-- Project B: Ethics Assessment (image carousel) -->
+      <article class="project">
+        <div class="project-media">
+          <div class="carousel"
+               data-images='[
+                 "assets/projects/vikram/vikram-1.jpg",
+                 "assets/projects/vikram/vikram-2.jpg",
+                 "assets/projects/vikram/vikram-3.jpg",
+                 "assets/projects/vikram/vikram-4.jpg",
+                 "assets/projects/vikram/vikram-5.jpg"
+               ]'>
+            <button class="cbtn prev" aria-label="Previous image">‹</button>
+            <img class="cimg" alt="Project gallery image" />
+            <button class="cbtn next" aria-label="Next image">›</button>
+          </div>
+        </div>
+        <div class="project-copy">
+          <h3>Ethics Assessment — Vikram &amp; Bhetal Inspired</h3>
+          <p>
+            An engaging ethics training assessment for a leading financial
+            institution that blends the timeless Indian tale of Vikram and Bhetal
+            with modern workplace dilemmas. The ethical compass is woven into the
+            narrative, turning compliance into an immersive experience.
+          </p>
+          <p>
+            The module earned excellent feedback for originality, cultural
+            resonance, and learner engagement.
+          </p>
+        </div>
+      </article>
+
+      <!-- How to add more projects (hint for future you) -->
+      <details class="hint">
+        <summary>How do I add another project later?</summary>
+        <p>Duplicate a project <code>&lt;article class="project"&gt;…</code> block.  
+        For carousels, copy the <code>div.carousel</code> and update the <code>data-images</code> list with your image paths.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" class="section alt">
+    <div class="container">
+      <h2 class="section-title center">Curation to creation: end-to-end learning design</h2>
+
+      <div class="three-grid">
+        <div class="skill-card">
+          <img class="skill-icon" src="assets/img/skill-id.png" alt="" />
+          <h3>Instructional Designing</h3>
+          <p>
+            I turn raw content into objective-aligned, dev-ready learning paths.
+            Starting with design documents and storyboards, I restructure material
+            into learner-friendly content that’s chunked, sequenced, and written
+            in clear, simple language. Dev-ready specs guide video, e-learning, or
+            LMS builds with measurable objectives mapped to activities, checks,
+            and feedback.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <img class="skill-icon" src="assets/img/skill-builds.png" alt="" />
+          <h3>Learning Builds</h3>
+          <p>
+            I build SCORM-ready, LMS-scale e-learning, microlearning, and
+            product/onboarding modules that are interactive, mobile-first, and
+            tailored to the need. Where appropriate, I weave in case studies,
+            scenario flows, and varied assessments to align with—and evidence—the
+            learning objectives.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <img class="skill-icon" src="assets/img/skill-gbl.png" alt="" />
+          <h3>Game-based Learning</h3>
+          <p>
+            More than rewards and badges: I design learning that works like a real
+            game—objectives map to levels with lock/unlock gates, checkpoints, and
+            boss-style challenges. Content, decision points, feedback, and a game-like
+            UI/UX are co-designed so engagement turns into retention and skill transfer.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="tools-title">Tools &amp; Expertise</h3>
+      <div class="tools-grid">
+        <!-- Progress ring 1 -->
+        <div class="tool">
+          <div class="ring" data-percent="100" data-label="100%"></div>
+          <h4>Articulate Storyline 360</h4>
+          <p>Complete mastery in building interactive, SCORM-compliant courses.</p>
+        </div>
+        <!-- Progress ring 2 -->
+        <div class="tool">
+          <div class="ring" data-percent="60" data-label="60%"></div>
+          <h4>Design Tools</h4>
+          <p>Solid working knowledge for layouts and visual aesthetics.</p>
+        </div>
+        <!-- Progress ring 3 -->
+        <div class="tool">
+          <div class="ring" data-percent="95" data-label="95%"></div>
+          <h4>AI Tools</h4>
+          <p>Advanced use for video creation, image generation, and research.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section">
+    <div class="container contact-grid">
+      <div class="contact-copy">
+        <h2 class="title-lg"><span class="accent">Let’s talk</span> about your next project…</h2>
+        <div class="btn-row">
+          <a id="callBtn" class="btn btn-secondary" href="tel:+917087433166">Call</a>
+          <a class="btn btn-secondary" href="mailto:siddiquishahina01@gmail.com">Email</a>
+          <a class="btn btn-secondary" target="_blank" rel="noopener" href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+        </div>
+      </div>
+      <div class="contact-avatar">
+        <img src="assets/img/profile.jpg" alt="Shahina Siddiqui" />
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      © 2025 Shahina Siddiqui — Portfolio
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
