@@ -1,63 +1,91 @@
-/* Smooth scroll + active nav */
-const links = document.querySelectorAll('.nav-link');
-links.forEach(a=>{
-  a.addEventListener('click', e=>{
-    // allow normal hash navigation; smooth it
-    const id = a.getAttribute('href');
-    if(id.startsWith('#')){
-      e.preventDefault();
-      document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
-    }
-  });
-});
-
-function setActive(el){
-  links.forEach(l=>l.classList.remove('is-active'));
-  el.classList.add('is-active');
+:root{
+  --blue-1:#008CDB;
+  --blue-2:#034C8C;
+  --blue-3:#2481A6;
+  --ink:#0D0D0D;
+  --muted:#6b7280;
+  --bg:#223140;         /* page background */
+  --panel:#2B3C4C;      /* header panel */
+  --light:#F2F2F2;
 }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
+  color:#eaf2f7;
+  background:var(--bg);
+}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
 
-/* observe sections for active state */
-const sections = [...document.querySelectorAll('section[id]')];
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      const id = '#'+entry.target.id;
-      const link = [...links].find(l=>l.getAttribute('href')===id);
-      if(link) setActive(link);
-    }
-  })
-},{rootMargin:'-48% 0px -48% 0px', threshold:0});
+/* header */
+.site-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px;margin-top:8px;background:var(--panel);border-radius:14px;
+}
+.brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.nav{display:flex;gap:22px}
+.nav-link{color:#cfe7f7;text-decoration:none}
+.nav-link:hover{color:#fff}
+.nav-link.active{color:#fff;text-decoration:underline}
 
-sections.forEach(s=>io.observe(s));
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
+.title{font-size:44px;margin:0 0 10px}
+.subtitle{font-weight:700;color:#ffd76b;margin:0 0 8px}
+.intro{color:#d6e6f2;margin:10px 0 18px}
 
-/* Carousel */
-document.querySelectorAll('.carousel').forEach(car=>{
-  const imgs = [...car.querySelectorAll('.car-img')];
-  let i = 0;
-  const show = (idx)=>{
-    imgs.forEach((im,k)=>im.classList.toggle('active',k===idx));
-  };
-  show(i);
-  car.querySelector('.next').addEventListener('click', ()=>{ i=(i+1)%imgs.length; show(i); });
-  car.querySelector('.prev').addEventListener('click', ()=>{ i=(i-1+imgs.length)%imgs.length; show(i); });
-});
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{background:var(--blue-1);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:600;text-decoration:none}
+.btn:hover{background:var(--blue-2)}
+.btn.secondary{background:var(--blue-3)}
+.btn.secondary:hover{background:var(--blue-2)}
+.btn.ghost{background:transparent;border:2px solid var(--blue-3);color:#fff}
+.btn.ghost:hover{background:var(--blue-3)}
 
-/* Progress rings */
-document.querySelectorAll('.ring').forEach(r=>{
-  const v = +r.dataset.val || 0;
-  r.style.setProperty('--val', v);
-});
+.avatar{width:240px;height:240px;border-radius:999px;object-fit:cover;border:6px solid rgba(255,255,255,.1)}
+.avatar.big{width:280px;height:280px}
 
-/* Contact: call reveal then dial */
-const callBtn = document.getElementById('callBtn');
-if(callBtn){
-  let revealed = false;
-  callBtn.addEventListener('click', ()=>{
-    if(!revealed){
-      callBtn.textContent = 'Call (+91 70874 33166)';
-      revealed = true;
-    }else{
-      location.href = 'tel:+917087433166';
-    }
-  });
+.partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
+.partners-title{margin:0 0 16px;text-align:center}
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;justify-items:center}
+.logos img{max-width:160px;max-height:54px;filter:grayscale(0);opacity:.9}
+
+/* pages */
+.page-title{margin:26px 0}
+.project{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:28px 0 46px}
+.project-media video{width:100%;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.project-copy h2{margin:0 0 10px}
+
+.carousel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.carousel img{width:100%;max-width:360px;flex:0 0 auto;border-radius:12px;scroll-snap-align:center}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:22px 0}
+.skill-card{background:var(--panel);border-radius:14px;padding:18px}
+.skill-card h3{margin:10px 0}
+.skill-icon{width:70px;height:70px}
+
+.tools-title{margin:30px 0 10px}
+.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tool{background:var(--panel);border-radius:14px;padding:18px;text-align:center}
+.ring{
+  --size:84px;
+  width:var(--size);height:var(--size);margin:6px auto 10px;border-radius:50%;
+  background:
+    conic-gradient(var(--blue-1) calc(var(--pct)*360deg), rgba(255,255,255,.12) 0);
+  display:grid;place-items:center;color:#fff;font-weight:700;
+}
+.ring span{background:#1e2b37;border-radius:50%;width:calc(var(--size) - 18px);height:calc(var(--size) - 18px);display:grid;place-items:center}
+
+/* contact */
+.contact-hero{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;min-height:60vh}
+
+/* footer */
+.site-footer{text-align:center;color:#cfe7f7;padding:30px 0}
+
+/* mobile */
+@media (max-width:860px){
+  .hero,.project,.contact-hero{grid-template-columns:1fr}
+  .logos{grid-template-columns:repeat(2,1fr)}
 }
