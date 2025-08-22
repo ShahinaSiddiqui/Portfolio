@@ -1,71 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Projects — Shahina Siddiqui</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Shahina Siddiqui</title>
+  <link rel="stylesheet" href="./styles.css?v=3">
 </head>
-<body data-page="projects">
-<header class="site-header">
-  <div class="container nav-wrap">
-    <div class="brand">Shahina <span>Siddiqui</span></div>
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
+<body>
+<header class="site-header container">
+  <a class="brand" href="./index.html">Shahina Siddiqui</a>
+  <nav class="nav">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link active" href="./projects.html">Projects</a>
+    <a class="nav-link" href="./skills.html">Skills</a>
+    <a class="nav-link" href="./contact.html">Contact</a>
+  </nav>
 </header>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Projects</h2>
-    <p class="section-sub">Designed for attention, built for retention.</p>
+<main class="container">
+  <h1 class="page-title">Designed for attention, built for retention.</h1>
 
-    <article class="project">
-      <div class="project-media">
-        <div class="media-frame">
-          <video controls preload="metadata">
-            <source src="assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
-            Your browser does not support video.
-          </video>
-        </div>
-      </div>
-      <div class="project-copy">
-        <h3>Counterfeit Detection — Bank Tellers Module</h3>
-        <p>A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy and confidence,
-          aligned with RBI guidelines.</p>
-        <p>Includes interactive assessments that simulate real scenarios to reinforce key concepts. Praised for practical
-          relevance, clean design, and easy on-the-job application.</p>
-      </div>
-    </article>
+  <article class="project">
+    <div class="project-media">
+      <video controls preload="metadata" poster="./assets/img/skill-builds.png">
+        <source src="./assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="project-copy">
+      <h2>Counterfeit Currency – Teller Training</h2>
+      <p>
+        A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy and confidence.
+        It covers Indian denominations with security features and red flags aligned with RBI guidelines. Real-world
+        scenario assessments reinforce key concepts and on-the-job application.
+      </p>
+    </div>
+  </article>
 
-    <article class="project project-reverse">
-      <div class="project-media">
-        <div class="media-frame carousel">
-          <button class="car-btn prev" aria-label="Previous">‹</button>
-          <img class="car-img" src="assets/projects/vikram/vikram-1.jpg" alt="Vikram 1">
-          <img class="car-img" src="assets/projects/vikram/vikram-2.jpg" alt="Vikram 2">
-          <img class="car-img" src="assets/projects/vikram/vikram-3.jpg" alt="Vikram 3">
-          <img class="car-img" src="assets/projects/vikram/vikram-4.jpg" alt="Vikram 4">
-          <img class="car-img" src="assets/projects/vikram/vikram-5.jpg" alt="Vikram 5">
-          <button class="car-btn next" aria-label="Next">›</button>
-        </div>
+  <article class="project">
+    <div class="project-media">
+      <div class="carousel" aria-label="Vikram Bhetal gallery">
+        <img src="./assets/projects/vikram/vikram-1.jpg" alt="">
+        <img src="./assets/projects/vikram/vikram-2.jpg" alt="">
+        <img src="./assets/projects/vikram/vikram-3.jpg" alt="">
+        <img src="./assets/projects/vikram/vikram-4.jpg" alt="">
+        <img src="./assets/projects/vikram/vikram-5.jpg" alt="">
       </div>
-      <div class="project-copy">
-        <h3>Ethics Assessment — Vikram Bhetal Inspired</h3>
-        <p>Ethics training that blends the timeless tale of Vikram &amp; Bhetal with modern workplace dilemmas to make
-          compliance immersive and memorable. Great feedback for originality, cultural relevance, and engagement.</p>
-      </div>
-    </article>
-  </div>
-</section>
+    </div>
+    <div class="project-copy">
+      <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
+      <p>
+        An engaging ethics assessment for a financial institution, blending the Indian tale of Vikram and Bhetal
+        with modern workplace dilemmas. The narrative weaves an ethical compass through decisions and feedback.
+      </p>
+    </div>
+  </article>
+</main>
 
-<footer class="site-footer"><div class="container">© 2025 Shahina Siddiqui — Portfolio</div></footer>
-<script src="script.js"></script>
+<footer class="site-footer">© 2025 Shahina Siddiqui</footer>
+<script src="./script.js?v=2" defer></script>
 </body>
 </html>
