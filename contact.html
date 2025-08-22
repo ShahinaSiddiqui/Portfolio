@@ -1,44 +1,35 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Contact — Shahina Siddiqui</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Shahina Siddiqui</title>
+  <link rel="stylesheet" href="./styles.css?v=3">
 </head>
-<body data-page="contact">
-<header class="site-header">
-  <div class="container nav-wrap">
-    <div class="brand">Shahina <span>Siddiqui</span></div>
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
+<body>
+<header class="site-header container">
+  <a class="brand" href="./index.html">Shahina Siddiqui</a>
+  <nav class="nav">
+    <a class="nav-link" href="./index.html">Home</a>
+    <a class="nav-link" href="./projects.html">Projects</a>
+    <a class="nav-link" href="./skills.html">Skills</a>
+    <a class="nav-link active" href="./contact.html">Contact</a>
+  </nav>
 </header>
 
-<section class="section contact">
-  <div class="container contact-grid">
-    <div class="contact-copy">
-      <h2>Let’s talk about your next project…</h2>
-      <div class="cta-row">
-        <button id="callBtn" class="btn btn-solid">Call</button>
-        <a class="btn btn-outline" href="mailto:siddiquishahina01@gmail.com">Email</a>
-        <a class="btn btn-outline" target="_blank" rel="noreferrer"
-           href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
-      </div>
-    </div>
-    <div class="contact-photo">
-      <img src="assets/img/profile.jpg" alt="">
+<main class="container contact-hero">
+  <div>
+    <h1 class="page-title">Let’s talk about your next project…</h1>
+    <div class="actions">
+      <a id="callBtn" class="btn" href="tel:+917087433166">Call</a>
+      <a class="btn secondary" href="mailto:siddiquishahina01@gmail.com">Email</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/shahina-siddiqui-494184284" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
-</section>
+  <img class="avatar big" src="./assets/img/profile.png" alt="">
+</main>
 
-<footer class="site-footer"><div class="container">© 2025 Shahina Siddiqui — Portfolio</div></footer>
-<script src="script.js"></script>
+<footer class="site-footer">© 2025 Shahina Siddiqui</footer>
+<script src="./script.js?v=2" defer></script>
 </body>
 </html>
