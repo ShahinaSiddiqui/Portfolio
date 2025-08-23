@@ -40,26 +40,31 @@ body{
 /* ========== HERO (home) ========== */
 .hero{
   display:grid;
-  grid-template-columns: 1fr 300px;   /* <- second column matches photo width */
+  grid-template-columns: 1fr 300px;     /* circle column = photo size */
   gap: clamp(24px, 4vw, 56px);
   align-items:center;
 }
 
-.hero h1{ 
-  font-size: clamp(36px, 5vw, 60px);
-  margin: 0 0 10px;
-}
-
-
 .hero-photo{
-  width: 300px;
-  height: 300px;
+  width: 260px;                         /* circle size (desktop) */
+  height: 260px;
   border-radius: 50%;
-  border: 6px solid #2a3e4d;                 /* optional: scale the ring down */
-  box-shadow: 0 0 0 8px rgba(255,255,255,.04) inset; /* optional: scale inset */
-  overflow: hidden;
+  border: 8px solid #2a3e4d;            /* ring */
+  box-shadow: 0 0 0 10px rgba(255,255,255,.04) inset;
+  overflow: hidden;                      /* crop inside circle */
   justify-self: end;
 }
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;                     /* fill the circle */
+  object-position: 50% 12%;              /* show a bit more headroom */
+  transform: scale(.95);                 /* nudge a touch smaller inside */
+  border-radius: 50%;                    /* force round just in case */
+}
+
 
 
 .hero-photo img{
@@ -73,7 +78,12 @@ body{
 
 @media (max-width: 900px){
   .hero{ grid-template-columns: 1fr; }
-  .hero-photo{ width: 240px; height: 240px; justify-self: center; margin-top: 24px; }
+  .hero-photo{
+    width: 230px;                        /* mobile circle size */
+    height: 230px;
+    justify-self: center;
+    margin-top: 24px;
+  }
 }
 
 .tagline{
