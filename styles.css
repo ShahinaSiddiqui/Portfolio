@@ -97,6 +97,10 @@ body{
   flex-wrap:wrap;
   align-items:center;
 }
+.page-contact{
+  padding:80px 0 140px;   /* top, sides, bottom */
+}
+
 .cta-row .btn{
   min-width:220px;
   height:56px;
