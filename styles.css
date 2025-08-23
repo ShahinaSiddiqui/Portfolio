@@ -30,31 +30,42 @@ body{
 .nav-link.active{color:#fff;text-decoration:underline}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:48px 0}
-.title{font-size:44px;margin:0 0 10px}
-.subtitle{font-weight:700;color:#ffd76b;margin:0 0 8px}
-.intro{color:#d6e6f2;margin:10px 0 18px}
-
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{background:var(--blue-1);color:#fff;border:0;border-radius:999px;padding:12px 18px;font-weight:600;text-decoration:none}
-.btn:hover{background:var(--blue-2)}
-.btn.secondary{background:var(--blue-3)}
-.btn.secondary:hover{background:var(--blue-2)}
-.btn.ghost{background:transparent;border:2px solid var(--blue-3);color:#fff}
-.btn.ghost:hover{background:var(--blue-3)}
-
-.avatar{
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  object-fit:cover;             /* fills the circle cleanly */
-  object-position:center;       /* keep face centered */
-  border:10px solid #2b3f4f;    /* ring — keep if you like */
-  box-shadow:0 0 0 6px rgba(255,255,255,.08);
+/* ========== HERO (home) ========== */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(24px, 4vw, 56px);
+  align-items:center;
 }
-@media (max-width:900px){
-  .avatar{ width:240px; height:240px; }
+
+.hero-photo{
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 8px solid #2a3e4d;           /* subtle ring */
+  box-shadow: 0 0 0 10px rgba(255,255,255,.04) inset;
+  overflow: hidden;
+  justify-self: end;                    /* photo on the right */
 }
+
+.hero-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit: cover;                    /* fill the circle */
+  object-position: 50% 22%;             /* lift slightly so the top isn’t cut */
+}
+
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero-photo{
+    width: 300px;
+    height: 300px;
+    justify-self: center;
+    margin-top: 24px;
+  }
+}
+
 
 
 .partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
