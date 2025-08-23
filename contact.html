@@ -7,38 +7,41 @@
   <link rel="stylesheet" href="./styles.css?v=3">
 </head>
 <body>
-<header class="site-header container">
-  <a class="brand" href="./index.html">Shahina Siddiqui</a>
-  <nav class="nav">
-    <a class="nav-link" href="./index.html">Home</a>
-    <a class="nav-link" href="./projects.html">Projects</a>
-    <a class="nav-link" href="./skills.html">Skills</a>
-    <a class="nav-link active" href="./contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- Header (same across pages) -->
+  <header class="container site-header">
+    <a class="brand" href="index.html">Shahina Siddiqui</a>
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="projects.html">Projects</a>
+      <a class="nav-link" href="skills.html">Skills</a>
+      <a class="nav-link active" href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-<main class="container contact">
-  <div class="contact-grid">
-    <div class="contact-copy">
-      <h1>Let’s talk about your next project…</h1>
+  <!-- Contact -->
+  <main class="container contact">
+    <h1 class="page-title">Let’s talk about your next project…</h1>
 
-      <div class="actions">
-        <a class="btn btn-lg btn-primary" href="tel:+917087433166">Call&nbsp; +91 70874 33166</a>
-        <a class="btn btn-lg btn-secondary" href="mailto:siddiquishahina01@gmail.com">Email</a>
-        <a class="btn btn-lg btn-outline" target="_blank" rel="noreferrer"
-           href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+    <div class="contact-grid">
+      <!-- Left side: buttons -->
+      <div class="contact-copy">
+        <div class="actions">
+          <a class="btn btn-lg btn-primary" href="tel:+917087433166">Call  +91 70874 33166</a>
+          <a class="btn btn-lg btn-secondary" href="mailto:siddiquishahina01@gmail.com">Email</a>
+          <a class="btn btn-lg btn-outline" target="_blank" rel="noopener"
+             href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+        </div>
       </div>
-    <main class="container contact">
-  <div class="contact-grid">
-    <div class="contact-copy"> …buttons… </div>
-    <div class="contact-photo">
-      <img src="./assets/img/profile.png" alt="Shahina Siddiqui">
+
+      <!-- Right side: circular photo -->
+      <div class="contact-photo">
+        <img src="./assets/img/profile.png" width="420" height="420" alt="Shahina Siddiqui">
+      </div>
     </div>
-  </div>
-</main>
+  </main>
 
-
-<footer class="site-footer">© 2025 Shahina Siddiqui</footer>
-<script src="./script.js?v=2" defer></script>
+  <!-- Sticky footer (your CSS already handles this) -->
+  <footer class="container" style="padding:28px 20px;color:#cfe7f7;">© 2025 Shahina Siddiqui</footer>
 </body>
+
 </html>
