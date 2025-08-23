@@ -19,28 +19,22 @@ body{
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
 /* header */
+/* header */
 .site-header{
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  gap:24px;                /* NEW: gives breathing room between brand and nav */
+  gap:24px;
   padding:18px 20px;
   margin-top:8px;
   background:var(--panel);
   border-radius:14px;
 }
-.brand{
-  color:#fff;
-  text-decoration:none;
-  font-weight:700;
-  font-size:18px;
-  margin-right:auto;       /* NEW: pushes nav all the way to the right */
-}
-.nav{ display:flex; gap:22px; }
-
+.brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
+.nav{display:flex;gap:22px;margin-left:auto}   /* <- pushes menu to the right */
 .nav-link{color:#cfe7f7;text-decoration:none}
 .nav-link:hover{color:#fff}
 .nav-link.active{color:#fff;text-decoration:underline}
+
 
 /* hero */
 /* ========== HERO (home) ========== */
@@ -70,17 +64,18 @@ body{
   width:100%;
   height:100%;
   display:block;
-  object-fit: cover;                    /* fill the circle */
-  object-position: 50% 55%;             /* lift slightly so the top isn’t cut */
+  object-fit:cover;
+  object-position:50% 10%;  /* show more room above the head */
+  transform:scale(.92);     /* image a bit smaller inside the circle */
 }
 
 @media (max-width: 900px){
   .hero{ grid-template-columns: 1fr; }
-  .hero-photo{ width: 300px; height: 300px; justify-self: center; margin-top: 24px; }
+  .hero-photo{ width: 250px; height: 250px; justify-self: center; margin-top: 24px; }
 }
 
 .tagline{
-  color:#FBFFFF;                 /* slightly lighter than your primary blue */
+  color:#39B3E6;                 /* slightly lighter than your primary blue */
   font-weight:700;
   font-size: clamp(18px, 2.1vw, 22px);  /* a bit bigger on all screens */
   line-height:1.5;
@@ -156,9 +151,9 @@ body{
   transition:.2s ease;
 }
 .btn-lg{
-  padding: 14px 28px;     /* was 22px 40px */
+  padding: 18px 32px;;     /* was 22px 40px */
   font-size: 18px;        /* was 20px */
-  border-radius: 32px;    /* slightly smaller pill */
+  border-radius: 34px;    /* slightly smaller pill */
 }
 
 
