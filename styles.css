@@ -43,8 +43,19 @@ body{
 .btn.ghost{background:transparent;border:2px solid var(--blue-3);color:#fff}
 .btn.ghost:hover{background:var(--blue-3)}
 
-.avatar{width:240px;height:240px;border-radius:999px;object-fit:cover;border:6px solid rgba(255,255,255,.1)}
-.avatar.big{width:280px;height:280px}
+.avatar{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  object-fit:cover;             /* fills the circle cleanly */
+  object-position:center;       /* keep face centered */
+  border:10px solid #2b3f4f;    /* ring — keep if you like */
+  box-shadow:0 0 0 6px rgba(255,255,255,.08);
+}
+@media (max-width:900px){
+  .avatar{ width:240px; height:240px; }
+}
+
 
 .partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
 .partners-title{margin:0 0 16px;text-align:center}
@@ -88,4 +99,8 @@ body{
 @media (max-width:860px){
   .hero,.project,.contact-hero{grid-template-columns:1fr}
   .logos{grid-template-columns:repeat(2,1fr)}
+}
+.tagline{
+  color:#2481A6;           /* your blue */
+  font-weight:700;
 }
