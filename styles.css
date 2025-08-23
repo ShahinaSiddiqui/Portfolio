@@ -20,9 +20,16 @@ body{
 
 /* header */
 .site-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 20px;margin-top:8px;background:var(--panel);border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;                     /* ← force full width of the container */
+  padding:18px 20px;
+  margin-top:8px;
+  background:var(--panel);
+  border-radius:14px;
 }
+
 .brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
 .nav{display:flex;gap:22px}
 .nav-link{color:#cfe7f7;text-decoration:none}
