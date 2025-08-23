@@ -23,15 +23,21 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  width:100%;                     /* ← force full width of the container */
+  gap:24px;                /* NEW: gives breathing room between brand and nav */
   padding:18px 20px;
   margin-top:8px;
   background:var(--panel);
   border-radius:14px;
 }
+.brand{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:18px;
+  margin-right:auto;       /* NEW: pushes nav all the way to the right */
+}
+.nav{ display:flex; gap:22px; }
 
-.brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
-.nav{display:flex;gap:22px}
 .nav-link{color:#cfe7f7;text-decoration:none}
 .nav-link:hover{color:#fff}
 .nav-link.active{color:#fff;text-decoration:underline}
@@ -65,7 +71,7 @@ body{
   height:100%;
   display:block;
   object-fit: cover;                    /* fill the circle */
-  object-position: 50% 22%;             /* lift slightly so the top isn’t cut */
+  object-position: 50% 55%;             /* lift slightly so the top isn’t cut */
 }
 
 @media (max-width: 900px){
@@ -74,9 +80,12 @@ body{
 }
 
 .tagline{
-  color:#008CDB;
+  color:#35B4F1;                 /* slightly lighter than your primary blue */
   font-weight:700;
+  font-size: clamp(18px, 2.1vw, 22px);  /* a bit bigger on all screens */
+  line-height:1.5;
 }
+
 .partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
 .partners-title{margin:0 0 16px;text-align:center}
 .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;justify-items:center}
@@ -156,8 +165,12 @@ body{
 .btn-primary{ background:#008CDB; color:#fff; }
 .btn-primary:hover{ filter: brightness(1.08); }
 
-.btn-secondary{ background:#2481A6; color:#fff; }
+.btn-secondary{
+  background:#034C8C;   /* new Projects/Connect fill */
+  color:#fff;
+}
 .btn-secondary:hover{ filter: brightness(1.08); }
+
 
 .btn-outline{ background:transparent; color:#CFE8F5; border-color:#2481A6; }
 .btn-outline:hover{ background:#0e2c40; }
