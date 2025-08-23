@@ -57,17 +57,15 @@ body{
 }
 
 @media (max-width: 900px){
-  .hero{ grid-template-columns: 1fr; }
-  .hero-photo{
-    width: 300px;
-    height: 300px;
-    justify-self: center;
-    margin-top: 24px;
-  }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .contact-photo{ justify-self: center; order: 2; margin-top: 24px; }
+  .actions{ order: 1; }
 }
 
-
-
+.tagline{
+  color:#008CDB;
+  font-weight:700;
+}
 .partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
 .partners-title{margin:0 0 16px;text-align:center}
 .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;justify-items:center}
