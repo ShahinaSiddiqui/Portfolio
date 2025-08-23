@@ -100,35 +100,72 @@ body{
 }
 .ring span{background:#1e2b37;border-radius:50%;width:calc(var(--size) - 18px);height:calc(var(--size) - 18px);display:grid;place-items:center}
 
-/* contact */
-.contact-hero{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;min-height:60vh}
-.cta-row{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
+/* ========== CONTACT ========== */
+.contact { padding-block: clamp(32px, 6vw, 64px) 96px; }
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 420px;     /* text/buttons left | photo right */
+  gap: clamp(24px, 4vw, 56px);
   align-items:center;
 }
-.page-contact{
-  padding:80px 0 140px;   /* top, sides, bottom */
+
+.contact-photo{ justify-self: end; }
+.contact-photo img{
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  border: 8px solid #2a3e4d;
+  object-fit: cover;
+  object-position: 50% 22%;
 }
 
-.cta-row .btn{
-  min-width:220px;
-  height:56px;
+.actions{
+  display:flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+/* Large, same-size pill buttons (re-usable) */
+.btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  text-decoration:none;
+  font-weight:600;
+  border:2px solid transparent;
+  transition:.2s ease;
+}
+.btn-lg{ padding: 22px 40px; font-size: 20px; border-radius: 40px; }
+
+.btn-primary{ background:#008CDB; color:#fff; }
+.btn-primary:hover{ filter: brightness(1.08); }
+
+.btn-secondary{ background:#2481A6; color:#fff; }
+.btn-secondary:hover{ filter: brightness(1.08); }
+
+.btn-outline{ background:transparent; color:#CFE8F5; border-color:#2481A6; }
+.btn-outline:hover{ background:#0e2c40; }
+
+/* Stack on small screens (photo below, buttons above) */
+@media (max-width: 900px){
+  .contact-grid{ grid-template-columns: 1fr; }
+  .contact-photo{ justify-self: center; order: 2; margin-top: 24px; }
+  .actions{ order: 1; }
 }
 
-/* footer */
-.site-footer{text-align:center;color:#cfe7f7;padding:30px 0}
-
-/* mobile */
-@media (max-width:860px){
-  .hero,.project,.contact-hero{grid-template-columns:1fr}
-  .logos{grid-template-columns:repeat(2,1fr)}
 }
 .tagline{
-  color:#2481A6;           /* your blue */
+  color:#008CDB;           /* your blue */
   font-weight:700;
 }
+/* Sticky footer */
+html, body{ height:100%; }
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+main{ flex:1 0 auto; }
+footer{ margin-top:auto; }
