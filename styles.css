@@ -37,6 +37,11 @@ body{
   gap: clamp(24px, 4vw, 56px);
   align-items:center;
 }
+.hero h1{ 
+  font-size: clamp(36px, 5vw, 60px);
+  margin: 0 0 10px;
+}
+
 
 .hero-photo{
   width: 420px;
@@ -57,9 +62,8 @@ body{
 }
 
 @media (max-width: 900px){
-  .contact-grid{ grid-template-columns: 1fr; }
-  .contact-photo{ justify-self: center; order: 2; margin-top: 24px; }
-  .actions{ order: 1; }
+  .hero{ grid-template-columns: 1fr; }
+  .hero-photo{ width: 300px; height: 300px; justify-self: center; margin-top: 24px; }
 }
 
 .tagline{
@@ -135,7 +139,12 @@ body{
   border:2px solid transparent;
   transition:.2s ease;
 }
-.btn-lg{ padding: 22px 40px; font-size: 20px; border-radius: 40px; }
+.btn-lg{
+  padding: 14px 28px;     /* was 22px 40px */
+  font-size: 18px;        /* was 20px */
+  border-radius: 32px;    /* slightly smaller pill */
+}
+
 
 .btn-primary{ background:#008CDB; color:#fff; }
 .btn-primary:hover{ filter: brightness(1.08); }
@@ -167,3 +176,6 @@ body{
 }
 main{ flex:1 0 auto; }
 footer{ margin-top:auto; }
+.site-footer{ text-align:center; padding: 20px 0; color:#cfe7f7; }
+.site-footer a{ color:inherit; text-decoration:none; }
+
