@@ -4,9 +4,10 @@
   --blue-3:#2481A6;
   --ink:#0D0D0D;
   --muted:#6b7280;
-  --bg:#223140;         /* page background */
-  --panel:#2B3C4C;      /* header panel */
-  --light:#F2F2F2;
+  --bg:#1B2733;          /* page background (slightly darker) */
+--panel:#2F4456;       /* header/footer background */
+--panel-outline:rgba(255,255,255,.06);
+
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -24,20 +25,6 @@ body{
 /* Header pill: sit near top-left, with a bit of breathing room */
 /* Header (brand left, menu right) */
 .site-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;   /* spreads brand and nav */
-  gap:24px;
-  padding:18px 20px;
-
-  /* changed from margin-top to a full margin, and added two lines */
-  margin:8px 0 0 20px;             /* top + left breathing room */
-  margin-right:auto;               /* prevents centering */
-  width:fit-content;               /* pill is only as wide as its contents */
-
-  background:var(--panel);
-  border-radius:14px;
-}
 @media (max-width: 900px){
   .site-header{
     margin:12px 12px 0;   /* left/right = 12px, no centering */
@@ -46,11 +33,8 @@ body{
 }
 
 .brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
-.nav{
-  display: flex;
-  gap: 24px;
-  margin-left: auto;               /* forces nav to the far right */
-}
+.nav{ display:flex; gap:24px; margin-left:auto; }
+
 .nav-link{ color:#cfe7f7; text-decoration:none; }
 .nav-link:hover{ color:#fff; }
 .nav-link.active{ color:#fff; text-decoration:underline; }
@@ -233,19 +217,21 @@ body{
   flex-direction: column;
 }
 main{ flex: 1 0 auto; }
-
 .site-footer{
-  margin-top: auto;          /* push to the bottom */
-  width: 100%;
-  padding: 16px 20px;        /* right padding so text isn't touching edge */
+  margin-top:auto;
+  margin-bottom:12px;                 /* safe gap from bottom */
+  background:var(--panel);
+  border-radius:14px;
+  outline:1px solid var(--panel-outline);
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+  padding:10px 16px;
+
+  display:flex; justify-content:flex-end; align-items:center;
 }
 .site-footer small{
-  display:block;
-  text-align:right;
-  color:#cfe8f5;
-  opacity:.9;
-  padding-right: 24px;   /* extra breathing room */
+  color:#cfe8f5; opacity:.9; display:block; padding-right:6px;
 }
+
 /* Reusable content panel – same shade as the header ribbon */
 .panel{
   background: var(--panel);          /* #2B3C4C */
