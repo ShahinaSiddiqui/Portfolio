@@ -4,57 +4,55 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shahina Siddiqui — Portfolio</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-11">
+  <link rel="stylesheet" href="./styles.css?v=2025-10" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
-    <nav class="nav">
-      <a class="nav-link active" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- ===== Header (shared) ===== -->
+  <header class="site-header" role="banner">
+    <div class="header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<main>
-  <section class="hero container">
-    <div>
-      <h1>Shahina Siddiqui</h1>
+  <!-- ===== Main ===== -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="home-title">Shahina Siddiqui</h1>
 
-      <!-- Force two lines on desktop: first line ends after “Specialist” -->
-      <p class="subhead">
-        Corporate &amp; Game-Based Learning Specialist
-        <span class="lg-break"></span>
-        Instructional Designer &amp; Developer | K-12 Experience
-      </p>
+        <h2 class="home-sub">
+          <span class="line-1">Corporate &amp; Game-Based Learning Specialist</span><br />
+          <span class="line-2">Instructional Designer &amp; Developer | K-12 Experience</span>
+        </h2>
 
-      <p>
-        I design and develop engaging digital learning experiences that transform
-        complex topics into interactive, learner-friendly journeys. With over 9 years of
-        experience, I bring a unique strength in creating game-based and corporate
-        e-learning modules that not only capture attention but also deliver measurable results.
-      </p>
+        <p class="lede">
+          I design and develop engaging digital learning experiences that transform complex topics into interactive,
+          learner-friendly journeys. With over 9 years of experience, I bring a unique strength in creating game-based
+          and corporate e-learning modules that not only capture attention but also deliver measurable results.
+        </p>
 
-      <div class="actions">
-        <a class="btn btn-lg btn-primary" href="./assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
-        <a class="btn btn-lg btn-navy" href="projects.html">Projects</a>
-        <a class="btn btn-lg btn-secondary" href="contact.html">Connect</a>
+        <div class="actions">
+          <a class="btn btn-lg btn-primary"   href="./assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
+          <a class="btn btn-lg btn-navy"      href="projects.html">Projects</a>
+          <a class="btn btn-lg btn-secondary" href="contact.html">Connect</a>
+        </div>
       </div>
-    </div>
 
-    <div class="hero-photo">
-      <img src="assets/img/profile.png" alt="Shahina photo">
-    </div>
-  </section>
+      <div class="hero-photo">
+        <img src="assets/img/profile.png" alt="Shahina photo" />
+      </div>
+    </section>
 
-  <!-- White logo band restored -->
-  <section class="partners">
-    <div class="container">
-      <h2 class="partners-title">Proudly partnered with</h2>
+    <!-- Partners/Logos band (white panel) -->
+    <section class="partners panel-white">
+      <h3 class="partners-title">Proudly partnered with</h3>
       <div class="logos">
         <img src="./assets/logos/indusind.png" alt="IndusInd Bank" />
         <img src="./assets/logos/maxlife.png" alt="Max Life" />
@@ -65,13 +63,14 @@
         <img src="./assets/logos/english-impression.png" alt="English Impression" />
         <img src="./assets/logos/zinnion.png" alt="Zinnion" />
       </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (shared) ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
     </div>
-  </section>
-</main>
-
-<footer class="site-footer">
-  <div class="container"><small>© 2025 Shahina Siddiqui</small></div>
-</footer>
-
+  </footer>
 </body>
 </html>
