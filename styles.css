@@ -181,8 +181,13 @@ body{
 }
 
 
-.btn-primary{ background:#008CDB; color:#fff; }
-.btn-primary:hover{ filter: brightness(1.08); }
+.btn-primary/* Projects button — dark navy */
+.btn-navy{
+  background:#034C8C;     /* requested color */
+  color:#fff;
+}
+.btn-navy:hover{ filter:brightness(1.08); }
+
 
 .btn-secondary{
   background:#034C8C;   /* new Projects/Connect fill */
