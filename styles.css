@@ -24,21 +24,26 @@ body{
 /* Header pill: sit near top-left, with a bit of breathing room */
 /* Header (brand left, menu right) */
 .site-header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;  /* spreads brand and nav */
-  gap: 24px;
-  padding: 18px 20px;
-  margin-top: 8px;
-  background: var(--panel);
-  border-radius: 14px;
-}
+  display:flex;
+  align-items:center;
+  justify-content:space-between;   /* spreads brand and nav */
+  gap:24px;
+  padding:18px 20px;
 
-/* On small screens, center it again so it doesn’t crash into edges */
+  /* changed from margin-top to a full margin, and added two lines */
+  margin:8px 0 0 20px;             /* top + left breathing room */
+  margin-right:auto;               /* prevents centering */
+  width:fit-content;               /* pill is only as wide as its contents */
+
+  background:var(--panel);
+  border-radius:14px;
+}
 @media (max-width: 900px){
-  .site-header{ margin:12px auto 0; }
+  .site-header{
+    margin:12px 12px 0;   /* left/right = 12px, no centering */
+    width:auto;           /* allow the pill to stretch if needed on small screens */
+  }
 }
-
 
 .brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
 .nav{
