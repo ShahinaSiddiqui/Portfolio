@@ -256,6 +256,20 @@ main{ flex: 1 0 auto; }
 /* Keep media corners pleasant inside the panel */
 .panel .project-media video,
 .panel .carousel img{ border-radius: 12px; }
+/* Full-width band that matches the header ribbon */
+.band{
+  background: var(--panel);                 /* #2B3C4C */
+  padding: clamp(28px, 4vw, 48px) 0;        /* vertical padding only */
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(0,0,0,.22);
+}
+
+/* Tidy spacing for content inside the band */
+.band .page-title{ margin-top: 0; }
+
+/* Nice rounded corners for media sitting on the band */
+.band .project-media video,
+.band .carousel img{ border-radius: 12px; }
 
 
 
