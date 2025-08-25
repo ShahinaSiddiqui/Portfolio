@@ -149,3 +149,53 @@ html,body{ overflow-x:hidden; }   /* guard against accidental horizontal bleed *
   display:flex; align-items:center; justify-content:flex-end;
 }
 .site-footer small{ color:#cfe8f5; opacity:.9; padding-right:6px; }
+/* ===== FINAL HEADER/FOOTER ALIGNMENT (all pages) ===== */
+
+/* Full-width containers only inside header & footer */
+.site-header .container,
+.site-footer .container{
+  max-width: none;   /* override .container’s 1100px cap */
+  margin: 0;         /* no auto-centering */
+  padding: 0;        /* we’ll pad the rows instead */
+}
+
+/* Sticky header bar, darker shade */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--panel);
+  border-bottom: 1px solid var(--panel-outline);
+}
+
+/* Brand left, nav right, with safe side padding */
+.header-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 20px;     /* ← keep the header off the edges */
+}
+
+/* Footer bar, darker shade; copyright bottom-right with safe padding */
+.site-footer{
+  background: var(--panel);
+  border-top: 1px solid var(--panel-outline);
+  margin-top: auto;       /* sticky footer behavior */
+}
+
+.footer-row{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* push text to the right edge */
+  padding: 10px 20px;        /* ← keep it off the edge */
+}
+
+/* Cosmetic: just reaffirm colors */
+.brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; }
+.nav{ display:flex; gap:24px; margin-left:auto; }
+.nav-link{ color:#cfe7f7; text-decoration:none; }
+.nav-link:hover{ color:#fff; }
+.nav-link.active{ color:#fff; text-decoration:underline; }
+.site-footer small{ color:#cfe8f5; opacity:.9; }
+
