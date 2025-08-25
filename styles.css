@@ -241,6 +241,21 @@ main{ flex: 1 0 auto; }
   opacity:.9;
   padding-right: 24px;   /* extra breathing room */
 }
+/* Reusable content panel – same shade as the header ribbon */
+.panel{
+  background: var(--panel);          /* #2B3C4C */
+  border-radius: 14px;
+  padding: clamp(20px, 3vw, 32px);
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  margin-top: 16px;                  /* slight gap under the ribbon */
+}
+
+/* Tidy the title when inside a panel */
+.panel .page-title{ margin-top: 0; }
+
+/* Keep media corners pleasant inside the panel */
+.panel .project-media video,
+.panel .carousel img{ border-radius: 12px; }
 
 
 
