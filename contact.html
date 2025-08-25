@@ -4,40 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-11">
+  <link rel="stylesheet" href="./styles.css?v=2025-10" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
-    <nav class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link active" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="contact">
-  <div class="contact-panel">
-    <h1>
-      <span class="accent">Let’s</span> <span class="accent">talk</span> about your<br class="lg-break">
-      next project . . .
-    </h1>
-
-    <div class="cta-row">
-      <a class="cta call"    href="tel:+917087433166">Call  +91 70874 33166</a>
-      <a class="cta"         href="mailto:siddiquishahina01@gmail.com">Email</a>
-      <a class="cta linked"  href="https://www.linkedin.com/in/shahina-siddiqui-494184284" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- ===== Header (shared) ===== -->
+  <header class="site-header" role="banner">
+    <div class="header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
+      <nav class="nav" aria-label="Main">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container"><small>© 2025 Shahina Siddiqui</small></div>
-</footer>
+  <!-- ===== Main ===== -->
+  <main class="center-wrap">
+    <section class="contact-card" aria-labelledby="cta-title">
+      <h1 id="cta-title" class="cta-title">
+        <span class="accent">Let’s</span> <span class="accent">talk</span> about your<br />
+        next project . . .
+      </h1>
 
+      <div class="btn-row">
+        <a class="btn btn-lg btn-primary eq" href="tel:+917087433166">Call +91 70874 33166</a>
+        <a class="btn btn-lg btn-navy eq" href="mailto:siddiquishahina01@gmail.com">Email</a>
+        <a class="btn btn-lg btn-secondary eq" href="https://www.linkedin.com/in/shahina-siddiqui-494184284" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer (shared) ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
+    </div>
+  </footer>
 </body>
 </html>
