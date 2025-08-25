@@ -1,32 +1,36 @@
-/* ====== THEME ====== */
+/* ========= THEME ========= */
 :root{
-  --blue-1:#008CDB;            /* Resume */
-  --blue-2:#034C8C;            /* Projects */
-  --blue-3:#2481A6;            /* Connect  */
-  --ink:#0D0D0D;
-  --muted:#6b7280;
+  --blue-1:#008CDB;         /* Resume */
+  --blue-2:#034C8C;         /* Projects button */
+  --blue-3:#2481A6;         /* Connect button */
 
-  --bg:#1B2733;                /* page background */
-  --panel:#2F4456;             /* header/footer/bands */
+  /* Page & panels (you asked for this darker page bg) */
+  --bg:#1B2733;             /* page background everywhere */
+  --panel:#2F4456;          /* header / footer / bands */
   --panel-outline:rgba(255,255,255,.08);
+
+  /* Global bar heights (you wanted the header a bit taller everywhere) */
+  --header-height:74px;     /* slightly taller than before */
+  --footer-height:52px;
 }
 
 *{ box-sizing:border-box; }
 html,body{ height:100%; }
+html,body{ overflow-x:hidden; }
+
 body{
   margin:0;
+  background:var(--bg);
   color:#EAF2F7;
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-  background:var(--bg);
   display:flex;
-  flex-direction:column;       /* lets the footer stick to the bottom */
+  flex-direction:column;     /* lets the footer stick to the bottom */
 }
-main{ flex:1 0 auto; }
 
 .container{ max-width:1100px; margin:0 auto; padding:0 20px; }
-html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
+main{ flex:1 0 auto; }
 
-/* ====== HEADER (same on all pages) ====== */
+/* ========= HEADER (same on every page) ========= */
 .site-header{
   position:sticky; top:0; z-index:1000;
   background:var(--panel);
@@ -35,7 +39,7 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
 }
 .header-row{
   display:flex; align-items:center; justify-content:space-between;
-  min-height:64px;                /* consistent 'thicker' bar */
+  min-height:var(--header-height);      /* consistent bar height */
   padding:8px 0;
 }
 .brand{
@@ -43,6 +47,7 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
 }
 .nav{ display:flex; gap:28px; margin-left:auto; }
 .nav-link{
+  display:inline-block;
   color:#CFE7F7; text-decoration:none; line-height:1; padding:6px 0;
 }
 .nav-link:hover,
@@ -53,21 +58,21 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
   .brand{ font-size:18px; }
 }
 
-/* ====== FOOTER (same on all pages) ====== */
+/* ========= FOOTER (same on every page) ========= */
 .site-footer{
   background:var(--panel);
   border-top:1px solid var(--panel-outline);
   box-shadow:0 -4px 18px rgba(0,0,0,.22);
   padding:10px 0;
-  margin-top:auto;                /* stick to bottom */
+  margin-top:auto;                        /* stick to bottom */
 }
 .footer-row{
   display:flex; align-items:center; justify-content:flex-end;
-  min-height:48px;
+  min-height:var(--footer-height);
 }
 .site-footer small{ color:#cfe8f5; opacity:.9; }
 
-/* ====== HERO (home) ====== */
+/* ========= HOME (hero) ========= */
 .hero{
   display:grid;
   grid-template-columns: 1fr 300px;
@@ -94,31 +99,22 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
   font-size:clamp(18px, 2.1vw, 22px);
 }
 
-/* ====== PARTNERS (home) ====== */
+/* ========= PARTNERS (home) ========= */
 .partners{ background:#f2f2f2; color:#111; padding:40px 0; margin-top:28px; }
 .partners-title{ margin:0 0 16px; text-align:center; }
-.logos{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; justify-items:center; }
+.logos{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  gap:28px; align-items:center; justify-items:center;
+}
 .logos img{ max-width:160px; max-height:54px; filter:grayscale(0); opacity:.9; }
 
-/* ====== PROJECTS ====== */
+/* ========= PROJECTS ========= */
 .page-title{ margin:26px 0; }
 
-.project{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:28px; margin:28px 0 46px;
-}
-.project > *{ min-width:0; }
-.project-media video{ width:100%; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,.25); }
-.project-copy h2{ margin:0 0 10px; }
-
-.carousel{ display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
-.carousel img{ width:100%; max-width:360px; flex:0 0 auto; border-radius:12px; scroll-snap-align:center; }
-
-/* Projects page band section (contrasts with page bg) */
+/* full-width darker “band” behind projects content */
 .band{
   background:var(--panel);
-  padding:36px 0;
+  padding:36px 0;                      /* thicker to match the design */
   border-top:1px solid var(--panel-outline);
   border-bottom:1px solid rgba(0,0,0,.22);
 }
@@ -126,7 +122,23 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
 .band .project-media video,
 .band .carousel img{ border-radius:12px; }
 
-/* ====== SKILLS ====== */
+.project{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:28px; margin:28px 0 46px;
+}
+.project > *{ min-width:0; }
+.project-media video{
+  width:100%; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,.25);
+}
+.project-copy h2{ margin:0 0 10px; }
+
+.carousel{
+  display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px;
+}
+.carousel img{ width:100%; max-width:360px; flex:0 0 auto; border-radius:12px; scroll-snap-align:center; }
+
+/* ========= SKILLS ========= */
 .skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:22px 0; }
 .skill-card{ background:var(--panel); border-radius:14px; padding:18px; }
 .skill-card h3{ margin:10px 0; }
@@ -147,10 +159,11 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
   display:grid; place-items:center;
 }
 
-/* ====== CONTACT ====== */
+/* ========= CONTACT ========= */
 .contact{ padding-block: clamp(32px, 6vw, 64px) 96px; }
 .contact-grid{
-  display:grid; grid-template-columns:1fr 300px; gap: clamp(24px, 4vw, 56px); align-items:center;
+  display:grid; grid-template-columns:1fr 300px;
+  gap: clamp(24px, 4vw, 56px); align-items:center;
 }
 .contact-photo img{
   width:300px; height:300px; border-radius:50%;
@@ -158,7 +171,7 @@ html, body{ overflow-x:hidden; }  /* avoid accidental horizontal bleed */
 }
 .actions{ display:flex; gap:24px; flex-wrap:wrap; margin-top:24px; }
 
-/* Reusable buttons */
+/* Buttons */
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   text-decoration:none; font-weight:600; border:2px solid transparent; transition:.2s ease;
