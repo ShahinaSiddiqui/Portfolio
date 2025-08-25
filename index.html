@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shahina Siddiqui — Portfolio</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-10a" />
+  <link rel="stylesheet" href="./styles.css?v=2025-10b" />
 </head>
 <body>
 
@@ -25,12 +25,13 @@
   <main class="container">
     <section class="hero">
       <div class="hero-copy">
+        <!-- H1: 2pt larger than sub-headline -->
         <h1 class="home-title">Shahina Siddiqui</h1>
 
-        <!-- BLUE again -->
+        <!-- BLUE sub-headline, split across 2 lines exactly -->
         <h2 class="home-sub">
-          <span class="line-1">Corporate &amp; Game-Based Learning Specialist</span><br />
-          <span class="line-2">Instructional Designer &amp; Developer | K-12 Experience</span>
+          <span>Corporate &amp; Game-Based Learning Specialist |</span><br />
+          <span>Instructional Designer &amp; Developer | K-12 Experience</span>
         </h2>
 
         <p class="lede">
@@ -51,9 +52,9 @@
       </div>
     </section>
 
-    <!-- Partners WITHOUT the white box -->
-    <section class="partners">
-      <h3 class="partners-title">Proudly partnered with</h3>
+    <!-- White panel behind partner logos (restored) -->
+    <section class="partners-box" aria-labelledby="partners-title">
+      <h3 id="partners-title" class="partners-title">Proudly partnered with</h3>
       <div class="logos">
         <img src="./assets/logos/indusind.png" alt="IndusInd Bank" />
         <img src="./assets/logos/maxlife.png" alt="Max Life" />
