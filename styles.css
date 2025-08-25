@@ -185,22 +185,14 @@ body{
   font-size: 18px;        /* was 20px */
   border-radius: 34px;    /* slightly smaller pill */
 }
+/* Colors */
+.btn-primary{  background:#008CDB; color:#fff; }   /* Resume */
+.btn-secondary{ background:#2481A6; color:#fff; }  /* Connect */
+.btn-navy{      background:#034C8C; color:#fff; }  /* Projects */
 
-
-.btn-primary/* Projects button — dark navy */
-.btn-navy{
-  background:#034C8C;     /* requested color */
-  color:#fff;
-}
+.btn-primary:hover,
+.btn-secondary:hover,
 .btn-navy:hover{ filter:brightness(1.08); }
-
-
-.btn-secondary{
-  background:#034C8C;   /* new Projects/Connect fill */
-  color:#fff;
-}
-.btn-secondary:hover{ filter: brightness(1.08); }
-
 
 .btn-outline{ background:transparent; color:#CFE8F5; border-color:#2481A6; }
 .btn-outline:hover{ background:#0e2c40; }
