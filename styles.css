@@ -22,14 +22,16 @@ body{
 /* header */
 /* Header pill: sit near top-left, with a bit of breathing room */
 /* Header pill: sit near top-left, with a bit of breathing room */
+/* Header (brand left, menu right) */
 .site-header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:18px 20px;
-  background:var(--panel);
-  border-radius:14px;
-  width:max-content;          /* shrink to content so it’s a compact pill */
-  margin:12px 0 0 24px;       /* nudge from top & left */
-  box-shadow:0 4px 10px rgba(0,0,0,.18);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  /* spreads brand and nav */
+  gap: 24px;
+  padding: 18px 20px;
+  margin-top: 8px;
+  background: var(--panel);
+  border-radius: 14px;
 }
 
 /* On small screens, center it again so it doesn’t crash into edges */
@@ -39,10 +41,14 @@ body{
 
 
 .brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
-.nav{display:flex;gap:22px;margin-left:auto}   /* <- pushes menu to the right */
-.nav-link{color:#cfe7f7;text-decoration:none}
-.nav-link:hover{color:#fff}
-.nav-link.active{color:#fff;text-decoration:underline}
+.nav{
+  display: flex;
+  gap: 24px;
+  margin-left: auto;               /* forces nav to the far right */
+}
+.nav-link{ color:#cfe7f7; text-decoration:none; }
+.nav-link:hover{ color:#fff; }
+.nav-link.active{ color:#fff; text-decoration:underline; }
 
 
 /* hero */
