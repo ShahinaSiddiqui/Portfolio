@@ -21,6 +21,7 @@ body{
 /* header */
 /* header */
 /* Header pill: sit near top-left, with a bit of breathing room */
+/* Header pill: sit near top-left, with a bit of breathing room */
 .site-header{
   display:flex; align-items:center; justify-content:space-between;
   padding:18px 20px;
@@ -35,12 +36,7 @@ body{
 @media (max-width: 900px){
   .site-header{ margin:12px auto 0; }
 }
-/* Slightly larger H1 so it separates from the tagline */
-.hero h1{
-  font-size: clamp(52px, 6.6vw, 86px);   /* gentle bump; adjust last number by ±2px if desired */
-  line-height: 1.1;
-  margin: 0 0 8px;
-}
+
 
 .brand{color:#fff;text-decoration:none;font-weight:700;font-size:18px}
 .nav{display:flex;gap:22px;margin-left:auto}   /* <- pushes menu to the right */
