@@ -261,6 +261,53 @@ main{ flex: 1 0 auto; }
 /* Nice rounded corners for media sitting on the band */
 .band .project-media video,
 .band .carousel img{ border-radius: 12px; }
+/* ===== HEADER/FOOTER FIX v1 (safe override) ===== */
+
+/* darker panel edge used by header/footer */
+:root{
+  --panel-outline: rgba(255,255,255,.08);
+}
+
+/* Make the header a simple, stable full-width sticky bar */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--panel);
+  border-bottom: 1px solid var(--panel-outline);
+}
+
+/* Put the brand left and nav right inside the container row */
+.header-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 12px 0;             /* vertical breathing room */
+}
+
+/* Keep existing brand/nav styles, just ensure these minimums */
+.brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; }
+.nav{ display:flex; gap:24px; margin-left:auto; }
+.nav-link{ color:#cfe7f7; text-decoration:none; }
+.nav-link:hover{ color:#fff; }
+.nav-link.active{ color:#fff; text-decoration:underline; }
+
+/* Footer: matching darker bar; content right-aligned safely inside .container */
+.site-footer{
+  background: var(--panel);
+  border-top: 1px solid var(--panel-outline);
+  padding: 10px 0;
+  margin-top: auto;            /* sticky footer behavior */
+}
+.site-footer .footer-row{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;   /* bottom-right */
+}
+.site-footer small{
+  color:#cfe8f5; opacity:.9;
+}
 
 
 
