@@ -1,76 +1,64 @@
-/* ====== THEME ====== */
+/* ================= THEME ================= */
 :root{
-  --blue-1:#008CDB;    /* Resume / primary */
-  --blue-2:#034C8C;    /* Projects / navy */
-  --blue-3:#2481A6;    /* Connect / secondary */
+  --blue-1:#008CDB;     /* primary (Resume/CTA) */
+  --blue-2:#034C8C;     /* navy (Projects) */
+  --blue-3:#2481A6;     /* teal (Connect/LinkedIn) */
 
-  --ink:#0D0D0D;
-  --muted:#8aa0b2;
-
-  --bg:#1B2733;        /* page background (as requested) */
-  --panel:#2F4456;     /* header / footer / dark panels */
+  --bg:#1B2733;         /* page background (all pages) */
+  --panel:#2F4456;      /* header/footer bars */
   --panel-outline:rgba(255,255,255,.08);
-  --white:#ffffff;
+
+  --text:#eaf2f7;
 }
 
+/* ================ BASE =================== */
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
   margin:0;
+  min-height:100vh;
+  display:flex;         /* sticky footer pattern */
+  flex-direction:column;
   font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;
-  color:#eaf2f7;
+  color:var(--text);
   background:var(--bg);
 }
+main{ flex:1 0 auto; padding-bottom: clamp(32px,4vw,56px); }
 
-/* A standard centered content width for main sections */
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.container{ max-width:1160px; margin:0 auto; padding:0 24px; }
 
-/* =========================
-   STICKY HEADER (same everywhere)
-   ========================= */
+/* =============== HEADER ================== */
+/* Sticky full-width bar with brand left, menu right */
 .site-header{
   position:sticky; top:0; z-index:1000;
   background:var(--panel);
   border-bottom:1px solid var(--panel-outline);
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
 }
-
-/* Full-width row so brand is near left edge and nav near right edge */
 .header-row{
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 24px;                 /* header band height (slightly taller) */
-  gap:24px;
+  padding:14px clamp(16px,5vw,56px);  /* header slightly taller than footer */
 }
+.brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; }
 
-/* Brand + nav */
-.brand{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
-.nav{display:flex;gap:24px;margin-left:auto}
-.nav-link{color:#cfe7f7;text-decoration:none}
-.nav-link:hover{color:#fff}
-.nav-link.active{color:#fff;text-decoration:underline}
+.nav{ display:flex; gap:24px; margin-left:auto; }
+.nav-link{ color:#cfe7f7; text-decoration:none; }
+.nav-link:hover{ color:#fff; }
+.nav-link.active{ color:#fff; text-decoration:underline; }
 
-/* =========================
-   FOOTER (same everywhere)
-   ========================= */
+/* =============== FOOTER ================== */
 .site-footer{
   background:var(--panel);
   border-top:1px solid var(--panel-outline);
-  margin-top:auto;                   /* sticky bottom within flex body */
+  box-shadow:0 -4px 14px rgba(0,0,0,.22);
 }
 .footer-row{
   display:flex; align-items:center; justify-content:flex-end;
-  padding:10px 24px;                 /* footer band height (slightly smaller) */
+  padding:10px clamp(16px,5vw,56px);   /* footer slightly shorter */
 }
-.site-footer small{color:#cfe8f5;opacity:.9}
+.site-footer small{ color:#cfe8f5; opacity:.9; }
 
-/* Let the main region expand so footer sits at bottom */
-main{flex:1 0 auto}
-
-/* Avoid accidental horizontal scroll/bleed */
-html,body{overflow-x:hidden}
-
-/* =========================
-   HOME (hero)
-   ========================= */
+/* ================ HERO =================== */
 .hero{
   display:grid;
   grid-template-columns: 1fr 300px;
@@ -78,106 +66,118 @@ html,body{overflow-x:hidden}
   align-items:center;
 }
 .hero-photo{
-  width:260px;height:260px;border-radius:9999px;overflow:hidden;
-  border:8px solid #2a3e4d;background:var(--bg);
+  width:260px; height:260px; border-radius:9999px; overflow:hidden;
+  border:8px solid #2a3e4d; background:var(--bg);
   clip-path:circle(50% at 50% 50%);
-  -webkit-mask-image: radial-gradient(circle,#000 99.9%,transparent 100%);
-          mask-image: radial-gradient(circle,#000 99.9%,transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, #000 99.9%, transparent 100%);
+          mask-image: radial-gradient(circle, #000 99.9%, transparent 100%);
 }
 .hero-photo img{
-  width:100%;height:100%;display:block;object-fit:cover;
-  object-position:50% 12%;
+  width:100%; height:100%; display:block; object-fit:cover;
+  object-position:50% 10%; transform:scale(.92);
+  border-radius:inherit; clip-path:inherit;
 }
-@media (max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero-photo{width:230px;height:230px;justify-self:center;margin-top:24px}
+
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .hero-photo{ width:230px; height:230px; justify-self:center; margin-top:24px; }
 }
+
+h1{ margin: 0 0 8px; font-size: clamp(32px, 4.8vw, 54px); line-height:1.15; }
 .tagline{
-  color:#39B3E6;font-weight:700;
-  font-size:clamp(18px,2.1vw,22px);line-height:1.5;
+  color:#39B3E6; font-weight:700;
+  font-size: clamp(18px, 2.1vw, 22px);
+  line-height:1.5; margin: 6px 0 18px;
 }
 
-/* Partners strip on home */
-.partners{background:#f2f2f2;color:#111;padding:40px 0;margin-top:28px}
-.partners-title{margin:0 0 16px;text-align:center}
-.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:center;justify-items:center}
-.logos img{max-width:160px;max-height:54px;opacity:.9}
+/* ============== PARTNERS ================= */
+.partners{ background:#f2f2f2; color:#111; padding:40px 0; margin-top:28px }
+.partners-title{ margin:0 0 16px; text-align:center }
+.logos{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; align-items:center; justify-items:center }
+.logos img{ max-width:160px; max-height:54px; filter:grayscale(0); opacity:.9 }
 
-/* =========================
-   PROJECTS
-   ========================= */
-.page-title{margin:26px 0}
-.project{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-  gap:28px;margin:28px 0 46px;
-}
-.project > *{min-width:0}
-.project-media video{width:100%;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
-.project-copy h2{margin:0 0 10px}
+/* =============== BUTTONS ================= */
+/* Smaller than before, same on all pages */
+.actions{ display:flex; gap:20px; flex-wrap:wrap; margin-top:22px; }
+.actions-centered{ justify-content:center; }
 
-.carousel{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
-.carousel img{width:100%;max-width:360px;flex:0 0 auto;border-radius:12px;scroll-snap-align:center}
-
-/* Optional darker band behind the projects list (keeps contrast like header) */
-.band{
-  background:var(--panel);
-  padding: clamp(28px, 4vw, 48px) 0;
-  border-top:1px solid var(--panel-outline);
-  border-bottom:1px solid rgba(0,0,0,.22);
-}
-
-/* =========================
-   SKILLS
-   ========================= */
-.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:22px 0}
-.skill-card{background:var(--panel);border-radius:14px;padding:22px;text-align:center}
-.skill-card h3{margin:10px 0}
-.skill-icon{width:70px;height:70px;display:block;margin:0 auto 10px}
-
-/* Rings */
-.tools-title{margin:30px 0 10px}
-.tools{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.tool{background:var(--panel);border-radius:14px;padding:18px;text-align:center}
-.ring{
-  --size:84px;
-  width:var(--size);height:var(--size);margin:6px auto 10px;border-radius:50%;
-  background:conic-gradient(var(--blue-1) calc(var(--pct)*360deg), rgba(255,255,255,.12) 0);
-  display:grid;place-items:center;color:#fff;font-weight:700;
-}
-.ring span{background:#1e2b37;border-radius:50%;width:calc(var(--size) - 18px);height:calc(var(--size) - 18px);display:grid;place-items:center}
-
-/* =========================
-   CONTACT (white card mock)
-   ========================= */
-.contact{padding-block: clamp(32px,6vw,64px)}
-.contact-card{
-  background:var(--white); color:#1f2a35;
-  border-radius:26px;
-  padding: clamp(24px,4vw,40px);
-  box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-.contact-card h1{
-  margin:0 0 24px; font-weight:800; letter-spacing:.2px;
-  color:#16202a;
-}
-.contact-card h1 em{color:var(--blue-1);font-style:italic;font-weight:800}
-
-/* equal-size CTAs on one row */
-.cta-row{
-  display:flex; gap:22px; flex-wrap:wrap; justify-content:center; margin-top:10px;
-}
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
-  text-decoration:none; font-weight:700; border:2px solid transparent; transition:.2s ease;
+  text-decoration:none; font-weight:600;
+  border:2px solid transparent; transition:.2s ease;
+  color:#fff;
 }
-.btn-lg{ padding:18px 30px; font-size:18px; border-radius:34px; min-width:280px }
-.btn-primary{  background:var(--blue-1); color:#fff }
-.btn-secondary{ background:var(--blue-3); color:#fff }
-.btn-navy{      background:var(--blue-2); color:#fff }
-.btn-primary:hover,.btn-secondary:hover,.btn-navy:hover{ filter:brightness(1.08) }
+.btn-lg{
+  padding: 14px 28px;              /* smaller */
+  font-size: 16px;                  /* smaller */
+  border-radius: 32px;
+}
+.btn-wide{ min-width: 340px; }      /* long “Call” button */
 
-/* Small screens */
-@media (max-width:900px){
-  .cta-row{justify-content:center}
+.btn-primary{  background:var(--blue-1); }
+.btn-navy{      background:var(--blue-2); }
+.btn-secondary{ background:var(--blue-3); }
+
+.btn-primary:hover, .btn-navy:hover, .btn-secondary:hover{ filter:brightness(1.08); }
+
+.btn-outline{ background:transparent; color:#CFE8F5; border-color:var(--blue-3); }
+.btn-outline:hover{ background:#0e2c40; }
+
+/* =============== PROJECTS ================ */
+.page-title{ margin:26px 0 12px; }
+
+.project{
+  display:grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap:28px; margin:28px 0 46px;
 }
+.project > *{ min-width:0; }
+.project-media video{ width:100%; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,.25) }
+.project-copy h2{ margin:0 0 10px }
+
+.carousel{ display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px }
+.carousel img{ width:100%; max-width:360px; flex:0 0 auto; border-radius:12px; scroll-snap-align:center }
+
+/* ================= SKILLS ================= */
+.skills-page{ padding-bottom: 72px; }  /* extra space above footer */
+.skill-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:22px 0 }
+.skill-card{
+  background:var(--panel); border-radius:14px; padding:18px;
+  text-align:center;                    /* centre icon + headings */
+}
+.skill-card h3{ margin:10px 0 }
+.skill-icon{ width:70px; height:70px; margin:0 auto; display:block }
+
+.tools-title{ margin:30px 0 10px }
+.tools{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px }
+.tool{ background:var(--panel); border-radius:14px; padding:18px; text-align:center }
+.ring{
+  --size:84px;
+  width:var(--size); height:var(--size); margin:6px auto 10px; border-radius:50%;
+  background: conic-gradient(var(--blue-1) calc(var(--pct)*360deg), rgba(255,255,255,.12) 0);
+  display:grid; place-items:center; color:#fff; font-weight:700;
+}
+.ring span{ background:#1e2b37; border-radius:50%; width:calc(var(--size) - 18px); height:calc(var(--size) - 18px); display:grid; place-items:center }
+
+/* ================= CONTACT =============== */
+.contact{
+  min-height: calc(100vh - 140px);      /* enough space so footer sits at bottom */
+  display:grid; place-items:center;
+  padding-block: clamp(40px, 10vh, 96px);
+}
+.contact-card{
+  width:min(980px, 92%);
+  background:#fff; color:#0E1B26;
+  border-radius:28px;
+  padding: clamp(24px, 5vw, 48px);
+  box-shadow:0 18px 42px rgba(0,0,0,.35);
+}
+.contact-title{
+  margin:0 0 24px;
+  font-size: clamp(28px, 4.4vw, 48px);
+  line-height:1.25;
+}
+.contact-title span{ color:var(--blue-1); font-weight:700 }
+
+/* ============== MISC SAFETY ============== */
+html,body{ overflow-x:hidden; }  /* avoid accidental horizontal scroll */
