@@ -204,11 +204,11 @@ body{
   .actions{ order: 1; }
 }
 
-}
 .tagline{
   color:#008CDB;           /* your blue */
   font-weight:700;
 }
+
 /* Sticky footer */
 html, body{ height:100%; }
 body{
