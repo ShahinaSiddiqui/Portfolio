@@ -119,7 +119,18 @@ body{
 
 /* pages */
 .page-title{margin:26px 0}
-.project{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:28px 0 46px}
+/* projects list */
+.project{
+  display:grid;
+  /* Allow each column to shrink so copy never pushes past the container */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap:28px;
+  margin:28px 0 46px;
+}
+
+/* Let both columns wrap inside the grid */
+.project > *{ min-width:0; }
+
 .project-media video{width:100%;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,.25)}
 .project-copy h2{margin:0 0 10px}
 
@@ -224,10 +235,12 @@ main{ flex: 1 0 auto; }
   padding: 16px 20px;        /* right padding so text isn't touching edge */
 }
 .site-footer small{
-  display: block;
-  text-align: right;
-  color: #cfe8f5;
-  opacity: .9;
+  display:block;
+  text-align:right;
+  color:#cfe8f5;
+  opacity:.9;
+  padding-right: 24px;   /* extra breathing room */
 }
+
 
 
