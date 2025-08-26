@@ -4,48 +4,101 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-11">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    html, body { height:100% }
+    body { display:grid; grid-template-rows:auto 1fr auto; background:#1B2733 }
+
+    /* Header / Nav */
+    .site-header { position: sticky; top:0; z-index:50; background:#2B3C4C; }
+    .container { width:min(1200px,92%); margin:0 auto; }
+    .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0 }
+    .brand{ font-weight:500; font-size:22px; color:#e6f2fb; text-decoration:none }
+    .site-nav{ display:flex; gap:24px; align-items:center }
+    .site-nav .nav-link{ color:#cfe7f7; text-decoration:none }
+    .site-nav .nav-link:hover, .site-nav .nav-link.active{ color:#fff }
+
+    .menu-toggle{ display:none; width:40px;height:40px;border:0;background:transparent;padding:6px;border-radius:8px;cursor:pointer }
+    .menu-toggle span{ display:block;height:3px;margin:6px 0;background:#e6f2fb;border-radius:2px }
+
+    @media (max-width:900px){
+      .menu-toggle{ display:inline-flex;align-items:center;justify-content:center }
+      .site-nav{
+        position:fixed; top:62px; right:0; bottom:0; width:min(82vw,320px);
+        background:#233746; box-shadow:-12px 0 24px rgba(0,0,0,.25);
+        padding:16px; display:flex; flex-direction:column; gap:8px;
+        transform:translateX(100%); transition:transform .25s ease;
+      }
+      .site-nav.open{ transform:translateX(0) }
+      .site-nav .nav-link{ display:block; padding:12px 10px; border-radius:10px }
+      .site-nav .nav-link:hover{ background:rgba(255,255,255,.07) }
+    }
+
+    /* Contact card */
+    .contact-band{ padding:44px 0 64px }
+    .card{ background:#fff; border-radius:24px; box-shadow:0 22px 44px rgba(0,0,0,.28); padding:26px 28px; }
+    .hero-line{ font-size:42px; line-height:1.2; color:#0c2533; margin:4px 0 20px }
+    .hero-line .hl{ color:#048bd5 } /* Let's & talk in blue */
+    .cta-row{ display:flex; gap:22px; flex-wrap:wrap }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:16px 26px; border-radius:26px; font-weight:600; text-decoration:none }
+    .btn-primary{ background:#048bd5; color:#fff }
+    .btn-deep{ background:#074e89; color:#fff }
+    .btn-soft{ background:#227ea3; color:#fff }
+
+    @media (max-width:900px){
+      .hero-line{ font-size:36px }
+    }
+
+    /* Footer */
+    .site-footer{ background:#2f4455; }
+    .footer-row{ display:flex; align-items:center; justify-content:flex-end; padding:10px 0 }
+    .site-footer small{ color:#cfe7f7 }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" aria-controls="primary-nav">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <nav id="primary-nav" class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link active" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="contact">
-  <div class="contact-card">
-    <h1 class="contact-title">
-      <span class="accent">Let’s <span>talk</span></span> about your<br> next project . . .
-    </h1>
-
-    <div class="contact-actions">
-      <a class="btn btn-lg btn-primary" href="tel:+917087433166">Call  +91 70874 33166</a>
-      <a class="btn btn-lg btn-navy" href="mailto:siddiquishahina01@gmail.com">Email</a>
-      <a class="btn btn-lg btn-secondary" target="_blank" rel="noopener"
-         href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+      </nav>
     </div>
-  </div>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container footer-row">
-    <small>© 2025 Shahina Siddiqui</small>
-  </div>
-</footer>
+  <main class="contact-band">
+    <div class="container">
+      <div class="card" style="max-width:980px;margin:0 auto;">
+        <h1 class="hero-line">
+          <span class="hl">Let’s</span> <span class="hl">talk</span> about your<br>
+          next project . . .
+        </h1>
 
-<script src="js/app.js" defer></script>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="tel:+917087433166">Call +91 70874 33166</a>
+          <a class="btn btn-deep" href="mailto:work.shahina@gmail.com">Email</a>
+          <a class="btn btn-soft" href="https://www.linkedin.com/in/shahina-siddiqui-494184284" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
