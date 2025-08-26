@@ -4,15 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-10" />
+  <link rel="stylesheet" href="./styles.css?v=2025-11" />
 </head>
 <body>
 
-  <!-- ===== Header (shared) ===== -->
-  <header class="site-header" role="banner">
+  <div class="backdrop" hidden></div>
+
+  <header class="site-header">
     <div class="header-row">
       <a class="brand" href="index.html">Shahina Siddiqui</a>
-      <nav class="nav" aria-label="Main">
+      <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav id="site-nav" class="nav">
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link active" href="projects.html">Projects</a>
         <a class="nav-link" href="skills.html">Skills</a>
@@ -21,9 +23,8 @@
     </div>
   </header>
 
-  <!-- ===== Main ===== -->
   <main class="container">
-    <h1 class="page-title">Designed for attention, built for retention</h1>
+    <h1 class="page-title">Designed for attention, built for retention.</h1>
 
     <article class="project">
       <div class="project-media">
@@ -44,28 +45,29 @@
     <article class="project">
       <div class="project-media">
         <div class="carousel" aria-label="Vikram Bhetal gallery">
-          <img src="./assets/projects/vikram/vikram-1.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-2.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-3.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-4.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-5.jpg" alt="">
+          <img src="./assets/projects/vikram/vikram-1.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-2.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-3.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-4.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-5.jpg" alt="" />
         </div>
       </div>
       <div class="project-copy">
         <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
         <p>
-          An engaging ethics assessment for a financial institution, blending the Indian tale of Vikram and Bhetal with
-          modern workplace dilemmas. The narrative weaves an ethical compass through decisions and feedback.
+          An engaging ethics assessment for a financial institution, blending the Indian tale of Vikram and Bhetal
+          with modern workplace dilemmas. The narrative weaves an ethical compass through decisions and feedback.
         </p>
       </div>
     </article>
   </main>
 
-  <!-- ===== Footer (shared) ===== -->
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="footer-row">
       <small>© 2025 Shahina Siddiqui</small>
     </div>
   </footer>
+
+  <script src="./app.js" defer></script>
 </body>
 </html>
