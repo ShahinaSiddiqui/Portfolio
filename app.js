@@ -1,46 +1,30 @@
-/* Mobile nav toggle — resilient version */
-(function(){
-  const toggle   = document.querySelector('.menu-toggle');
-  const nav      = document.querySelector('#site-nav');
-  const backdrop = document.querySelector('.backdrop');
-  if(!toggle || !nav) return;
+// Simple mobile hamburger toggle
+const toggle   = document.querySelector('.menu-toggle');
+const nav      = document.getElementById('site-nav');
+const backdrop = document.querySelector('.backdrop');
 
-  function openNav(){
-    nav.classList.add('open');
-    toggle.setAttribute('aria-expanded', 'true');
-    if(backdrop){
-      backdrop.classList.add('show');
-      backdrop.removeAttribute('hidden');
-    }
-    // stop body scroll when menu open
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-  }
+function openNav(){
+  nav.classList.add('open');
+  backdrop.classList.add('show');
+  toggle.setAttribute('aria-expanded','true');
+  document.body.style.overflow = 'hidden';
+}
+function closeNav(){
+  nav.classList.remove('open');
+  backdrop.classList.remove('show');
+  toggle.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}
 
-  function closeNav(){
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    if(backdrop){
-      backdrop.classList.remove('show');
-      // keep it in DOM but invisible
-    }
-    document.documentElement.style.overflow = '';
-    document.body.style.overflow = '';
-  }
+if (toggle && nav && backdrop){
+  // ensure backdrop exists visually
+  backdrop.removeAttribute('hidden');
 
   toggle.addEventListener('click', () => {
-    nav.classList.contains('open') ? closeNav() : openNav();
+    if (nav.classList.contains('open')) closeNav();
+    else openNav();
   });
 
-  if(backdrop){
-    backdrop.addEventListener('click', closeNav);
-  }
-
-  // Close when a nav link is tapped
+  backdrop.addEventListener('click', closeNav);
   nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-
-  // Safety: close on Escape
-  window.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape' && nav.classList.contains('open')) closeNav();
-  });
-})();
+}
