@@ -4,22 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shahina Siddiqui — Portfolio</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-12a" />
+  <link rel="stylesheet" href="./styles.css?v=2025-12-02" />
 </head>
 <body>
 
-  <!-- Backdrop for mobile nav (visible only when menu opens) -->
-  <div class="backdrop"></div>
+  <!-- Backdrop for mobile nav -->
+  <div class="backdrop" hidden></div>
 
   <!-- Header -->
   <header class="site-header" role="banner">
     <div class="container header-row">
       <a class="brand" href="index.html">Shahina Siddiqui</a>
-
-      <!-- Hamburger for mobile -->
       <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
-
-      <!-- Main nav -->
       <nav id="site-nav" class="nav" aria-label="Main">
         <a class="nav-link active" href="index.html">Home</a>
         <a class="nav-link" href="projects.html">Projects</a>
@@ -34,21 +30,16 @@
     <section class="hero">
       <div class="hero-copy">
         <h1 class="home-title">Shahina Siddiqui</h1>
-
-        <!-- Tagline: forced into two lines exactly -->
         <h2 class="home-sub">
           <span>Corporate &amp; Game-Based Learning Specialist |</span><br />
           <span>Instructional Designer &amp; Developer | K-12 Experience</span>
         </h2>
-
         <p class="lede">
           I design and develop engaging digital learning experiences that transform complex topics into interactive,
           learner-friendly journeys. With over 9 years of experience, I bring a unique strength in creating game-based
           and corporate e-learning modules that not only capture attention but also deliver measurable results.
         </p>
-
         <div class="actions">
-          <!-- Smaller buttons on Home (CSS below) -->
           <a class="btn btn-lg btn-primary"   href="./assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
           <a class="btn btn-lg btn-navy"      href="projects.html">Projects</a>
           <a class="btn btn-lg btn-secondary" href="contact.html">Connect</a>
@@ -83,7 +74,6 @@
     </div>
   </footer>
 
-  <!-- Load the hamburger script -->
   <script src="./js/app.js?v=2" defer></script>
 </body>
 </html>
