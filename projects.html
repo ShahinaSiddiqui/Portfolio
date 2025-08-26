@@ -4,75 +4,128 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-11">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    html, body { height:100% }
+    body { display:grid; grid-template-rows:auto 1fr auto; background:#1B2733 }
+
+    /* Header / Nav */
+    .site-header { position: sticky; top:0; z-index:50; background:#2B3C4C; }
+    .container { width:min(1200px,92%); margin:0 auto; }
+    .header-row{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0 }
+    .brand{ font-weight:500; font-size:22px; color:#e6f2fb; text-decoration:none }
+    .site-nav{ display:flex; gap:24px; align-items:center }
+    .site-nav .nav-link{ color:#cfe7f7; text-decoration:none }
+    .site-nav .nav-link:hover, .site-nav .nav-link.active{ color:#fff }
+
+    .menu-toggle{ display:none; width:40px;height:40px;border:0;background:transparent;padding:6px;border-radius:8px;cursor:pointer }
+    .menu-toggle span{ display:block;height:3px;margin:6px 0;background:#e6f2fb;border-radius:2px }
+
+    @media (max-width:900px){
+      .menu-toggle{ display:inline-flex;align-items:center;justify-content:center }
+      .site-nav{
+        position:fixed; top:62px; right:0; bottom:0; width:min(82vw,320px);
+        background:#233746; box-shadow:-12px 0 24px rgba(0,0,0,.25);
+        padding:16px; display:flex; flex-direction:column; gap:8px;
+        transform:translateX(100%); transition:transform .25s ease;
+      }
+      .site-nav.open{ transform:translateX(0) }
+      .site-nav .nav-link{ display:block; padding:12px 10px; border-radius:10px }
+      .site-nav .nav-link:hover{ background:rgba(255,255,255,.07) }
+    }
+
+    /* Page */
+    .band{ padding:44px 0 24px }
+    .page-title{ color:#eaf4fb; font-size:34px; margin:0 0 20px }
+
+    .project{ display:grid; grid-template-columns:1.15fr 1fr; gap:28px; align-items:start; padding:26px 0; border-bottom:1px solid rgba(255,255,255,.08) }
+    .project-media video, .project-media img{ width:100%; border-radius:14px; background:#000 }
+    .project-copy h2{ color:#eaf4fb; margin:6px 0 12px }
+    .project-copy p{ color:#cfe1ee; margin:0 }
+
+    @media (max-width:980px){
+      .project{ grid-template-columns:1fr; }
+    }
+
+    /* Footer */
+    .site-footer{ background:#2f4455; }
+    .footer-row{ display:flex; align-items:center; justify-content:flex-end; padding:10px 0 }
+    .site-footer small{ color:#cfe7f7 }
+  </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
 
-    <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" aria-controls="primary-nav">
-      <span></span><span></span><span></span>
-    </button>
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-    <nav id="primary-nav" class="nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link active" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<section class="band">
-  <main class="container">
-    <h1 class="page-title">Designed for attention, built for retention.</h1>
+  <section class="band">
+    <main class="container">
+      <h1 class="page-title">Designed for attention, built for retention.</h1>
 
-    <article class="project">
-      <div class="project-media">
-        <video controls preload="metadata" playsinline>
-          <source src="./assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="project-copy">
-        <h2>Counterfeit Currency – Teller Training</h2>
-        <p>
-          A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy
-          and confidence. It covers Indian denominations with security features and red flags aligned with RBI
-          guidelines. Real-world scenario assessments reinforce key concepts and on-the-job application.
-        </p>
-      </div>
-    </article>
-
-    <article class="project">
-      <div class="project-media">
-        <div class="carousel" aria-label="Vikram Bhetal gallery">
-          <img src="./assets/projects/vikram/vikram-1.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-2.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-3.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-4.jpg" alt="">
-          <img src="./assets/projects/vikram/vikram-5.jpg" alt="">
+      <!-- Project 1 -->
+      <article class="project">
+        <div class="project-media">
+          <video controls preload="metadata" playsinline>
+            <source src="assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
+          </video>
         </div>
-      </div>
-      <div class="project-copy">
-        <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
-        <p>
-          An engaging ethics assessment for a financial institution, blending the Indian tale of Vikram and
-          Bhetal with modern workplace dilemmas. The narrative weaves an ethical compass through decisions and
-          feedback.
-        </p>
-      </div>
-    </article>
-  </main>
-</section>
+        <div class="project-copy">
+          <h2>Counterfeit Currency – Teller Training</h2>
+          <p>
+            A specialized e-learning module for bank tellers to identify counterfeit currency with
+            accuracy and confidence. It covers Indian denominations with security features and
+            red flags aligned with RBI guidelines. Real-world scenario assessments reinforce key
+            concepts and on-the-job application.
+          </p>
+        </div>
+      </article>
 
-<footer class="site-footer">
-  <div class="container footer-row">
-    <small>© 2025 Shahina Siddiqui</small>
-  </div>
-</footer>
+      <!-- Project 2 -->
+      <article class="project">
+        <div class="project-media">
+          <div class="carousel" aria-label="Vikram Bhetal gallery">
+            <img src="assets/projects/vikram/vikram-1.jpg" alt="">
+            <img src="assets/projects/vikram/vikram-2.jpg" alt="">
+            <img src="assets/projects/vikram/vikram-3.jpg" alt="">
+            <img src="assets/projects/vikram/vikram-4.jpg" alt="">
+            <img src="assets/projects/vikram/vikram-5.jpg" alt="">
+          </div>
+        </div>
+        <div class="project-copy">
+          <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
+          <p>
+            An engaging ethics assessment for a financial institution, blending the Indian tale
+            of Vikram and Bhetal with modern workplace dilemmas. The narrative weaves an
+            ethical compass through decisions and feedback.
+          </p>
+        </div>
+      </article>
 
-<script src="js/app.js" defer></script>
+    </main>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>
