@@ -1,50 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="./styles.css?v=2025-11" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
+  <div class="backdrop" hidden></div>
 
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-
-    <nav class="site-nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<main class="content contact-band">
-  <section class="contact-card">
-    <h2><span class="blue">Let’s <span class="blue">talk</span></span> about your<br>next project . . .</h2>
-
-    <div class="cta-row">
-      <a class="btn btn-blue" href="tel:+917087433166">Call +91 70874 33166</a>
-      <a class="btn btn-ink"  href="mailto:siddiquishahina01@gmail.com">Email</a>
-      <a class="btn btn-ghost" href="https://www.linkedin.com/in/shahina-siddiqui-494184284" target="_blank" rel="noopener">LinkedIn</a>
+  <header class="site-header">
+    <div class="header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
+      <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav id="site-nav" class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+      </nav>
     </div>
-  </section>
-</main>
+  </header>
 
-<footer class="site-footer">
-  <div class="container footer-row">
-    <small>© 2025 Shahina Siddiqui</small>
-  </div>
-</footer>
+  <main class="center-wrap">
+    <div class="contact-card">
+      <h1 class="cta-title">
+        <span class="accent">Let’s</span> <span class="accent">talk</span> about your<br />
+        next project . . .
+      </h1>
 
-<script src="js/app.js?v=9" defer></script>
+      <div class="btn-row">
+        <a class="btn btn-lg btn-primary eq" href="tel:+917087433166">Call  +91 70874 33166</a>
+        <a class="btn btn-lg btn-navy eq" href="mailto:siddiquishahina01@gmail.com">Email</a>
+        <a class="btn btn-lg btn-secondary eq" target="_blank" rel="noopener" href="https://www.linkedin.com/in/shahina-siddiqui-494184284">LinkedIn</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
+    </div>
+  </footer>
+
+  <script src="./app.js" defer></script>
 </body>
 </html>
