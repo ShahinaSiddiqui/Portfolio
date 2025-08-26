@@ -1,6 +1,5 @@
-/* Mobile nav + little safety helpers — no HTML edits required */
+/* Robust mobile menu toggle – no HTML edits needed */
 (function () {
-  // find the header, nav and the "hamburger" button (very tolerant selectors)
   const header =
     document.querySelector(".site-header") ||
     document.querySelector("header");
@@ -9,47 +8,59 @@
 
   const nav =
     header.querySelector("nav") ||
+    document.querySelector("header nav") ||
     document.querySelector("nav");
 
-  // a button with common class names OR with the ☰ character
-  let btn =
-    header.querySelector(
-      '.menu-btn, .menu, .hamburger, .nav-toggle, [data-menu-toggle], button[aria-label*="menu" i]'
-    ) || Array.from(header.querySelectorAll("button, a"))
-      .find(el => (el.textContent || "").trim() === "☰");
+  if (!nav) return;
 
-  if (!nav || !btn) return;
+  // Helper: is this a hamburger-ish element?
+  function isToggle(el) {
+    if (!el) return false;
+    const cls = el.classList || { contains: () => false };
+    const name = (el.getAttribute("aria-label") || "").toLowerCase();
+    const id = (el.id || "").toLowerCase();
 
-  // initial a11y state
-  btn.setAttribute("aria-expanded", "false");
-  btn.setAttribute("aria-controls", "main-nav");
-  nav.id = nav.id || "main-nav";
+    return (
+      el.matches?.("[data-menu-toggle], [data-nav-toggle]") ||
+      el.matches?.('button[aria-controls], [aria-expanded]') ||
+      name.includes("menu") ||
+      id.includes("menu") ||
+      ["menu-btn", "menu", "hamburger", "nav-toggle", "menu-toggle", "bars", "menu-icon"].some(c => cls.contains(c)) ||
+      (el.tagName === "BUTTON" && (el.textContent || "").trim() === "☰")
+    );
+  }
 
-  const closeNav = () => {
-    nav.classList.remove("is-open");
-    document.body.classList.remove("no-scroll");
-    btn.setAttribute("aria-expanded", "false");
-  };
+  // Click anywhere in header; if a toggle was hit, open/close the drawer
+  header.addEventListener("click", (e) => {
+    const t = e.target.closest("button, a, div, span, svg");
+    if (!t) return;
+    if (!isToggle(t)) return;
 
-  const openNav = () => {
-    nav.classList.add("is-open");
-    document.body.classList.add("no-scroll");
-    btn.setAttribute("aria-expanded", "true");
-  };
-
-  btn.addEventListener("click", (e) => {
     e.preventDefault();
-    (nav.classList.contains("is-open") ? closeNav : openNav)();
+    const open = !nav.classList.contains("is-open");
+    nav.classList.toggle("is-open", open);
+    document.body.classList.toggle("no-scroll", open);
+
+    try {
+      t.setAttribute("aria-expanded", open ? "true" : "false");
+      t.setAttribute("aria-controls", nav.id || "main-nav");
+      if (!nav.id) nav.id = "main-nav";
+    } catch (_) {}
   });
 
-  // close after tapping a menu link (single-page anchors etc.)
+  // Close on link tap
   nav.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if (a) closeNav();
+    if (e.target.closest("a")) {
+      nav.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+    }
   });
 
   // ESC to close
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
+    if (e.key === "Escape") {
+      nav.classList.remove("is-open");
+      document.body.classList.remove("no-scroll");
+    }
   });
 })();
