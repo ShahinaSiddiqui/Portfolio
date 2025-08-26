@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shahina Siddiqui — Portfolio</title>
-  <link rel="stylesheet" href="./styles.css?v=2025-12" />
+  <link rel="stylesheet" href="./styles.css?v=2025-12a" />
 </head>
 <body>
 
-  <!-- Backdrop for mobile nav -->
-  <div class="backdrop" hidden></div>
+  <!-- Backdrop for mobile nav (visible only when menu opens) -->
+  <div class="backdrop"></div>
 
   <!-- Header -->
   <header class="site-header" role="banner">
@@ -35,6 +35,7 @@
       <div class="hero-copy">
         <h1 class="home-title">Shahina Siddiqui</h1>
 
+        <!-- Tagline: forced into two lines exactly -->
         <h2 class="home-sub">
           <span>Corporate &amp; Game-Based Learning Specialist |</span><br />
           <span>Instructional Designer &amp; Developer | K-12 Experience</span>
@@ -47,6 +48,7 @@
         </p>
 
         <div class="actions">
+          <!-- Smaller buttons on Home (CSS below) -->
           <a class="btn btn-lg btn-primary"   href="./assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
           <a class="btn btn-lg btn-navy"      href="projects.html">Projects</a>
           <a class="btn btn-lg btn-secondary" href="contact.html">Connect</a>
@@ -81,6 +83,7 @@
     </div>
   </footer>
 
-  <script src="./js/app.js?v=1" defer></script>
+  <!-- Load the hamburger script -->
+  <script src="./js/app.js?v=2" defer></script>
 </body>
 </html>
