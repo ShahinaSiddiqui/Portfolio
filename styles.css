@@ -382,3 +382,25 @@ html, body{ overflow-x:hidden }
   /* Drawer nav from earlier stays the same; ensure it sits on top */
   header nav, .site-header nav { z-index: 9999; }
 }
+/* --- MOBILE TWEAKS: logos white card spacing --- */
+@media (max-width: 768px) {
+  /* The white panel that holds the partner logos.
+     If your container uses a different class, keep .partners-card
+     AND add your class next to it (comma separated). */
+  .partners-card,
+  .partners-panel,
+  .logo-panel,
+  .logos-panel,
+  .logo-card,
+  .partners-box {
+    margin-left: 16px;       /* little breathing room on the right/left */
+    margin-right: 16px;
+    width: auto;             /* avoid forcing 100% if something set it */
+    box-sizing: border-box;  /* keep padding inside the width */
+  }
+}
+
+/* Optional: prevent body from scrolling when mobile menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
