@@ -551,3 +551,37 @@ body.no-scroll {
   html.menu-open header #site-nav { transform: translateX(0); }
   html.menu-open body { overflow: hidden; } /* avoid background scroll while open */
 }
+/* =========================================================
+   FINAL HOME–MOBILE ALIGNMENT PATCH (safe, desktop untouched)
+   Keeps hero, buttons, and the white partners box centered
+   with even gutters on both sides on small screens.
+   ========================================================= */
+@media (max-width: 768px) {
+  :root { --gutter: 16px; }
+
+  /* Give the whole page body a consistent side gutter via <main> */
+  main {
+    padding-left: var(--gutter) !important;
+    padding-right: var(--gutter) !important;
+    box-sizing: border-box;
+  }
+
+  /* Ensure the hero block and the button row follow the same centering */
+  .hero,
+  .actions,
+  .btn-row {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: min(100% - (var(--gutter) * 2), 1120px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* White partners card: center it and give equal side space */
+  .partners-box {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: min(100% - (var(--gutter) * 2), 1120px) !important;
+    box-sizing: border-box;
+  }
+}
