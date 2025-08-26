@@ -585,3 +585,66 @@ body.no-scroll {
     box-sizing: border-box;
   }
 }
+/* ===========================
+   MOBILE REFINEMENTS (<=900px)
+   =========================== */
+@media (max-width: 900px) {
+
+  /* ---------- drawer / hamburger menu ---------- */
+  header .nav {
+    padding: 12px 12px 24px;
+    gap: 6px;                 /* tighter vertical rhythm */
+  }
+
+  header #site-nav a {
+    display: block;
+    text-align: center;       /* keep centered as per your screenshots */
+    font-weight: 600;
+    font-size: clamp(1rem, 2.4vw + 0.55rem, 1.2rem);  /* smaller but tappable */
+    line-height: 1.25;
+    padding: 12px 18px;
+    border-radius: 12px;
+    transition: background .15s ease, color .15s ease;
+  }
+
+  header #site-nav a + a { margin-top: 4px; }
+
+  header #site-nav a:hover,
+  header #site-nav a:focus-visible {
+    background: rgba(255,255,255,.06);
+    outline: none;
+  }
+
+  header #site-nav .nav-link.active,
+  header #site-nav a[aria-current="page"] {
+    background: rgba(255,255,255,.12);
+  }
+
+  /* ---------- partners white box ---------- */
+  /* Give it breathing room on both sides, make sure content never clips */
+  .partners-box {
+    box-sizing: border-box;
+    margin: 16px;                     /* left & right gap so it doesn't touch edge */
+    padding: 20px 16px 24px;          /* a little inner padding */
+    border-radius: 18px;              /* keep your rounded look */
+    max-width: calc(100% - 32px);     /* accounts for 16px side margins */
+  }
+
+  /* Lay out logos in two neat columns and center each logo */
+  .partners-box .logos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 18px 20px;                   /* vertical / horizontal gaps */
+  }
+
+  /* Make each logo scale down and never overflow the box */
+  .partners-box .logos img {
+    width: 100%;
+    max-width: 160px;                 /* prevents over-wide logos */
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
