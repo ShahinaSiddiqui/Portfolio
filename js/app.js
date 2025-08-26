@@ -1,28 +1,55 @@
-// Mobile nav toggle
-const toggle = document.querySelector('.menu-toggle');
-const nav    = document.querySelector('.nav');
-const backdrop = document.querySelector('.backdrop');
+/* Mobile nav + little safety helpers — no HTML edits required */
+(function () {
+  // find the header, nav and the "hamburger" button (very tolerant selectors)
+  const header =
+    document.querySelector(".site-header") ||
+    document.querySelector("header");
 
-function closeNav() {
-  nav.classList.remove('open');
-  backdrop.classList.remove('show');
-  toggle.setAttribute('aria-expanded', 'false');
-  document.body.style.overflow = '';
-}
+  if (!header) return;
 
-function openNav() {
-  nav.classList.add('open');
-  backdrop.classList.add('show');
-  toggle.setAttribute('aria-expanded', 'true');
-  document.body.style.overflow = 'hidden';
-}
+  const nav =
+    header.querySelector("nav") ||
+    document.querySelector("nav");
 
-if (toggle && nav && backdrop) {
-  toggle.addEventListener('click', () => {
-    if (nav.classList.contains('open')) closeNav();
-    else openNav();
+  // a button with common class names OR with the ☰ character
+  let btn =
+    header.querySelector(
+      '.menu-btn, .menu, .hamburger, .nav-toggle, [data-menu-toggle], button[aria-label*="menu" i]'
+    ) || Array.from(header.querySelectorAll("button, a"))
+      .find(el => (el.textContent || "").trim() === "☰");
+
+  if (!nav || !btn) return;
+
+  // initial a11y state
+  btn.setAttribute("aria-expanded", "false");
+  btn.setAttribute("aria-controls", "main-nav");
+  nav.id = nav.id || "main-nav";
+
+  const closeNav = () => {
+    nav.classList.remove("is-open");
+    document.body.classList.remove("no-scroll");
+    btn.setAttribute("aria-expanded", "false");
+  };
+
+  const openNav = () => {
+    nav.classList.add("is-open");
+    document.body.classList.add("no-scroll");
+    btn.setAttribute("aria-expanded", "true");
+  };
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    (nav.classList.contains("is-open") ? closeNav : openNav)();
   });
-  backdrop.addEventListener('click', closeNav);
-  // Close after tapping a link
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
-}
+
+  // close after tapping a menu link (single-page anchors etc.)
+  nav.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (a) closeNav();
+  });
+
+  // ESC to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeNav();
+  });
+})();
