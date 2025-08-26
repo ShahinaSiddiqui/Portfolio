@@ -443,3 +443,18 @@ body.no-scroll {
   width: min(100% - 2rem, 1120px);   /* small gap on both sides on phones */
   margin: 1.25rem auto;              /* centered */
 }
+/* --- Mobile breathing room for the white partners card --- */
+@media (max-width: 768px) {
+  .partners-box {
+    /* give equal side gutters so it doesn't touch the right edge */
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+}
+
+/* --- Safety: ensure the mobile nav shows when .open is added by JS --- */
+#site-nav.open {
+  transform: translateX(0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
