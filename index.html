@@ -1,86 +1,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Home — Shahina Siddiqui</title>
-  <link rel="stylesheet" href="styles.css?v=9">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shahina Siddiqui — Portfolio</title>
+  <link rel="stylesheet" href="./styles.css?v=2025-11" />
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container header-row">
-    <a class="brand" href="index.html">Shahina Siddiqui</a>
+  <!-- Backdrop for mobile nav -->
+  <div class="backdrop" hidden></div>
 
-    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="header-row">
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
+      <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
+      <nav id="site-nav" class="nav" aria-label="Main">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="projects.html">Projects</a>
+        <a class="nav-link" href="skills.html">Skills</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    <nav class="site-nav">
-      <a class="nav-link" href="index.html">Home</a>
-      <a class="nav-link" href="projects.html">Projects</a>
-      <a class="nav-link" href="skills.html">Skills</a>
-      <a class="nav-link" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Main -->
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="home-title">Shahina Siddiqui</h1>
 
-<main class="content">
-  <section class="container hero">
-    <div>
-      <h1 class="hero-title">Shahina Siddiqui</h1>
+        <h2 class="home-sub">
+          <span>Corporate &amp; Game-Based Learning Specialist |</span><br />
+          <span>Instructional Designer &amp; Developer | K-12 Experience</span>
+        </h2>
 
-      <h2 class="hero-sub">
-        Corporate &amp; Game-Based Learning Specialist |
-        <br>
-        Instructional Designer &amp; Developer | K-12 Experience
-      </h2>
+        <p class="lede">
+          I design and develop engaging digital learning experiences that transform complex topics into interactive,
+          learner-friendly journeys. With over 9 years of experience, I bring a unique strength in creating game-based
+          and corporate e-learning modules that not only capture attention but also deliver measurable results.
+        </p>
 
-      <p>
-        I design and develop engaging digital learning experiences that transform complex topics into
-        interactive, learner-friendly journeys. With over 9 years of experience, I bring a unique strength
-        in creating game-based and corporate e-learning modules that not only capture attention but also
-        deliver measurable results.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn btn-blue" href="./assets/resume.pdf">Resume</a>
-        <a class="btn btn-ink"  href="projects.html">Projects</a>
-        <a class="btn btn-ghost" href="contact.html">Connect</a>
+        <div class="actions">
+          <a class="btn btn-lg btn-primary"   href="./assets/resume/resume-shahina-siddiqui.pdf" download>Resume</a>
+          <a class="btn btn-lg btn-navy"      href="projects.html">Projects</a>
+          <a class="btn btn-lg btn-secondary" href="contact.html">Connect</a>
+        </div>
       </div>
+
+      <div class="hero-photo">
+        <img src="assets/img/profile.png" alt="Shahina photo" />
+      </div>
+    </section>
+
+    <!-- Partner logos with white box -->
+    <section class="partners-box" aria-labelledby="partners-title">
+      <h3 id="partners-title" class="partners-title">Proudly partnered with</h3>
+      <div class="logos">
+        <img src="./assets/logos/indusind.png" alt="IndusInd Bank" />
+        <img src="./assets/logos/maxlife.png" alt="Max Life" />
+        <img src="./assets/logos/learningmate.png" alt="LearningMate" />
+        <img src="./assets/logos/coverfox.png" alt="Coverfox" />
+        <img src="./assets/logos/motilal-oswal.png" alt="Motilal Oswal" />
+        <img src="./assets/logos/5paisa.png" alt="5paisa" />
+        <img src="./assets/logos/english-impression.png" alt="English Impression" />
+        <img src="./assets/logos/zinnion.png" alt="Zinnion" />
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-row">
+      <small>© 2025 Shahina Siddiqui</small>
     </div>
+  </footer>
 
-    <div class="avatar-wrap">
-      <!-- make sure assets/photo.jpg exists -->
-      <img class="avatar" src="./assets/photo.jpg" alt="Shahina Siddiqui portrait">
-    </div>
-  </section>
-
-  <section class="container partners-card">
-    <h3>Proudly partnered with</h3>
-    <div class="partners-grid">
-      <img src="./assets/partners/indusind.png" alt="IndusInd Bank">
-      <img src="./assets/partners/maxlife.png" alt="Max Life Insurance">
-      <img src="./assets/partners/learningmate.png" alt="LearningMate">
-      <img src="./assets/partners/coverfox.png" alt="Coverfox">
-      <img src="./assets/partners/motilal.png" alt="Motilal Oswal">
-      <img src="./assets/partners/5paisa.png" alt="5paisa">
-      <img src="./assets/partners/englishimpression.png" alt="English Impression">
-      <img src="./assets/partners/zinnion.png" alt="ZINNION">
-    </div>
-  </section>
-
-  <div class="page-spacer-120"></div>
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-row">
-    <small>© 2025 Shahina Siddiqui</small>
-  </div>
-</footer>
-
-<script src="js/app.js?v=9" defer></script>
+  <script src="./app.js" defer></script>
 </body>
 </html>
