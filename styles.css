@@ -235,3 +235,94 @@ html, body{ overflow-x:hidden }
   .brand{ font-size: 17px }
   .btn-lg{ padding:14px 20px; font-size:17px; border-radius:32px }
 }
+/* ===========================
+   MOBILE ONLY FIX PACK
+   (safe to append at the very end)
+   =========================== */
+@media (max-width: 768px) {
+
+  /* stop content hugging the right edge */
+  .container,
+  main,
+  section,
+  .band,
+  .brand-wall,
+  .hero,
+  .project,
+  .skills-grid,
+  .contact-card {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+
+  /* compact Home buttons (keep pill look) */
+  .hero a.btn,
+  .hero .btn,
+  .cta-row .btn,
+  .contact-cta .btn,
+  .actions .btn {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
+    min-height: 44px;          /* good tap target */
+    min-width: 44px;
+  }
+
+  /* hamburger visible; style it a bit if it’s a plain button */
+  .site-header .menu-btn,
+  .site-header .menu,
+  .site-header .hamburger,
+  .site-header .nav-toggle,
+  header .menu-btn,
+  header .menu,
+  header .hamburger,
+  header .nav-toggle,
+  header button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 0;
+    font-size: 28px;
+    line-height: 1;
+    color: #cfe7f7;
+    padding: 8px 10px;
+  }
+
+  /* mobile drawer nav (keeps desktop nav unchanged) */
+  .site-header nav,
+  header nav {
+    position: fixed;
+    top: 60px;          /* under your header bar */
+    right: 0;
+    bottom: 0;
+    width: 78vw;
+    max-width: 320px;
+    background: #2b3c4c;       /* your header color */
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    padding: 16px 18px;
+    overflow-y: auto;
+    box-shadow: -10px 0 24px rgba(0,0,0,.35);
+    z-index: 9999;
+  }
+
+  .site-header nav.is-open,
+  header nav.is-open {
+    transform: translateX(0);
+  }
+
+  /* stack links, big tap targets */
+  .site-header nav a,
+  header nav a {
+    display: block;
+    padding: 14px 6px;
+    margin: 2px 0;
+    font-size: 18px;
+  }
+
+  /* lock page scroll while menu is open */
+  body.no-scroll { overflow: hidden; }
+}
