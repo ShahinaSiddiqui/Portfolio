@@ -494,3 +494,60 @@ body.no-scroll {
     border-radius: 18px;
   }
 }
+/* ---- MOBILE FIX PACK (hamburger + even margins) ------------------------ */
+@media (max-width: 900px) {
+  :root { --page-pad: 20px; }
+
+  html, body { overflow-x: hidden; }
+
+  /* Even horizontal padding for header row and main wrapper */
+  .site-header .header-row,
+  .center-wrap { padding-left: var(--page-pad); padding-right: var(--page-pad); }
+
+  /* Ensure CTA/button rows use the same padding (class names cover both home & contact) */
+  .cta-actions, .btn-row { padding-left: var(--page-pad); padding-right: var(--page-pad); }
+
+  /* Partner white box: keep a little gap on both sides */
+  .partners-box {
+    margin-left: var(--page-pad);
+    margin-right: var(--page-pad);
+    border-radius: 18px;            /* nice on mobile */
+    box-sizing: border-box;
+  }
+
+  /* Off-canvas nav (hidden by default) */
+  header .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px; height: 44px;
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 28px;
+  }
+
+  /* The slide-in nav panel */
+  header #site-nav {
+    position: fixed;
+    top: 64px;               /* header height */
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    max-width: calc(100% - 56px);
+    background: #1f2c37;     /* same family as your header */
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: -24px 0 40px rgba(0,0,0,.35);
+    z-index: 1000;
+  }
+
+  /* When html has .menu-open (toggled by js/app.js), show the panel */
+  html.menu-open header #site-nav { transform: translateX(0); }
+  html.menu-open body { overflow: hidden; } /* avoid background scroll while open */
+}
