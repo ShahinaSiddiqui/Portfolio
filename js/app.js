@@ -1,25 +1,28 @@
-// js/app.js  — minimal and robust
-(function () {
-  const btn = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.site-nav');
-  if (!btn || !nav) return;
+// Mobile nav toggle
+const toggle = document.querySelector('.menu-toggle');
+const nav    = document.querySelector('.nav');
+const backdrop = document.querySelector('.backdrop');
 
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
+function closeNav() {
+  nav.classList.remove('open');
+  backdrop.classList.remove('show');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
 
-  // Close menu after clicking any link (mobile)
-  nav.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
+function openNav() {
+  nav.classList.add('open');
+  backdrop.classList.add('show');
+  toggle.setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
 
-  // Mark active link
-  const current = location.pathname.split('/').pop() || 'index.html';
-  nav.querySelectorAll('a').forEach(a => {
-    if (a.getAttribute('href') === current) a.classList.add('active');
+if (toggle && nav && backdrop) {
+  toggle.addEventListener('click', () => {
+    if (nav.classList.contains('open')) closeNav();
+    else openNav();
   });
-})();
+  backdrop.addEventListener('click', closeNav);
+  // Close after tapping a link
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+}
