@@ -458,3 +458,39 @@ body.no-scroll {
   opacity: 1 !important;
   pointer-events: auto !important;
 }
+/* -------------------------------------------------------
+   FINAL MOBILE PATCH
+   ------------------------------------------------------- */
+
+/* 1) Make sure the mobile nav is actually shown when JS adds .open */
+@media (max-width: 992px) {
+  /* If your base CSS hides the nav for mobile, keep it hidden by default… */
+  #site-nav {
+    display: none;
+  }
+  /* …and force it to show when the JS toggles .open */
+  #site-nav.open {
+    display: block !important;
+    transform: none !important;     /* ignore any off-canvas transforms */
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    visibility: visible !important;
+  }
+}
+
+/* 2) Give the key mobile blocks a tiny, even side gutter so nothing hugs the right edge */
+@media (max-width: 768px) {
+  /* your button section wrapper may be .btn-row or similar—
+     this selector catches the common wrappers used on your pages */
+  .btn-row,
+  .center-wrap,
+  .partners-box {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  /* keep the white partners card neatly rounded and centered */
+  .partners-box {
+    border-radius: 18px;
+  }
+}
