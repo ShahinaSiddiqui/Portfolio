@@ -326,3 +326,59 @@ html, body{ overflow-x:hidden }
   /* lock page scroll while menu is open */
   body.no-scroll { overflow: hidden; }
 }
+/* ===========================
+   Mobile headline + spacing fixes
+   (append at the very end)
+   =========================== */
+@media (max-width: 768px) {
+
+  /* Make sure content isn’t stuck to the right edge */
+  .container,
+  main,
+  section,
+  .band,
+  .hero,
+  .intro,
+  .home-intro {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+
+  /* Home/hero big blue headline — tighter, natural wrap */
+  .hero h1,
+  .hero h2,
+  .intro h1,
+  .intro h2,
+  .home-intro h1,
+  .home-intro h2,
+  .title-xl,
+  .lead-title {
+    font-size: clamp(22px, 5.2vw, 26px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0 !important;
+    word-break: keep-all;
+    overflow-wrap: normal;
+    max-width: 34ch;   /* keeps it to ~2–3 clean lines */
+  }
+
+  /* Remove desktop-only manual breaks that cause the big gap on phones */
+  .hero h1 br, .hero h2 br,
+  .intro h1 br, .intro h2 br,
+  .home-intro h1 br, .home-intro h2 br {
+    display: none;
+  }
+
+  /* Keep compact buttons on mobile (you said they look good now) */
+  .hero .btn, .actions .btn, .cta-row .btn, .contact-cta .btn {
+    font-size: 16px !important;
+    line-height: 1.15 !important;
+    padding: 10px 16px !important;
+    border-radius: 999px !important;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Drawer nav from earlier stays the same; ensure it sits on top */
+  header nav, .site-header nav { z-index: 9999; }
+}
