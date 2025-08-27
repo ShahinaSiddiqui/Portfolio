@@ -1,1 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Counterfeit Currency – Teller Training — Shahina Siddiqui</title>
+  <link rel="stylesheet" href="../styles.css?v=trial-1" />
+
+  <!-- Page-local helpers so you DON'T have to edit styles.css -->
+  <style>
+    .center-wrap{ max-width:1100px; margin:0 auto; padding:0 20px; }
+
+    /* Meta card under the intro */
+    .project-meta{
+      display:grid; gap:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; padding:16px;
+      margin-top:10px;
+    }
+    .meta-grid{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .meta-item h4{ margin:0 0 .25rem; font-size:.98rem; color:var(--blue-1,#008CDB); }
+    .meta-item p{ margin:0; opacity:.92; }
+    .contrib{ display:flex; gap:10px; flex-wrap:wrap; margin:.25rem 0 0; }
+    .contrib span{
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
+      padding:6px 10px; border-radius:999px; font-size:.92rem;
+    }
+
+    /* Body sections */
+    .project-body{ margin-top:18px; }
+    .project-body h2{ color:var(--blue-1,#008CDB); margin:1.25rem 0 .35rem; }
+    .project-body ul{ margin:.25rem 0 0 1.05rem; }
+    .project-body li{ margin:.25rem 0; }
+
+    /* Gallery at the bottom */
+    .gallery{ margin: 20px 0 28px; }
+    .gallery .media-grid{
+      display:grid; gap:10px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .gallery img, .gallery video{
+      width:100%; height:auto; display:block;
+      border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.18);
+    }
+  </style>
+</head>
+<body>
+
+<div class="backdrop" hidden></div>
+
+<header class="site-header">
+  <div class="header-row">
+    <a class="brand" href="../index.html">Shahina Siddiqui</a>
+    <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">≡</button>
+    <nav id="site-nav" class="nav">
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link active" href="../projects.html">Projects</a>
+      <a class="nav-link" href="../skills.html">Skills</a>
+      <a class="nav-link" href="../contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="center-wrap project-page">
+  <p class="crumb"><a href="../projects.html">← Back to Projects</a></p>
+
+  <!-- Title + teaser (this is exactly what you’ll later reuse on the card) -->
+  <h1 class="project-title">Counterfeit Currency – Teller Training</h1>
+  <p class="lead">
+    A specialized e-learning module for bank tellers to confidently detect counterfeit Indian currency.
+    With scenario-based checks and interactive gameplay, the module aligned with RBI guidelines and
+    delivered measurable on-the-job impact.
+  </p>
+
+  <!-- Project Details card -->
+  <section class="project-meta">
+    <div class="meta-grid">
+      <div class="meta-item">
+        <h4>Brief</h4>
+        <p>The client wanted a game-based module covering all current denominations and highlighting key security features and red flags per RBI standards.</p>
+      </div>
+      <div class="meta-item">
+        <h4>Audience</h4>
+        <p>Frontline bank tellers handling cash transactions daily.</p>
+      </div>
+      <div class="meta-item">
+        <h4>Module Duration</h4>
+        <p>40–50 minutes (self-paced).</p>
+      </div>
+      <div class="meta-item">
+        <h4>Deliverable</h4>
+        <p>Interactive, game-based e-learning with simulations and assessments.</p>
+      </div>
+      <div class="meta-item">
+        <h4>Project Duration</h4>
+        <p>2 months.</p>
+      </div>
+    </div>
+
+    <div class="contrib">
+      <span>Instructional Design</span>
+      <span>eLearning Development</span>
+      <span>Gamification &amp; Learning Strategy</span>
+    </div>
+  </section>
+
+  <!-- Approach & Process -->
+  <section class="project-body">
+    <h2>Need Analysis</h2>
+    <ul>
+      <li>Common errors tellers made in counterfeit detection</li>
+      <li>Denominations posing the greatest risk</li>
+      <li>Realistic time available for learning</li>
+      <li>Compliance requirements tied to RBI guidelines</li>
+    </ul>
+    <p>These insights led to a concise, highly interactive, practice-oriented solution that fits teller workflow.</p>
+
+    <h2>Learning Design Strategy</h2>
+    <p>
+      The module was designed as a game-based experience inspired by “Money Heist,” where the narrative and mechanics
+      are tied to the learning content. The experience unfolds across four heist levels, each focusing on a denomination,
+      with progressive challenges and timed checks.
+    </p>
+  </section>
+
+  <!-- Visuals at the bottom (you can add images later) -->
+  <section class="gallery">
+    <h2>Gallery</h2>
+    <div class="media-grid">
+      <!-- You already have this video in your repo; poster is optional -->
+      <video controls playsinline preload="metadata" poster="../assets/projects/counterfeit/poster.jpg">
+        <source src="../assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
+      </video>
+
+      <!-- Add still images when you have them:
+      <img src="../assets/projects/counterfeit/shot-01.jpg" alt="">
+      <img src="../assets/projects/counterfeit/shot-02.jpg" alt="">
+      -->
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-row">
+    <small>© 2025 Shahina Siddiqui</small>
+  </div>
+</footer>
+
+<script src="../js/app.js" defer></script>
+</body>
+</html>
 
