@@ -8,18 +8,21 @@
 
   <style>
     :root{
+      /* Brand tokens */
       --blue-1:#008CDB; --blue-2:#034C8C; --blue-3:#2481A6;
       --bg:#1B2733; --panel:#2F4456; --panel-outline:rgba(255,255,255,.08);
       --ink:#E6EEF6; --muted:#BFD1E0;
 
+      /* Layout */
       --container:1100px;
-      --pad:20px;
+      --pad:20px;        /* used by header */
+      --page-pad:20px;   /* used by footer to match site */
       --shadow:0 6px 24px rgba(0,0,0,.25);
       --divider:rgba(255,255,255,.15);
       --radius:18px;
     }
 
-    /* Base (same as the working version) */
+    /* Base */
     html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     img,video{max-width:100%;height:auto;display:block}
@@ -53,15 +56,17 @@
     .btn-navy{ background:var(--blue-2); color:#fff; border-radius:36px; padding:12px 22px; font-size:16px; }
     .btn-navy:hover{ filter:brightness(1.08) }
 
-    /* Footer — ONLY change is the +8px on the right padding */
-    .site-footer{ background:var(--panel); border-top:1px solid var(--panel-outline); margin-top:32px }
-    .footer-row{
-      max-width:var(--container); margin:0 auto;
-      padding:10px calc(var(--pad) + env(safe-area-inset-right) + 16px)
-              10px calc(var(--pad) + env(safe-area-inset-left));
-      display:flex; align-items:center; justify-content:flex-end;
-      color:#cfe8f5; font-size:13px; /* same as the version you said was OK */
+    /* ===== Footer (FIX: full-width row + site padding + site text style) ===== */
+    .site-footer{
+      margin-top:auto; background:var(--panel); border-top:1px solid var(--panel-outline);
     }
+    .footer-row{
+      width:100%;                  /* full width (not centered container) */
+      display:flex; align-items:center; justify-content:flex-end;
+      padding:10px calc(var(--page-pad) + env(safe-area-inset-right))
+              10px calc(var(--page-pad) + env(safe-area-inset-left));
+    }
+    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap } /* match site */
 
     /* Content (unchanged) */
     .title-pill{
@@ -120,6 +125,7 @@
     <div class="title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
     <p class="brief-line"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
+    <!-- Conducting Need Analysis -->
     <section class="card soft">
       <div class="section">
         <div class="head">
@@ -138,6 +144,7 @@
 
         <hr class="thin">
 
+        <!-- Findings row -->
         <div class="findings">
           <div class="section">
             <div class="head">
@@ -165,6 +172,7 @@
       </div>
     </section>
 
+    <!-- Expertise in Action -->
     <section class="card" style="margin-top:18px;">
       <div class="ea">
         <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
@@ -177,6 +185,7 @@
       </div>
     </section>
 
+    <!-- Learning Design Strategy -->
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="head">
@@ -203,6 +212,7 @@
       </div>
     </section>
 
+    <!-- Outcome -->
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="head">
