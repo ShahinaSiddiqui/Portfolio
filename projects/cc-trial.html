@@ -25,7 +25,7 @@
     /* Base */
     html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
-      overflow-x:hidden; /* prevent sideways scroll that made footer look offset */
+      overflow-x:hidden;
     }
     img,video{max-width:100%;height:auto;display:block}
     a{color:var(--blue-1);text-decoration:none}
@@ -45,7 +45,7 @@
       background:var(--panel); border-bottom:1px solid var(--panel-outline);
     }
     .header-row{
-      /* FULL-WIDTH row (matches your main site) */
+      /* Full width row, same padding as your main site */
       width:100%;
       display:flex; align-items:center; justify-content:space-between; gap:16px;
       padding:12px calc(var(--pad) + env(safe-area-inset-right))
@@ -53,24 +53,33 @@
       box-sizing:border-box;
     }
     .brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; white-space:nowrap }
+
+    /* Buttons (compact header pill so header height matches other pages) */
     .btn{ display:inline-flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:600; border:2px solid transparent;
       transition:filter .2s ease, transform .04s ease-in-out; }
     .btn:active{ transform:translateY(1px) }
-    .btn-navy{ background:var(--blue-2); color:#fff; border-radius:36px; padding:12px 22px; font-size:16px; }
+    .btn-navy{
+      background:var(--blue-2); color:#fff;
+      /* ↓↓↓ compact to match your normal header height */
+      padding:8px 16px;                 /* was 12px 22px */
+      font-size:15px;                   /* slightly smaller in header */
+      border-radius:28px;               /* still pill-shaped */
+      line-height:1.2;
+    }
     .btn-navy:hover{ filter:brightness(1.08) }
 
-    /* ===== Footer (full-width row; same sizing/feel as site) ===== */
+    /* ===== Footer (full-width row; same spacing as site) ===== */
     .site-footer{
       margin-top:auto; background:var(--panel); border-top:1px solid var(--panel-outline);
     }
     .footer-row{
-      width:100%; box-sizing:border-box;          /* full-bleed row */
+      width:100%; box-sizing:border-box;
       display:flex; align-items:center; justify-content:flex-end;
       padding:10px calc(var(--page-pad) + env(safe-area-inset-right))
               10px calc(var(--page-pad) + env(safe-area-inset-left));
     }
-    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap } /* same as site */
+    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap }
 
     /* ===== Content (unchanged) ===== */
     .title-pill{
@@ -210,46 +219,4 @@
         <ul class="list" style="margin-top:2px">
           <li>Designed and created the design document, curating content mapped to learning objectives while minimizing cognitive load.</li>
           <li>Developed a detailed storyboard showing step-by-step progression of game elements, content flow, interactivities, and knowledge checks.</li>
-          <li>Created visual mock-ups to align game mechanics with engaging design elements.</li>
-          <li>Authored and published the complete module as SCORM-compliant packages for seamless deployment on the client’s LMS.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Outcome -->
-    <section class="card soft" style="margin-top:18px;">
-      <div class="section">
-        <div class="head">
-          <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
-          <h2>The Outcome</h2>
-        </div>
-
-        <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
-
-        <div class="video-cta" title="Play the video below">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
-          <span>Click the video below to see a few glimpses from the project</span>
-        </div>
-
-        <div class="media">
-          <video controls preload="metadata">
-            <source src="../assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-row">
-      <small>© <span id="y"></span> Shahina Siddiqui</small>
-    </div>
-  </footer>
-</div>
-
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+          <li>Crea
