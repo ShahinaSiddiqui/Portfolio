@@ -5,81 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Identifying Counterfeit Currency — Shahina Siddiqui</title>
 
-  <!-- Use the site stylesheet so header/footer match EXACTLY -->
+  <!-- Use the same stylesheet as the other pages so header/footer match perfectly -->
   <link rel="stylesheet" href="./styles.css?v=2025-11" />
 
-  <!-- Page-specific styles are namespaced (ccp-*) so they won't touch header/footer -->
+  <!-- Page-specific styles (namespaced, won’t touch header/footer) -->
   <style>
-    :root{
-      --blue-1:#008CDB; --blue-2:#034C8C;
-      --bg:#1B2733; --panel:#2F4456;
-      --container:1120px;
-      --shadow:0 6px 24px rgba(0,0,0,.25);
-      --divider:rgba(255,255,255,.15);
-    }
+    /* media sizing – prevents any “wonky” overflow */
+    img, video { max-width: 100%; height: auto; display: block; }
 
-    /* Keep media sizing predictable (fixes “photo/video” sizing issues) */
-    img, video{max-width:100%;height:auto;display:block}
+    /* Container: use the site’s .container to keep widths identical */
+    main.container { padding-top: 24px; padding-bottom: 24px; }
 
-    /* ----- Content (scoped) ----- */
-    .ccp-container{max-width:var(--container);margin:0 auto;padding:24px 20px}
     .ccp-title-pill{
       background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
       border:1px solid rgba(255,255,255,.08);
-      border-radius:26px; padding:10px 18px; text-align:center;
-      box-shadow:var(--shadow); margin:8px 0 10px;
+      border-radius:26px;
+      padding:10px 18px;
+      text-align:center;
+      box-shadow:0 6px 24px rgba(0,0,0,.25);
+      margin:8px 0 10px;
     }
-    .ccp-brief{color:var(--blue-1);margin:8px 2px 14px}
+    .ccp-brief{ color:#008CDB; margin:8px 2px 14px }
 
-    .ccp-card{background:var(--panel);border-radius:18px;box-shadow:var(--shadow);padding:18px}
-    .ccp-soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
+    .ccp-card{ background:#2F4456; border-radius:18px; box-shadow:0 6px 24px rgba(0,0,0,.25); padding:18px }
+    .ccp-soft{ background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%) }
 
-    .ccp-section{display:grid;gap:12px}
-    .ccp-head{display:flex;align-items:center;gap:12px}
-    .ccp-head img{width:72px;height:72px}
+    .ccp-section{ display:grid; gap:12px }
+    .ccp-head{ display:flex; align-items:center; gap:12px }
+    .ccp-head img{ width:72px; height:72px }
 
-    .ccp-list{margin:.25rem 0 .5rem;padding-left:1.1rem}
-    .ccp-list li{margin:.25rem 0}
-    .ccp-hr{border:0;border-top:1px solid var(--divider);margin:10px 0 16px}
+    .ccp-list{ margin:.25rem 0 .5rem; padding-left:1.1rem }
+    .ccp-list li{ margin:.25rem 0 }
+    .ccp-hr{ border:0; border-top:1px solid rgba(255,255,255,.15); margin:10px 0 16px }
 
-    .ccp-findings{display:grid;grid-template-columns:1fr 1px .42fr;gap:16px;align-items:start}
-    .ccp-vline{background:var(--divider);border-radius:1px}
-    @media (max-width:980px){.ccp-findings{grid-template-columns:1fr}.ccp-vline{display:none}}
+    .ccp-findings{ display:grid; grid-template-columns:1fr 1px .42fr; gap:16px; align-items:start }
+    .ccp-vline{ background:rgba(255,255,255,.15); border-radius:1px }
+    @media (max-width:980px){ .ccp-findings{ grid-template-columns:1fr } .ccp-vline{ display:none } }
 
-    .ccp-meta{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
-    .ccp-meta-label{color:var(--blue-1);margin:0 0 6px;font-size:16px}
+    .ccp-meta{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px }
+    .ccp-meta-label{ color:#008CDB; margin:0 0 6px; font-size:16px }
 
-    .ccp-ea{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center}
-    .ccp-ea img{width:100px}
-    @media (max-width:560px){.ccp-ea{grid-template-columns:76px 1fr}.ccp-ea img{width:76px}}
+    .ccp-ea{ display:grid; grid-template-columns:100px 1fr; gap:16px; align-items:center }
+    .ccp-ea img{ width:100px }
+    @media (max-width:560px){ .ccp-ea{ grid-template-columns:76px 1fr } .ccp-ea img{ width:76px } }
 
     .ccp-video-cta{
-      display:flex;gap:10px;justify-content:center;align-items:center;
-      background:rgba(0,140,219,.08);border:1px solid rgba(0,140,219,.35);
-      border-radius:999px;padding:10px 16px;margin:8px auto 14px;width:max-content;
-      font-weight:700;color:var(--blue-1)
+      display:flex; gap:10px; justify-content:center; align-items:center;
+      background:rgba(0,140,219,.08); border:1px solid rgba(0,140,219,.35);
+      border-radius:999px; padding:10px 16px; margin:8px auto 14px; width:max-content;
+      font-weight:700; color:#008CDB
     }
-    .ccp-video-cta svg{width:18px;height:18px}
-    .ccp-media{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+    .ccp-video-cta svg{ width:18px; height:18px }
+    .ccp-media{ background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden }
   </style>
 </head>
 <body>
 
-  <!-- Backdrop for the mobile drawer (same as your site) -->
+  <!-- Backdrop (used by your mobile drawer nav) -->
   <div class="backdrop" hidden></div>
 
-  <!-- ===== HEADER (identical structure/classes as your site) ===== -->
+  <!-- ===== HEADER (same structure/classes as the rest of your site) ===== -->
   <header class="site-header">
     <div class="header-row">
-      <a class="brand" href="../index.html">Shahina Siddiqui</a>
+      <a class="brand" href="index.html">Shahina Siddiqui</a>
       <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
       <nav id="site-nav" class="nav">
-        <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
+        <!-- Only the back button (you didn’t want the other tabs here) -->
+        <a class="btn btn-navy" href="projects.html">← Back to Projects</a>
       </nav>
     </div>
   </header>
 
-  <main class="ccp-container">
+  <main class="container">
     <div class="ccp-title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
     <p class="ccp-brief"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
@@ -87,7 +84,7 @@
     <section class="ccp-card ccp-soft">
       <div class="ccp-section">
         <div class="ccp-head">
-          <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon">
+          <img src="./assets/projects/counterfeit/magnifier.png" alt="Need analysis icon">
           <h2>Conducting Need Analysis:</h2>
         </div>
 
@@ -105,7 +102,7 @@
         <div class="ccp-findings">
           <div class="ccp-section">
             <div class="ccp-head">
-              <img src="../assets/projects/counterfeit/project.png" alt="Findings icon">
+              <img src="./assets/projects/counterfeit/project.png" alt="Findings icon">
               <h2>Findings from the Needs Analysis:</h2>
             </div>
             <div class="ccp-meta">
@@ -132,7 +129,7 @@
     <!-- Expertise in Action -->
     <section class="ccp-card" style="margin-top:18px;">
       <div class="ccp-ea">
-        <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
+        <img src="./assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
         <ul class="ccp-list" style="margin:0">
           <li>Instructional Design</li>
           <li>Gamification & Learning Strategy</li>
@@ -146,7 +143,7 @@
     <section class="ccp-card ccp-soft" style="margin-top:18px;">
       <div class="ccp-section">
         <div class="ccp-head">
-          <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon">
+          <img src="./assets/projects/counterfeit/innovation.png" alt="Strategy icon">
           <h2>Learning Design Strategy:</h2>
         </div>
 
@@ -173,7 +170,7 @@
     <section class="ccp-card ccp-soft" style="margin-top:18px;">
       <div class="ccp-section">
         <div class="ccp-head">
-          <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
+          <img src="./assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
           <h2>The Outcome</h2>
         </div>
 
@@ -186,7 +183,7 @@
 
         <div class="ccp-media">
           <video controls preload="metadata">
-            <source src="../assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
+            <source src="./assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -194,14 +191,14 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER (identical structure/classes as your site) ===== -->
+  <!-- ===== FOOTER (same structure/classes as your site) ===== -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-row">
       <small>© 2025 Shahina Siddiqui</small>
     </div>
   </footer>
 
-  <!-- Same JS used by the rest of your site for the hamburger/backdrop -->
+  <!-- Same script path your Projects page uses -->
   <script src="js/app.js" defer></script>
 </body>
 </html>
