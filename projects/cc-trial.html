@@ -28,8 +28,8 @@
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{font-weight:400;margin:0 0 .5rem}
-    h1{font-size:clamp(26px,3vw,36px);letter-spacing:.2px}
-    h2{font-size:clamp(20px,2.2vw,26px)}
+    h1{font-size:clamp(26px,3vw,34px);letter-spacing:.2px}
+    h2{font-size:clamp(20px,2.1vw,26px)}
     h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
 
     /* Header */
@@ -50,38 +50,56 @@
     .site-footer{background:var(--panel);margin-top:40px}
     .footer-inner{max-width:var(--container);margin:auto;padding:16px;display:flex;justify-content:flex-end;align-items:center;min-height:56px;color:#E5EEF7}
 
-    /* Page */
+    /* Page container */
     .container{max-width:var(--container);margin:auto;padding:24px 16px}
-    .tag{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 10px;border-radius:999px;color:var(--muted);font-size:14px;margin-bottom:10px}
 
+    /* Top pill page title like screenshot */
+    .title-pill{
+      background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:26px;
+      padding:10px 18px;
+      text-align:center;
+      box-shadow:var(--shadow);
+      margin-bottom:10px;
+    }
+
+    /* Small blue project brief line */
+    .brief-line{color:var(--primary);margin:8px 2px 12px}
+
+    /* Cards */
     .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .card.soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
-    .grid{display:grid;gap:var(--gap)}
-    .cols-2{grid-template-columns: 1.35fr .65fr}
 
-    .kicker{font-size:14px;color:var(--muted);letter-spacing:.3px;margin-bottom:2px}
+    /* Section patterns */
+    .grid{display:grid;gap:var(--gap)}
+    .cols-2{grid-template-columns: 1.4fr .6fr}
+    @media (max-width: 980px){ .cols-2{grid-template-columns:1fr} }
+    .section{display:grid;gap:12px}
+    .section-head{display:flex;align-items:center;gap:10px}
+    .section-head img{width:56px;height:56px} /* bigger icons */
+
+    .kicker{font-size:14px;color:var(--muted);letter-spacing:.3px;margin:0 0 6px}
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
 
-    .section{display:grid;gap:12px}
-    .section-head{display:flex;align-items:center;gap:12px}
-    .section-head img{width:44px;height:44px} /* bigger icons as requested */
+    /* Right meta column with divider like screenshot */
+    .meta-col{display:grid;gap:14px;border-left:1px solid rgba(255,255,255,.12);padding-left:16px}
+    .meta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
+    .meta-label{color:var(--primary);margin:0 0 6px;font-size:16px}
 
-    .meta-col{display:grid;gap:var(--gap)}
-    .box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-sm);padding:14px}
+    /* Blue subheads inside card to mirror mock */
+    .subhead-blue{color:var(--primary);margin:.2rem 0 .35rem}
 
-    .ea{display:grid;grid-template-columns: 86px 1fr;gap:14px;align-items:center} /* Expertise in Action strip */
-    .ea img{width:86px;height:auto}
+    /* Expertise in Action strip */
+    .ea{display:grid;grid-template-columns: 100px 1fr;gap:16px;align-items:center}
+    .ea img{width:100px;height:auto}
+    @media (max-width:560px){ .ea{grid-template-columns:76px 1fr}.ea img{width:76px} }
 
+    /* Media */
     .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .media video{width:100%;display:block}
 
-    @media (max-width: 980px){ .cols-2{grid-template-columns:1fr} }
-    @media (max-width: 560px){
-      .card{padding:16px}
-      .ea{grid-template-columns:72px 1fr}
-      .section-head img{width:38px;height:38px}
-    }
     .note{font-size:14px;color:var(--muted)}
   </style>
 </head>
@@ -103,53 +121,48 @@
 
   <main class="container">
 
-    <!-- Page Title (as in your mock) -->
-    <h1>Project Name: Identifying Counterfeit Currency</h1>
+    <!-- Title bar -->
+    <div class="title-pill">
+      <h1>Project Name: Identifying Counterfeit Currency</h1>
+    </div>
 
-    <!-- Small blue brief line (outside the card, like your mock) -->
-    <p class="kicker" style="color:var(--primary);margin-top:6px;">
-      Project Brief · The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.
-    </p>
+    <!-- Project brief (blue) -->
+    <p class="brief-line"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
-    <!-- Big card with Conducting Need Analysis, Findings, Defined Need + right meta -->
-    <section class="card soft" style="margin-top:10px;">
+    <!-- Need Analysis block -->
+    <section class="card soft">
       <div class="grid cols-2">
 
-        <!-- Left column -->
+        <!-- Left side -->
         <div class="section">
           <div class="section-head">
             <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon" />
-            <h2>Conducting Need Analysis</h2>
+            <h2>Conducting<br>Need Analysis:</h2>
           </div>
 
           <p class="kicker">I began with a detailed needs analysis to understand the requirement in depth. This included discussions with the client’s service and operations teams to explore:</p>
           <ul class="list">
-            <li>Common errors tellers make in counterfeit detection</li>
+            <li>Common errors tellers made in counterfeit detection</li>
             <li>Which denominations posed the greatest risk</li>
             <li>How much time tellers could realistically devote to learning</li>
             <li>Compliance requirements to RBI guidelines</li>
             <li>Policies/processes to align</li>
           </ul>
 
-          <div class="box">
-            <div class="kicker">Findings from the Needs Analysis</div>
-            <p class="note" style="color:#E6EEF6">Insights were used to shape the learning time, focus areas, and practice style.</p>
-          </div>
+          <p class="subhead-blue"><strong>Findings from the<br>Needs Analysis:</strong></p>
 
-          <div class="box" style="margin-top:6px;">
-            <div class="kicker">Defined Need</div>
-            <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module covers all denominations in circulation, highlights key security features and red flags, and provides practice opportunities in realistic scenarios. It fits teller workflows, is concise, highly interactive, and practice-oriented.</p>
-          </div>
+          <p class="subhead-blue" style="margin-top:8px;"><strong>Defined Need</strong></p>
+          <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
         </div>
 
-        <!-- Right column (Audience + Module Duration) -->
+        <!-- Right meta -->
         <aside class="meta-col">
-          <div class="box">
-            <div class="kicker">Audience</div>
-            <p>Frontline bank tellers handling cash transactions daily.</p>
+          <div class="meta-box">
+            <p class="meta-label"><strong>Audience :</strong></p>
+            <p>Frontline bank tellers handling cash transactions daily</p>
           </div>
-          <div class="box">
-            <div class="kicker">Module Duration</div>
+          <div class="meta-box">
+            <p class="meta-label"><strong>Module Duration</strong></p>
             <p>40–50 minutes (self-paced)</p>
           </div>
         </aside>
@@ -157,11 +170,11 @@
       </div>
     </section>
 
-    <!-- Expertise in Action strip (icon + four bullets) -->
+    <!-- Expertise in Action strip -->
     <section class="card" style="margin-top:18px;">
       <div class="ea">
-        <!-- If you later upload analysis.png, you can swap the src; this uses your existing testimonials.png as a placeholder. -->
-        <img src="../assets/projects/counterfeit/testimonials.png" alt="Expertise in Action" />
+        <!-- Using your uploaded file with spaces/parentheses safely URL-encoded -->
+        <img src="../assets/projects/counterfeit/need-a-job%20(1).png" alt="Expertise in Action" />
         <ul class="list" style="margin:0">
           <li>Instructional Design</li>
           <li>Gamification & Learning Strategy</li>
@@ -176,10 +189,10 @@
       <div class="section">
         <div class="section-head">
           <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon" />
-          <h2>Learning Design Strategy</h2>
+          <h2>Learning<br>Design Strategy:</h2>
         </div>
 
-        <p>The module was designed as a game-based experience inspired by a “Money Heist” style narrative, where the storyline and mechanics were tightly interwoven with the learning content.</p>
+        <p>The module was designed as a game-based experience inspired by the “Money Heist” theme, where the storyline and mechanics were tightly interwoven with the learning content.</p>
 
         <ul class="list">
           <li>The experience unfolded across four heist levels, each focusing on a different denomination.</li>
@@ -206,7 +219,7 @@
           <h2>The Outcome</h2>
         </div>
 
-        <p>The client appreciated the practical relevance, clean design, and how easily tellers could engage with the content and apply it on the job.</p>
+        <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
         <p class="kicker" style="color:#E6EEF6">Click on the video below to check out a few glimpses from the project.</p>
 
         <div class="media">
@@ -230,7 +243,6 @@
   <script>
     // year stamp + mobile menu (close on link click)
     document.getElementById('y').textContent = new Date().getFullYear();
-    // if your js/app.js already handles menu, this is harmless
     (function(){
       const btn = document.querySelector('[data-menu-toggle]');
       const menu = document.querySelector('[data-menu]');
