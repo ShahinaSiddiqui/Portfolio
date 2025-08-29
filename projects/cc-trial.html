@@ -13,15 +13,16 @@
       --bg:#1B2733;        /* page bg */
       --panel:#2F4456;     /* header/footer/cards */
       --primary:#008CDB;   /* blue */
-      --navy:#034C8C;
+      --navy:#034C8C;      /* button */
       --teal:#2481A6;
-      --text:#E6EEF6;
-      --muted:#BFD1E0;
+      --text:#E6EEF6;      /* body text (white) */
+      --muted:#BFD1E0;     /* light */
       --shadow: 0 6px 24px rgba(0,0,0,.25);
       --radius:18px;
       --radius-sm:14px;
       --gap:20px;
       --container:1120px;
+      --footer-h:56px;     /* keep footer height consistent */
     }
     html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
     img{max-width:100%;height:auto;display:block}
@@ -48,12 +49,10 @@
 
     /* Footer */
     .site-footer{background:var(--panel);margin-top:40px}
-    .footer-inner{max-width:var(--container);margin:auto;padding:16px;display:flex;justify-content:flex-end;align-items:center;min-height:56px;color:#E5EEF7}
+    .footer-inner{max-width:var(--container);margin:auto;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;min-height:var(--footer-h);color:#E5EEF7}
 
-    /* Page container */
+    /* Layout */
     .container{max-width:var(--container);margin:auto;padding:24px 16px}
-
-    /* Top pill page title like screenshot */
     .title-pill{
       background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
       border:1px solid rgba(255,255,255,.08);
@@ -61,37 +60,37 @@
       padding:10px 18px;
       text-align:center;
       box-shadow:var(--shadow);
-      margin-bottom:10px;
+      margin:8px 0 10px;
     }
+    .brief-line{color:var(--primary);margin:8px 2px 14px}
 
-    /* Small blue project brief line */
-    .brief-line{color:var(--primary);margin:8px 2px 12px}
+    .btn{display:inline-block;border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;border:1px solid rgba(255,255,255,.1)}
+    .btn-navy{background:var(--navy);color:#fff}
+    .back-row{display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-bottom:10px}
 
-    /* Cards */
     .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .card.soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
 
-    /* Section patterns */
     .grid{display:grid;gap:var(--gap)}
     .cols-2{grid-template-columns: 1.4fr .6fr}
     @media (max-width: 980px){ .cols-2{grid-template-columns:1fr} }
-    .section{display:grid;gap:12px}
-    .section-head{display:flex;align-items:center;gap:10px}
-    .section-head img{width:56px;height:56px} /* bigger icons */
 
-    .kicker{font-size:14px;color:var(--muted);letter-spacing:.3px;margin:0 0 6px}
+    .section{display:grid;gap:12px}
+    .section-head{display:flex;align-items:center;gap:12px}
+    .section-head img{width:64px;height:64px} /* larger icons to match your mock */
+
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
 
-    /* Right meta column with divider like screenshot */
+    /* Right meta column with vertical divider */
     .meta-col{display:grid;gap:14px;border-left:1px solid rgba(255,255,255,.12);padding-left:16px}
     .meta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
     .meta-label{color:var(--primary);margin:0 0 6px;font-size:16px}
 
-    /* Blue subheads inside card to mirror mock */
-    .subhead-blue{color:var(--primary);margin:.2rem 0 .35rem}
+    /* A plain meta-style box with white text (for Findings…) */
+    .meta-box.plain .meta-label{color:var(--text);margin:0}
 
-    /* Expertise in Action strip */
+    /* Expertise strip */
     .ea{display:grid;grid-template-columns: 100px 1fr;gap:16px;align-items:center}
     .ea img{width:100px;height:auto}
     @media (max-width:560px){ .ea{grid-template-columns:76px 1fr}.ea img{width:76px} }
@@ -99,8 +98,6 @@
     /* Media */
     .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .media video{width:100%;display:block}
-
-    .note{font-size:14px;color:var(--muted)}
   </style>
 </head>
 
@@ -121,7 +118,12 @@
 
   <main class="container">
 
-    <!-- Title bar -->
+    <!-- Back button -->
+    <div class="back-row">
+      <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
+    </div>
+
+    <!-- Title -->
     <div class="title-pill">
       <h1>Project Name: Identifying Counterfeit Currency</h1>
     </div>
@@ -137,10 +139,10 @@
         <div class="section">
           <div class="section-head">
             <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon" />
-            <h2>Conducting<br>Need Analysis:</h2>
+            <h2>Conducting Need Analysis:</h2>
           </div>
 
-          <p class="kicker">I began with a detailed needs analysis to understand the requirement in depth. This included discussions with the client’s service and operations teams to explore:</p>
+          <p>I began with a detailed needs analysis to understand the requirement in depth. This included discussions with the client’s service and operations teams to explore:</p>
           <ul class="list">
             <li>Common errors tellers made in counterfeit detection</li>
             <li>Which denominations posed the greatest risk</li>
@@ -149,20 +151,24 @@
             <li>Policies/processes to align</li>
           </ul>
 
-          <p class="subhead-blue"><strong>Findings from the<br>Needs Analysis:</strong></p>
+          <!-- Findings box (white text inside a rectangular box) -->
+          <div class="meta-box plain">
+            <p class="meta-label">Findings from the Needs Analysis:</p>
+          </div>
 
-          <p class="subhead-blue" style="margin-top:8px;"><strong>Defined Need</strong></p>
+          <!-- Defined Need (blue subhead style) -->
+          <p class="meta-label" style="margin-top:10px">Defined Need</p>
           <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
         </div>
 
         <!-- Right meta -->
         <aside class="meta-col">
           <div class="meta-box">
-            <p class="meta-label"><strong>Audience :</strong></p>
-            <p>Frontline bank tellers handling cash transactions daily</p>
+            <p class="meta-label">Audience :</p>
+            <p>Frontline bank tellers handling cash transactions daily.</p>
           </div>
           <div class="meta-box">
-            <p class="meta-label"><strong>Module Duration</strong></p>
+            <p class="meta-label">Module Duration</p>
             <p>40–50 minutes (self-paced)</p>
           </div>
         </aside>
@@ -173,8 +179,7 @@
     <!-- Expertise in Action strip -->
     <section class="card" style="margin-top:18px;">
       <div class="ea">
-        <!-- Using your uploaded file with spaces/parentheses safely URL-encoded -->
-        <img src="../assets/projects/counterfeit/need-a-job%20(1).png" alt="Expertise in Action" />
+        <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action" />
         <ul class="list" style="margin:0">
           <li>Instructional Design</li>
           <li>Gamification & Learning Strategy</li>
@@ -189,7 +194,7 @@
       <div class="section">
         <div class="section-head">
           <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon" />
-          <h2>Learning<br>Design Strategy:</h2>
+          <h2>Learning Design Strategy:</h2>
         </div>
 
         <p>The module was designed as a game-based experience inspired by the “Money Heist” theme, where the storyline and mechanics were tightly interwoven with the learning content.</p>
@@ -201,7 +206,7 @@
           <li>Learners then faced a knowledge-check challenge, applying their skills to identify the counterfeit notes.</li>
         </ul>
 
-        <p class="kicker" style="margin-top:8px;">To bring this concept to life, I:</p>
+        <p style="margin-top:8px">To bring this concept to life, I:</p>
         <ul class="list" style="margin-top:2px">
           <li>Designed and created the design document, curating content mapped to learning objectives while minimizing cognitive load.</li>
           <li>Developed a detailed storyboard showing step-by-step progression of game elements, content flow, interactivities, and knowledge checks.</li>
@@ -220,7 +225,8 @@
         </div>
 
         <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
-        <p class="kicker" style="color:#E6EEF6">Click on the video below to check out a few glimpses from the project.</p>
+        <!-- Blue call-out line in the same style as other blue subheads -->
+        <p class="meta-label">Click on the video below to check out a few glimpses from the project.</p>
 
         <div class="media">
           <video controls preload="metadata">
