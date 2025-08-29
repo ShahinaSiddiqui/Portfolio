@@ -16,7 +16,7 @@
       --navy:#034C8C;      /* button */
       --teal:#2481A6;
       --text:#E6EEF6;      /* body text (white) */
-      --muted:#BFD1E0;     /* light */
+      --muted:#BFD1E0;
       --shadow: 0 6px 24px rgba(0,0,0,.25);
       --radius:18px;
       --radius-sm:14px;
@@ -33,19 +33,13 @@
     h2{font-size:clamp(20px,2.1vw,26px)}
     h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
 
-    /* Header */
+    /* Header (brand + back button only) */
     .site-header{position:sticky;top:0;z-index:50;background:var(--panel);box-shadow:var(--shadow)}
     .header-inner{max-width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
     .brand{font-size:18px;letter-spacing:.2px;color:#fff}
-    .nav{display:flex;gap:20px;align-items:center}
-    .nav a{color:#fff;opacity:.95}
-    .nav a[aria-current="page"]{color:var(--primary)}
-    .hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;line-height:1;padding:6px;cursor:pointer}
-    @media (max-width: 860px){
-      .hamburger{display:block}
-      .nav{position:fixed;inset:56px 0 auto 0;background:var(--panel);padding:12px 16px;flex-direction:column;gap:12px;box-shadow:var(--shadow);display:none}
-      .nav.open{display:flex}
-    }
+    .header-actions{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-block;border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;border:1px solid rgba(255,255,255,.1);text-decoration:none}
+    .btn-navy{background:var(--navy);color:#fff}
 
     /* Footer */
     .site-footer{background:var(--panel);margin-top:40px}
@@ -64,10 +58,6 @@
     }
     .brief-line{color:var(--primary);margin:8px 2px 14px}
 
-    .btn{display:inline-block;border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;border:1px solid rgba(255,255,255,.1)}
-    .btn-navy{background:var(--navy);color:#fff}
-    .back-row{display:flex;justify-content:flex-start;align-items:center;gap:10px;margin-bottom:10px}
-
     .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .card.soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
 
@@ -77,19 +67,19 @@
 
     .section{display:grid;gap:12px}
     .section-head{display:flex;align-items:center;gap:12px}
-    .section-head img{width:64px;height:64px} /* larger icons to match your mock */
+    .section-head img{width:64px;height:64px} /* large icons per mock */
 
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
 
-    /* Right meta column with vertical divider */
+    /* Right meta column */
     .meta-col{display:grid;gap:14px;border-left:1px solid rgba(255,255,255,.12);padding-left:16px}
     .meta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
     .meta-label{color:var(--primary);margin:0 0 6px;font-size:16px}
 
-    /* A plain meta-style box with white text (for Findings…) */
-    .meta-box.plain .meta-label{color:var(--text);margin:0}
-
+    /* Findings box (blue heading + body text inside same box) */
+    .findings-box .meta-label{margin-bottom:6px}
+    
     /* Expertise strip */
     .ea{display:grid;grid-template-columns: 100px 1fr;gap:16px;align-items:center}
     .ea img{width:100px;height:auto}
@@ -98,6 +88,9 @@
     /* Media */
     .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .media video{width:100%;display:block}
+
+    /* Outcome callout */
+    .callout{color:var(--primary);font-weight:700;text-align:center;font-size:17px;margin:10px 0}
   </style>
 </head>
 
@@ -106,23 +99,13 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="../index.html">Shahina Siddiqui</a>
-      <button class="hamburger" aria-label="Menu" data-menu-toggle>≡</button>
-      <nav class="nav" data-menu>
-        <a href="../index.html">Home</a>
-        <a href="../projects.html" aria-current="page">Projects</a>
-        <a href="../skills.html">Skills</a>
-        <a href="../contact.html">Contact</a>
-      </nav>
+      <div class="header-actions">
+        <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
+      </div>
     </div>
   </header>
 
   <main class="container">
-
-    <!-- Back button -->
-    <div class="back-row">
-      <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
-    </div>
-
     <!-- Title -->
     <div class="title-pill">
       <h1>Project Name: Identifying Counterfeit Currency</h1>
@@ -151,14 +134,11 @@
             <li>Policies/processes to align</li>
           </ul>
 
-          <!-- Findings box (white text inside a rectangular box) -->
-          <div class="meta-box plain">
+          <!-- Findings box WITH the "30–40 minutes…" paragraph inside -->
+          <div class="meta-box findings-box">
             <p class="meta-label">Findings from the Needs Analysis:</p>
+            <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
           </div>
-
-          <!-- Defined Need (blue subhead style) -->
-          <p class="meta-label" style="margin-top:10px">Defined Need</p>
-          <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
         </div>
 
         <!-- Right meta -->
@@ -225,8 +205,7 @@
         </div>
 
         <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
-        <!-- Blue call-out line in the same style as other blue subheads -->
-        <p class="meta-label">Click on the video below to check out a few glimpses from the project.</p>
+        <p class="callout">Click on the video below to check out a few glimpses from the project.</p>
 
         <div class="media">
           <video controls preload="metadata">
@@ -247,15 +226,8 @@
   </footer>
 
   <script>
-    // year stamp + mobile menu (close on link click)
+    // Year stamp (menu JS is harmless if present globally)
     document.getElementById('y').textContent = new Date().getFullYear();
-    (function(){
-      const btn = document.querySelector('[data-menu-toggle]');
-      const menu = document.querySelector('[data-menu]');
-      if(!btn || !menu) return;
-      btn.addEventListener('click', ()=> menu.classList.toggle('open'));
-      menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> menu.classList.remove('open')));
-    })();
   </script>
 </body>
 </html>
