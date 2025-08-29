@@ -15,8 +15,8 @@
 
       /* Layout */
       --container:1100px;
-      --pad:20px;        /* used by header */
-      --page-pad:20px;   /* used by footer to match site */
+      --pad:20px;        /* header horizontal padding */
+      --page-pad:20px;   /* footer horizontal padding (match site) */
       --shadow:0 6px 24px rgba(0,0,0,.25);
       --divider:rgba(255,255,255,.15);
       --radius:18px;
@@ -24,7 +24,9 @@
 
     /* Base */
     html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      overflow-x:hidden; /* prevent sideways scroll that made footer look offset */
+    }
     img,video{max-width:100%;height:auto;display:block}
     a{color:var(--blue-1);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -37,16 +39,18 @@
     .container{max-width:var(--container);margin:0 auto;padding:24px var(--pad)}
     main{flex:1}
 
-    /* Header (unchanged) */
+    /* ===== Header (brand left, Back to Projects right) ===== */
     .site-header{
       position:sticky; top:0; z-index:1000;
       background:var(--panel); border-bottom:1px solid var(--panel-outline);
     }
     .header-row{
-      max-width:var(--container); margin:0 auto;
+      /* FULL-WIDTH row (matches your main site) */
+      width:100%;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
       padding:12px calc(var(--pad) + env(safe-area-inset-right))
               12px calc(var(--pad) + env(safe-area-inset-left));
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      box-sizing:border-box;
     }
     .brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; white-space:nowrap }
     .btn{ display:inline-flex; align-items:center; justify-content:center;
@@ -56,19 +60,19 @@
     .btn-navy{ background:var(--blue-2); color:#fff; border-radius:36px; padding:12px 22px; font-size:16px; }
     .btn-navy:hover{ filter:brightness(1.08) }
 
-    /* ===== Footer (FIX: full-width row + site padding + site text style) ===== */
+    /* ===== Footer (full-width row; same sizing/feel as site) ===== */
     .site-footer{
       margin-top:auto; background:var(--panel); border-top:1px solid var(--panel-outline);
     }
     .footer-row{
-      width:100%;                  /* full width (not centered container) */
+      width:100%; box-sizing:border-box;          /* full-bleed row */
       display:flex; align-items:center; justify-content:flex-end;
       padding:10px calc(var(--page-pad) + env(safe-area-inset-right))
               10px calc(var(--page-pad) + env(safe-area-inset-left));
     }
-    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap } /* match site */
+    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap } /* same as site */
 
-    /* Content (unchanged) */
+    /* ===== Content (unchanged) ===== */
     .title-pill{
       background:linear-gradient(180deg,#344E62 0%,#2F4456 100%);
       border:1px solid rgba(255,255,255,.08);
