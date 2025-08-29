@@ -21,7 +21,7 @@
       --radius-sm:14px;
       --gap:20px;
       --container:1120px;
-      --footer-h:56px;     /* keep footer height consistent */
+      --footer-h:56px;     /* footer height like other pages */
       --divider: rgba(255,255,255,.15);
     }
     html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
@@ -67,7 +67,7 @@
 
     .section{display:grid;gap:12px}
     .section-head{display:flex;align-items:center;gap:12px}
-    .section-head img{width:64px;height:64px}
+    .section-head img{width:64px;height:64px} /* big icons for headings */
 
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
@@ -82,11 +82,6 @@
 
     .meta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
     .meta-label{color:var(--primary);margin:0 0 6px;font-size:16px}
-
-    /* Findings box heading with icon */
-    .with-icon{display:flex;align-items:center;gap:10px;margin-bottom:6px}
-    .with-icon img{width:36px;height:36px}
-    .with-icon span{color:var(--primary);font-size:16px}
 
     /* Expertise strip */
     .ea{display:grid;grid-template-columns: 100px 1fr;gap:16px;align-items:center}
@@ -143,19 +138,20 @@
 
         <!-- Bottom row: findings left | vertical line | audience/duration right -->
         <div class="findings-layout">
-          <!-- Left: Findings box with blue heading + icon and long paragraph -->
-          <div class="meta-box">
-            <div class="with-icon">
-              <!-- Correct icon for Findings -->
+          <!-- LEFT: Findings heading (icon + text) OUTSIDE the box, then the paragraph box -->
+          <div class="section">
+            <div class="section-head">
               <img src="../assets/projects/counterfeit/project.png" alt="Findings icon" />
-              <span>Findings from the Needs Analysis:</span>
+              <h2>Findings from the Needs Analysis:</h2>
             </div>
-            <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
+            <div class="meta-box">
+              <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
+            </div>
           </div>
 
           <div class="vline"></div>
 
-          <!-- Right: two small boxes stacked -->
+          <!-- RIGHT: two small boxes stacked -->
           <div class="section" style="gap:14px">
             <div class="meta-box">
               <p class="meta-label">Audience :</p>
@@ -214,7 +210,6 @@
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="section-head">
-          <!-- Correct icon for Outcome -->
           <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon" />
           <h2>The Outcome</h2>
         </div>
