@@ -7,135 +7,96 @@
   <meta name="description" content="Game-based e-learning module enabling bank tellers to identify counterfeit Indian currency." />
   <link rel="icon" href="../assets/img/profile.png">
   <script defer src="../js/app.js"></script>
-
   <style>
     :root{
-      --bg:#1B2733;        /* page bg */
-      --panel:#2F4456;     /* header/footer/cards */
-      --primary:#008CDB;   /* blue */
-      --navy:#034C8C;      /* button */
-      --text:#E6EEF6;      /* body text (white) */
+      --bg:#1B2733;
+      --panel:#2F4456;
+      --primary:#008CDB;
+      --navy:#034C8C;
+      --text:#E6EEF6;
       --muted:#BFD1E0;
-      --shadow: 0 6px 24px rgba(0,0,0,.25);
+      --shadow:0 6px 24px rgba(0,0,0,.25);
       --radius:18px;
-      --radius-sm:14px;
-      --gap:20px;
-      --container:1120px;
-      --footer-h:56px;     /* footer height like other pages */
-      --divider: rgba(255,255,255,.15);
+      --container:1120px;     /* site container */
+      --footer-h:56px;
+      --divider:rgba(255,255,255,.15);
     }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
     img{max-width:100%;height:auto;display:block}
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{font-weight:400;margin:0 0 .5rem}
-    h1{font-size:clamp(26px,3vw,34px);letter-spacing:.2px}
+    h1{font-size:clamp(26px,3vw,34px)}
     h2{font-size:clamp(20px,2.1vw,26px)}
     h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
 
-    /* Page wrapper for sticky footer */
+    /* sticky header – brand left, back button right, same spacing as main site */
     .page{min-height:100dvh;display:flex;flex-direction:column}
-
-    /* Header: brand + back only */
     .site-header{position:sticky;top:0;z-index:50;background:var(--panel);box-shadow:var(--shadow)}
-    .header-inner{max-width:var(--container);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
-    .brand{font-size:18px;letter-spacing:.2px;color:#fff}
-    .header-actions{display:flex;gap:10px;align-items:center}
-    .btn{display:inline-block;border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;border:1px solid rgba(255,255,255,.1);text-decoration:none}
-    .btn-navy{background:var(--navy);color:#fff}
+    .inner{max-width:var(--container);margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between}
+    .brand{color:#fff;letter-spacing:.2px;font-size:18px}
+    .btn{display:inline-block;background:var(--navy);color:#fff;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;text-decoration:none}
 
-    /* Footer (matches rest of site: right-aligned, uniform height) */
+    /* footer – right aligned, matches other pages */
     .site-footer{background:var(--panel);margin-top:40px}
-    .footer-inner{max-width:var(--container);margin:auto;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;min-height:var(--footer-h);color:#E5EEF7;font-size:14px}
+    .footer-inner{max-width:var(--container);margin:auto;padding:0 20px;min-height:var(--footer-h);display:flex;justify-content:flex-end;align-items:center;color:#E5EEF7;font-size:14px}
 
-    /* Layout */
     main{flex:1}
-    .container{max-width:var(--container);margin:auto;padding:24px 16px}
-    .title-pill{
-      background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:26px;
-      padding:10px 18px;
-      text-align:center;
-      box-shadow:var(--shadow);
-      margin:8px 0 10px;
-    }
+    .container{max-width:var(--container);margin:auto;padding:24px 20px}
+
+    .title-pill{background:linear-gradient(180deg,#344E62 0%,#2F4456 100%);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:10px 18px;text-align:center;box-shadow:var(--shadow);margin:8px 0 10px}
     .brief-line{color:var(--primary);margin:8px 2px 14px}
 
-    .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
-    .card.soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
-
-    .grid{display:grid;gap:var(--gap)}
-    .cols-2{grid-template-columns: 1.4fr .6fr}
-    @media (max-width: 980px){ .cols-2{grid-template-columns:1fr} }
+    .card{background:var(--panel);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
 
     .section{display:grid;gap:12px}
     .section-head{display:flex;align-items:center;gap:12px}
-    .section-head img{width:72px;height:72px} /* big consistent icons (Outcome included) */
+    .section-head img{width:72px;height:72px} /* big consistent icons */
 
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
-
-    /* Thin rule after bullets */
     hr.thin{border:0;border-top:1px solid var(--divider);margin:10px 0 16px}
 
-    /* Bottom layout under bullets: findings left, audience/duration right */
-    .findings-layout{display:grid;grid-template-columns: 1fr 1px 0.42fr;gap:16px;align-items:start}
+    /* bottom layout under bullets */
+    .findings-layout{display:grid;grid-template-columns:1fr 1px .42fr;gap:16px;align-items:start}
     .vline{background:var(--divider);border-radius:1px}
-    @media (max-width:980px){ .findings-layout{grid-template-columns:1fr;}.vline{display:none} }
+    @media (max-width:980px){.findings-layout{grid-template-columns:1fr}.vline{display:none}}
 
     .meta-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
     .meta-label{color:var(--primary);margin:0 0 6px;font-size:16px}
 
-    /* Expertise strip */
-    .ea{display:grid;grid-template-columns: 100px 1fr;gap:16px;align-items:center}
-    .ea img{width:100px;height:auto}
-    @media (max-width:560px){ .ea{grid-template-columns:76px 1fr}.ea img{width:76px} }
+    .ea{display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:center}
+    .ea img{width:100px}
+    @media (max-width:560px){.ea{grid-template-columns:76px 1fr}.ea img{width:76px}}
 
-    /* Video callout panel */
-    .video-cta{
-      display:flex;gap:10px;justify-content:center;align-items:center;
-      background:rgba(0,140,219,.08);
-      border:1px solid rgba(0,140,219,.35);
-      border-radius:999px;
-      padding:10px 16px;
-      margin:8px auto 14px;
-      width:max-content;
-      font-weight:700;color:var(--primary);
-    }
-    .video-cta svg{width:18px;height:18px;flex:0 0 18px}
-    /* Media */
-    .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    /* subtle, on-brand video callout */
+    .video-cta{display:flex;gap:10px;justify-content:center;align-items:center;background:rgba(0,140,219,.08);border:1px solid rgba(0,140,219,.35);border-radius:999px;padding:10px 16px;margin:8px auto 14px;width:max-content;font-weight:700;color:var(--primary)}
+    .video-cta svg{width:18px;height:18px}
+    .media{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
     .media video{width:100%;display:block}
   </style>
 </head>
-
 <body>
 <div class="page">
-  <!-- Header -->
+
+  <!-- HEADER -->
   <header class="site-header">
-    <div class="header-inner">
+    <div class="inner">
       <a class="brand" href="../index.html">Shahina Siddiqui</a>
-      <div class="header-actions">
-        <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
-      </div>
+      <a class="btn" href="../projects.html">← Back to Projects</a>
     </div>
   </header>
 
   <main class="container">
-    <!-- Title -->
-    <div class="title-pill">
-      <h1>Project Name: Identifying Counterfeit Currency</h1>
-    </div>
-
-    <!-- Project brief (blue) -->
+    <div class="title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
     <p class="brief-line"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
-    <!-- Need Analysis block -->
+    <!-- Conducting Need Analysis -->
     <section class="card soft">
       <div class="section">
         <div class="section-head">
-          <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon" />
+          <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon">
           <h2>Conducting Need Analysis:</h2>
         </div>
 
@@ -148,14 +109,13 @@
           <li>Policies/processes to align</li>
         </ul>
 
-        <hr class="thin" />
+        <hr class="thin">
 
-        <!-- Bottom row: findings left | vertical line | audience/duration right -->
+        <!-- Findings row -->
         <div class="findings-layout">
-          <!-- LEFT: Findings heading (icon + text) OUTSIDE the box, then the paragraph box -->
           <div class="section">
             <div class="section-head">
-              <img src="../assets/projects/counterfeit/project.png" alt="Findings icon" />
+              <img src="../assets/projects/counterfeit/project.png" alt="Findings icon">
               <h2>Findings from the Needs Analysis:</h2>
             </div>
             <div class="meta-box">
@@ -165,7 +125,6 @@
 
           <div class="vline"></div>
 
-          <!-- RIGHT: two small boxes stacked -->
           <div class="section" style="gap:14px">
             <div class="meta-box">
               <p class="meta-label">Audience :</p>
@@ -180,10 +139,10 @@
       </div>
     </section>
 
-    <!-- Expertise in Action strip -->
+    <!-- Expertise in Action -->
     <section class="card" style="margin-top:18px;">
       <div class="ea">
-        <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action" />
+        <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
         <ul class="list" style="margin:0">
           <li>Instructional Design</li>
           <li>Gamification & Learning Strategy</li>
@@ -197,7 +156,7 @@
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="section-head">
-          <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon" />
+          <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon">
           <h2>Learning Design Strategy:</h2>
         </div>
 
@@ -224,13 +183,13 @@
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="section-head">
-          <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon" />
+          <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
           <h2>The Outcome</h2>
         </div>
 
         <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
 
-        <!-- Aesthetic video callout -->
+        <!-- aesthetic callout -->
         <div class="video-cta" title="Play the video below">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
           <span>Click the video below to see a few glimpses from the project</span>
@@ -247,17 +206,16 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
       <span>© <span id="y"></span> Shahina Siddiqui</span>
     </div>
   </footer>
-</div>
 
-  <script>
-    // year stamp
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+</div>
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
