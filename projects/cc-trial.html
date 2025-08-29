@@ -3,93 +3,143 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Identifying Counterfeit Currency — Shahina Siddiqui</title>
+  <title>Identifying Counterfeit Currency · Shahina Siddiqui</title>
+  <meta name="description" content="Game-based e-learning module enabling bank tellers to identify counterfeit Indian currency.">
 
-  <!-- Use the same stylesheet as the other pages so header/footer match perfectly -->
-  <link rel="stylesheet" href="./styles.css?v=2025-11" />
-
-  <!-- Page-specific styles (namespaced, won’t touch header/footer) -->
+  <!-- Self-contained styles. Content is the same as the “working” version;
+       only header & footer are matched to your site’s look/spacing. -->
   <style>
-    /* media sizing – prevents any “wonky” overflow */
-    img, video { max-width: 100%; height: auto; display: block; }
+    :root{
+      /* Brand tokens (same palette as site) */
+      --blue-1:#008CDB; --blue-2:#034C8C; --blue-3:#2481A6;
+      --bg:#1B2733; --panel:#2F4456; --panel-outline:rgba(255,255,255,.08);
+      --ink:#E6EEF6; --muted:#BFD1E0;
 
-    /* Container: use the site’s .container to keep widths identical */
-    main.container { padding-top: 24px; padding-bottom: 24px; }
+      /* Layout */
+      --container:1100px;            /* matches your site width */
+      --pad:20px;                    /* page side padding */
+      --shadow:0 6px 24px rgba(0,0,0,.25);
+      --divider:rgba(255,255,255,.15);
+      --radius:18px;
+    }
 
-    .ccp-title-pill{
-      background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
+    /* ===== Base ===== */
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
+    img,video{max-width:100%;height:auto;display:block}
+    a{color:var(--blue-1);text-decoration:none}
+    a:hover{text-decoration:underline}
+    h1,h2,h3{font-weight:400;margin:0 0 .5rem}
+    h1{font-size:clamp(26px,3vw,34px)}
+    h2{font-size:clamp(20px,2.1vw,26px)}
+    h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
+
+    .page{min-height:100dvh;display:flex;flex-direction:column}
+    .container{max-width:var(--container);margin:0 auto;padding:24px var(--pad)}
+    main{flex:1}
+
+    /* ===== Header (exact alignment/feel as site) ===== */
+    .site-header{
+      position:sticky; top:0; z-index:1000;
+      background:var(--panel); border-bottom:1px solid var(--panel-outline);
+    }
+    .header-row{
+      max-width:var(--container); margin:0 auto;
+      padding:12px calc(var(--pad) + env(safe-area-inset-right))
+              12px calc(var(--pad) + env(safe-area-inset-left));
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; white-space:nowrap }
+
+    /* pill button on the right */
+    .btn{ display:inline-flex; align-items:center; justify-content:center;
+      text-decoration:none; font-weight:600; border:2px solid transparent;
+      transition:filter .2s ease, transform .04s ease-in-out; }
+    .btn:active{ transform:translateY(1px) }
+    .btn-navy{ background:var(--blue-2); color:#fff; border-radius:36px; padding:12px 22px; font-size:16px; }
+    .btn-navy:hover{ filter:brightness(1.08) }
+
+    /* ===== Footer (right-aligned; same height & typography) ===== */
+    .site-footer{ background:var(--panel); border-top:1px solid var(--panel-outline); margin-top:32px }
+    .footer-row{
+      max-width:var(--container); margin:0 auto;
+      padding:10px calc(var(--pad) + env(safe-area-inset-right))
+              10px calc(var(--pad) + env(safe-area-inset-left));
+      display:flex; align-items:center; justify-content:flex-end;
+      color:#cfe8f5; font-size:13px;
+    }
+
+    /* ===== Cards + content (unchanged from your “working” page) ===== */
+    .title-pill{
+      background:linear-gradient(180deg,#344E62 0%,#2F4456 100%);
       border:1px solid rgba(255,255,255,.08);
-      border-radius:26px;
-      padding:10px 18px;
-      text-align:center;
-      box-shadow:0 6px 24px rgba(0,0,0,.25);
+      border-radius:26px; padding:10px 18px; text-align:center; box-shadow:var(--shadow);
       margin:8px 0 10px;
     }
-    .ccp-brief{ color:#008CDB; margin:8px 2px 14px }
+    .brief-line{ color:var(--blue-1); margin:8px 2px 14px }
 
-    .ccp-card{ background:#2F4456; border-radius:18px; box-shadow:0 6px 24px rgba(0,0,0,.25); padding:18px }
-    .ccp-soft{ background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%) }
+    .card{ background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px }
+    .soft{ background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%) }
 
-    .ccp-section{ display:grid; gap:12px }
-    .ccp-head{ display:flex; align-items:center; gap:12px }
-    .ccp-head img{ width:72px; height:72px }
+    .section{ display:grid; gap:12px }
+    .head{ display:flex; align-items:center; gap:12px }
+    .head img{ width:72px; height:72px }
 
-    .ccp-list{ margin:.25rem 0 .5rem; padding-left:1.1rem }
-    .ccp-list li{ margin:.25rem 0 }
-    .ccp-hr{ border:0; border-top:1px solid rgba(255,255,255,.15); margin:10px 0 16px }
+    .list{ margin:.25rem 0 .5rem; padding-left:1.1rem }
+    .list li{ margin:.25rem 0 }
+    hr.thin{ border:0; border-top:1px solid var(--divider); margin:10px 0 16px }
 
-    .ccp-findings{ display:grid; grid-template-columns:1fr 1px .42fr; gap:16px; align-items:start }
-    .ccp-vline{ background:rgba(255,255,255,.15); border-radius:1px }
-    @media (max-width:980px){ .ccp-findings{ grid-template-columns:1fr } .ccp-vline{ display:none } }
+    /* Findings row */
+    .findings{ display:grid; grid-template-columns:1fr 1px .42fr; gap:16px; align-items:start }
+    .vline{ background:var(--divider); border-radius:1px }
+    @media (max-width:980px){ .findings{ grid-template-columns:1fr } .vline{ display:none } }
 
-    .ccp-meta{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px }
-    .ccp-meta-label{ color:#008CDB; margin:0 0 6px; font-size:16px }
+    .meta{ background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; padding:12px }
+    .meta-label{ color:var(--blue-1); margin:0 0 6px; font-size:16px }
 
-    .ccp-ea{ display:grid; grid-template-columns:100px 1fr; gap:16px; align-items:center }
-    .ccp-ea img{ width:100px }
-    @media (max-width:560px){ .ccp-ea{ grid-template-columns:76px 1fr } .ccp-ea img{ width:76px } }
+    /* Expertise strip */
+    .ea{ display:grid; grid-template-columns:100px 1fr; gap:16px; align-items:center }
+    .ea img{ width:100px }
+    @media (max-width:560px){ .ea{ grid-template-columns:76px 1fr } .ea img{ width:76px } }
 
-    .ccp-video-cta{
+    /* Outcome video callout */
+    .video-cta{
       display:flex; gap:10px; justify-content:center; align-items:center;
       background:rgba(0,140,219,.08); border:1px solid rgba(0,140,219,.35);
       border-radius:999px; padding:10px 16px; margin:8px auto 14px; width:max-content;
-      font-weight:700; color:#008CDB
+      font-weight:700; color:var(--blue-1)
     }
-    .ccp-video-cta svg{ width:18px; height:18px }
-    .ccp-media{ background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden }
+    .video-cta svg{ width:18px; height:18px }
+    .media{ background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden }
+    .media video{ width:100%; display:block }
   </style>
 </head>
 <body>
+<div class="page">
 
-  <!-- Backdrop (used by your mobile drawer nav) -->
-  <div class="backdrop" hidden></div>
-
-  <!-- ===== HEADER (same structure/classes as the rest of your site) ===== -->
+  <!-- ===== Header (brand left • Back to Projects right) ===== -->
   <header class="site-header">
     <div class="header-row">
-      <a class="brand" href="index.html">Shahina Siddiqui</a>
-      <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">☰</button>
-      <nav id="site-nav" class="nav">
-        <!-- Only the back button (you didn’t want the other tabs here) -->
-        <a class="btn btn-navy" href="projects.html">← Back to Projects</a>
-      </nav>
+      <a class="brand" href="../index.html">Shahina Siddiqui</a>
+      <a class="btn btn-navy" href="../projects.html">← Back to Projects</a>
     </div>
   </header>
 
   <main class="container">
-    <div class="ccp-title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
-    <p class="ccp-brief"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
+    <div class="title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
+    <p class="brief-line"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
     <!-- Conducting Need Analysis -->
-    <section class="ccp-card ccp-soft">
-      <div class="ccp-section">
-        <div class="ccp-head">
-          <img src="./assets/projects/counterfeit/magnifier.png" alt="Need analysis icon">
+    <section class="card soft">
+      <div class="section">
+        <div class="head">
+          <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon">
           <h2>Conducting Need Analysis:</h2>
         </div>
 
         <p>I began with a detailed needs analysis to understand the requirement in depth. This included discussions with the client’s service and operations teams to explore:</p>
-        <ul class="ccp-list">
+        <ul class="list">
           <li>Common errors tellers made in counterfeit detection</li>
           <li>Which denominations posed the greatest risk</li>
           <li>How much time tellers could realistically devote to learning</li>
@@ -97,28 +147,29 @@
           <li>Policies/processes to align</li>
         </ul>
 
-        <hr class="ccp-hr">
+        <hr class="thin">
 
-        <div class="ccp-findings">
-          <div class="ccp-section">
-            <div class="ccp-head">
-              <img src="./assets/projects/counterfeit/project.png" alt="Findings icon">
+        <!-- Findings -->
+        <div class="findings">
+          <div class="section">
+            <div class="head">
+              <img src="../assets/projects/counterfeit/project.png" alt="Findings icon">
               <h2>Findings from the Needs Analysis:</h2>
             </div>
-            <div class="ccp-meta">
+            <div class="meta">
               <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module needed to cover all denominations in circulation, highlight key security features and red flags, and provide practice opportunities in realistic scenarios. To fit seamlessly into teller workflows, it also had to be concise, highly interactive, and practice-oriented.</p>
             </div>
           </div>
 
-          <div class="ccp-vline"></div>
+          <div class="vline"></div>
 
-          <div class="ccp-section" style="gap:14px">
-            <div class="ccp-meta">
-              <p class="ccp-meta-label">Audience :</p>
+          <div class="section" style="gap:14px">
+            <div class="meta">
+              <p class="meta-label">Audience :</p>
               <p>Frontline bank tellers handling cash transactions daily.</p>
             </div>
-            <div class="ccp-meta">
-              <p class="ccp-meta-label">Module Duration</p>
+            <div class="meta">
+              <p class="meta-label">Module Duration</p>
               <p>40–50 minutes (self-paced)</p>
             </div>
           </div>
@@ -127,10 +178,10 @@
     </section>
 
     <!-- Expertise in Action -->
-    <section class="ccp-card" style="margin-top:18px;">
-      <div class="ccp-ea">
-        <img src="./assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
-        <ul class="ccp-list" style="margin:0">
+    <section class="card" style="margin-top:18px;">
+      <div class="ea">
+        <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
+        <ul class="list" style="margin:0">
           <li>Instructional Design</li>
           <li>Gamification & Learning Strategy</li>
           <li>Graphics & Visual Mock-ups</li>
@@ -140,16 +191,16 @@
     </section>
 
     <!-- Learning Design Strategy -->
-    <section class="ccp-card ccp-soft" style="margin-top:18px;">
-      <div class="ccp-section">
-        <div class="ccp-head">
-          <img src="./assets/projects/counterfeit/innovation.png" alt="Strategy icon">
+    <section class="card soft" style="margin-top:18px;">
+      <div class="section">
+        <div class="head">
+          <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon">
           <h2>Learning Design Strategy:</h2>
         </div>
 
         <p>The module was designed as a game-based experience inspired by the “Money Heist” theme, where the storyline and mechanics were tightly interwoven with the learning content.</p>
 
-        <ul class="ccp-list">
+        <ul class="list">
           <li>The experience unfolded across four heist levels, each focusing on a different denomination.</li>
           <li>At the start of each level, learners explored the metallic printing plate and studied the denomination’s security features in depth.</li>
           <li>Once this learning phase was complete, the heist began — the currency went into production, the process was disrupted, and some notes were corrupted.</li>
@@ -157,7 +208,7 @@
         </ul>
 
         <p style="margin-top:8px">To bring this concept to life, I:</p>
-        <ul class="ccp-list" style="margin-top:2px">
+        <ul class="list" style="margin-top:2px">
           <li>Designed and created the design document, curating content mapped to learning objectives while minimizing cognitive load.</li>
           <li>Developed a detailed storyboard showing step-by-step progression of game elements, content flow, interactivities, and knowledge checks.</li>
           <li>Created visual mock-ups to align game mechanics with engaging design elements.</li>
@@ -167,23 +218,23 @@
     </section>
 
     <!-- Outcome -->
-    <section class="ccp-card ccp-soft" style="margin-top:18px;">
-      <div class="ccp-section">
-        <div class="ccp-head">
-          <img src="./assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
+    <section class="card soft" style="margin-top:18px;">
+      <div class="section">
+        <div class="head">
+          <img src="../assets/projects/counterfeit/testimonials.png" alt="Outcome icon">
           <h2>The Outcome</h2>
         </div>
 
         <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
 
-        <div class="ccp-video-cta" title="Play the video below">
+        <div class="video-cta" title="Play the video below">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
           <span>Click the video below to see a few glimpses from the project</span>
         </div>
 
-        <div class="ccp-media">
+        <div class="media">
           <video controls preload="metadata">
-            <source src="./assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
+            <source src="../assets/projects/counterfeit/counterfeit.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -191,14 +242,17 @@
     </section>
   </main>
 
-  <!-- ===== FOOTER (same structure/classes as your site) ===== -->
-  <footer class="site-footer" role="contentinfo">
+  <!-- ===== Footer (right-aligned, same band height) ===== -->
+  <footer class="site-footer">
     <div class="footer-row">
-      <small>© 2025 Shahina Siddiqui</small>
+      <small>© <span id="y"></span> Shahina Siddiqui</small>
     </div>
   </footer>
+</div>
 
-  <!-- Same script path your Projects page uses -->
-  <script src="js/app.js" defer></script>
+<script>
+  // Footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
