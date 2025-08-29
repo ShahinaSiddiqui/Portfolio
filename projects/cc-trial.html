@@ -6,24 +6,20 @@
   <title>Identifying Counterfeit Currency · Shahina Siddiqui</title>
   <meta name="description" content="Game-based e-learning module enabling bank tellers to identify counterfeit Indian currency.">
 
-  <!-- Self-contained styles. Content is the same as the “working” version;
-       only header & footer are matched to your site’s look/spacing. -->
   <style>
     :root{
-      /* Brand tokens (same palette as site) */
       --blue-1:#008CDB; --blue-2:#034C8C; --blue-3:#2481A6;
       --bg:#1B2733; --panel:#2F4456; --panel-outline:rgba(255,255,255,.08);
       --ink:#E6EEF6; --muted:#BFD1E0;
 
-      /* Layout */
-      --container:1100px;            /* matches your site width */
-      --pad:20px;                    /* page side padding */
+      --container:1100px;
+      --pad:20px;
       --shadow:0 6px 24px rgba(0,0,0,.25);
       --divider:rgba(255,255,255,.15);
       --radius:18px;
     }
 
-    /* ===== Base ===== */
+    /* Base */
     html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);
       font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif}
     img,video{max-width:100%;height:auto;display:block}
@@ -38,7 +34,7 @@
     .container{max-width:var(--container);margin:0 auto;padding:24px var(--pad)}
     main{flex:1}
 
-    /* ===== Header (exact alignment/feel as site) ===== */
+    /* Header */
     .site-header{
       position:sticky; top:0; z-index:1000;
       background:var(--panel); border-bottom:1px solid var(--panel-outline);
@@ -50,8 +46,6 @@
       display:flex; align-items:center; justify-content:space-between; gap:16px;
     }
     .brand{ color:#fff; text-decoration:none; font-weight:700; font-size:18px; white-space:nowrap }
-
-    /* pill button on the right */
     .btn{ display:inline-flex; align-items:center; justify-content:center;
       text-decoration:none; font-weight:600; border:2px solid transparent;
       transition:filter .2s ease, transform .04s ease-in-out; }
@@ -59,17 +53,18 @@
     .btn-navy{ background:var(--blue-2); color:#fff; border-radius:36px; padding:12px 22px; font-size:16px; }
     .btn-navy:hover{ filter:brightness(1.08) }
 
-    /* ===== Footer (right-aligned; same height & typography) ===== */
+    /* Footer (FIXED to match site) */
     .site-footer{ background:var(--panel); border-top:1px solid var(--panel-outline); margin-top:32px }
     .footer-row{
       max-width:var(--container); margin:0 auto;
       padding:10px calc(var(--pad) + env(safe-area-inset-right))
               10px calc(var(--pad) + env(safe-area-inset-left));
       display:flex; align-items:center; justify-content:flex-end;
-      color:#cfe8f5; font-size:13px;
+      /* no font-size override here so it matches site (inherits 16px) */
     }
+    .site-footer small{ color:#cfe8f5; opacity:.9; white-space:nowrap }
 
-    /* ===== Cards + content (unchanged from your “working” page) ===== */
+    /* Cards + content (unchanged) */
     .title-pill{
       background:linear-gradient(180deg,#344E62 0%,#2F4456 100%);
       border:1px solid rgba(255,255,255,.08);
@@ -89,7 +84,6 @@
     .list li{ margin:.25rem 0 }
     hr.thin{ border:0; border-top:1px solid var(--divider); margin:10px 0 16px }
 
-    /* Findings row */
     .findings{ display:grid; grid-template-columns:1fr 1px .42fr; gap:16px; align-items:start }
     .vline{ background:var(--divider); border-radius:1px }
     @media (max-width:980px){ .findings{ grid-template-columns:1fr } .vline{ display:none } }
@@ -98,12 +92,10 @@
       border-radius:14px; padding:12px }
     .meta-label{ color:var(--blue-1); margin:0 0 6px; font-size:16px }
 
-    /* Expertise strip */
     .ea{ display:grid; grid-template-columns:100px 1fr; gap:16px; align-items:center }
     .ea img{ width:100px }
     @media (max-width:560px){ .ea{ grid-template-columns:76px 1fr } .ea img{ width:76px } }
 
-    /* Outcome video callout */
     .video-cta{
       display:flex; gap:10px; justify-content:center; align-items:center;
       background:rgba(0,140,219,.08); border:1px solid rgba(0,140,219,.35);
@@ -118,7 +110,6 @@
 <body>
 <div class="page">
 
-  <!-- ===== Header (brand left • Back to Projects right) ===== -->
   <header class="site-header">
     <div class="header-row">
       <a class="brand" href="../index.html">Shahina Siddiqui</a>
@@ -130,7 +121,6 @@
     <div class="title-pill"><h1>Project Name: Identifying Counterfeit Currency</h1></div>
     <p class="brief-line"><strong>Project Brief :</strong> The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
-    <!-- Conducting Need Analysis -->
     <section class="card soft">
       <div class="section">
         <div class="head">
@@ -149,7 +139,6 @@
 
         <hr class="thin">
 
-        <!-- Findings -->
         <div class="findings">
           <div class="section">
             <div class="head">
@@ -177,7 +166,6 @@
       </div>
     </section>
 
-    <!-- Expertise in Action -->
     <section class="card" style="margin-top:18px;">
       <div class="ea">
         <img src="../assets/projects/counterfeit/expertise.png" alt="Expertise in Action">
@@ -190,7 +178,6 @@
       </div>
     </section>
 
-    <!-- Learning Design Strategy -->
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="head">
@@ -217,7 +204,6 @@
       </div>
     </section>
 
-    <!-- Outcome -->
     <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="head">
@@ -242,7 +228,6 @@
     </section>
   </main>
 
-  <!-- ===== Footer (right-aligned, same band height) ===== -->
   <footer class="site-footer">
     <div class="footer-row">
       <small>© <span id="y"></span> Shahina Siddiqui</small>
@@ -251,7 +236,6 @@
 </div>
 
 <script>
-  // Footer year
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 </body>
