@@ -24,7 +24,7 @@
       --footer-h:56px;     /* footer height like other pages */
       --divider: rgba(255,255,255,.15);
     }
-    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
+    html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
     img{max-width:100%;height:auto;display:block}
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -32,6 +32,9 @@
     h1{font-size:clamp(26px,3vw,34px);letter-spacing:.2px}
     h2{font-size:clamp(20px,2.1vw,26px)}
     h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
+
+    /* Page wrapper for sticky footer */
+    .page{min-height:100dvh;display:flex;flex-direction:column}
 
     /* Header: brand + back only */
     .site-header{position:sticky;top:0;z-index:50;background:var(--panel);box-shadow:var(--shadow)}
@@ -41,11 +44,12 @@
     .btn{display:inline-block;border-radius:999px;padding:8px 14px;font-size:14px;line-height:1;border:1px solid rgba(255,255,255,.1);text-decoration:none}
     .btn-navy{background:var(--navy);color:#fff}
 
-    /* Footer */
+    /* Footer (matches rest of site: right-aligned, uniform height) */
     .site-footer{background:var(--panel);margin-top:40px}
-    .footer-inner{max-width:var(--container);margin:auto;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;min-height:var(--footer-h);color:#E5EEF7}
+    .footer-inner{max-width:var(--container);margin:auto;padding:0 16px;display:flex;justify-content:flex-end;align-items:center;min-height:var(--footer-h);color:#E5EEF7;font-size:14px}
 
     /* Layout */
+    main{flex:1}
     .container{max-width:var(--container);margin:auto;padding:24px 16px}
     .title-pill{
       background:linear-gradient(180deg,#344E62 0%, #2F4456 100%);
@@ -67,7 +71,7 @@
 
     .section{display:grid;gap:12px}
     .section-head{display:flex;align-items:center;gap:12px}
-    .section-head img{width:64px;height:64px} /* big icons for headings */
+    .section-head img{width:72px;height:72px} /* big consistent icons (Outcome included) */
 
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
@@ -88,16 +92,26 @@
     .ea img{width:100px;height:auto}
     @media (max-width:560px){ .ea{grid-template-columns:76px 1fr}.ea img{width:76px} }
 
+    /* Video callout panel */
+    .video-cta{
+      display:flex;gap:10px;justify-content:center;align-items:center;
+      background:rgba(0,140,219,.08);
+      border:1px solid rgba(0,140,219,.35);
+      border-radius:999px;
+      padding:10px 16px;
+      margin:8px auto 14px;
+      width:max-content;
+      font-weight:700;color:var(--primary);
+    }
+    .video-cta svg{width:18px;height:18px;flex:0 0 18px}
     /* Media */
     .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .media video{width:100%;display:block}
-
-    /* Outcome callout */
-    .callout{color:var(--primary);font-weight:700;text-align:center;font-size:17px;margin:10px 0}
   </style>
 </head>
 
 <body>
+<div class="page">
   <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
@@ -215,7 +229,12 @@
         </div>
 
         <p>The client deeply appreciated the effort and attention to detail that went into the module. They especially valued the practical relevance, the clean design, and how easy it was for tellers to engage with the content and apply it on the job.</p>
-        <p class="callout">Click on the video below to check out a few glimpses from the project.</p>
+
+        <!-- Aesthetic video callout -->
+        <div class="video-cta" title="Play the video below">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          <span>Click the video below to see a few glimpses from the project</span>
+        </div>
 
         <div class="media">
           <video controls preload="metadata">
@@ -234,8 +253,10 @@
       <span>© <span id="y"></span> Shahina Siddiqui</span>
     </div>
   </footer>
+</div>
 
   <script>
+    // year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
