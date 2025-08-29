@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Identifying Counterfeit Currency · Shahina Siddiqui</title>
-  <meta name="description" content="Game-based e-learning project for bank tellers to identify counterfeit Indian currency." />
+  <meta name="description" content="Game-based e-learning module enabling bank tellers to identify counterfeit Indian currency." />
   <link rel="icon" href="../assets/img/profile.png">
   <script defer src="../js/app.js"></script>
 
@@ -28,7 +28,7 @@
     a{color:var(--primary);text-decoration:none}
     a:hover{text-decoration:underline}
     h1,h2,h3{font-weight:400;margin:0 0 .5rem}
-    h1{font-size:clamp(28px,3.2vw,40px);letter-spacing:.2px}
+    h1{font-size:clamp(26px,3vw,36px);letter-spacing:.2px}
     h2{font-size:clamp(20px,2.2vw,26px)}
     h3{font-size:clamp(18px,1.9vw,22px);color:var(--muted)}
 
@@ -42,7 +42,7 @@
     .hamburger{display:none;background:none;border:0;color:#fff;font-size:26px;line-height:1;padding:6px;cursor:pointer}
     @media (max-width: 860px){
       .hamburger{display:block}
-      .nav{position:fixed;inset:56px 0 auto 0;background:var(--panel);padding:12px 16px;flex-direction:column;gap:12px;box-shadow:var(--shadow);transform:translateY(-8px);display:none}
+      .nav{position:fixed;inset:56px 0 auto 0;background:var(--panel);padding:12px 16px;flex-direction:column;gap:12px;box-shadow:var(--shadow);display:none}
       .nav.open{display:flex}
     }
 
@@ -50,56 +50,44 @@
     .site-footer{background:var(--panel);margin-top:40px}
     .footer-inner{max-width:var(--container);margin:auto;padding:16px;display:flex;justify-content:flex-end;align-items:center;min-height:56px;color:#E5EEF7}
 
-    /* Layout */
+    /* Page */
     .container{max-width:var(--container);margin:auto;padding:24px 16px}
-    .hero{display:grid;gap:14px;margin:18px 0 22px}
-    .tag{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 10px;border-radius:999px;color:var(--muted);font-size:14px}
+    .tag{display:inline-block;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:4px 10px;border-radius:999px;color:var(--muted);font-size:14px;margin-bottom:10px}
 
-    .grid{display:grid;gap:var(--gap)}
-    .cols-2{grid-template-columns: 1.35fr .65fr}
     .card{background:var(--panel);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .card.soft{background:linear-gradient(180deg,#2F4456 0%,#2A3C4C 100%)}
-    .meta{display:grid;gap:var(--gap)}
-    .meta .box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-sm);padding:14px}
+    .grid{display:grid;gap:var(--gap)}
+    .cols-2{grid-template-columns: 1.35fr .65fr}
+
     .kicker{font-size:14px;color:var(--muted);letter-spacing:.3px;margin-bottom:2px}
     .list{margin:.25rem 0 .5rem;padding-left:1.1rem}
     .list li{margin:.25rem 0}
-    .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .chip{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:13px;color:#E4F0FA}
-    .section{display:grid;gap:12px}
-    .section-head{display:flex;align-items:center;gap:10px}
-    .section-head img{width:30px;height:30px}
-    .bullet{display:grid;gap:8px}
-    .bullet ul{margin:0;padding-left:1.1rem}
-    .bullet li{margin:.35rem 0}
-    .deliverables{display:grid;gap:6px}
-    .deliverables li{margin:.3rem 0}
 
-    .outcome{display:grid;gap:12px}
+    .section{display:grid;gap:12px}
+    .section-head{display:flex;align-items:center;gap:12px}
+    .section-head img{width:44px;height:44px} /* bigger icons as requested */
+
+    .meta-col{display:grid;gap:var(--gap)}
+    .box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-sm);padding:14px}
+
+    .ea{display:grid;grid-template-columns: 86px 1fr;gap:14px;align-items:center} /* Expertise in Action strip */
+    .ea img{width:86px;height:auto}
+
     .media{background:rgba(0,0,0,.25);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .media video{width:100%;display:block}
 
-    .blocks{display:grid;gap:var(--gap)}
-    .blocks .card{padding:20px}
-    .blocks.cols-2{grid-template-columns: 1fr 1fr}
-
-    /* Responsive */
     @media (max-width: 980px){ .cols-2{grid-template-columns:1fr} }
     @media (max-width: 560px){
       .card{padding:16px}
-      .blocks.cols-2{grid-template-columns:1fr}
+      .ea{grid-template-columns:72px 1fr}
+      .section-head img{width:38px;height:38px}
     }
-
-    /* Helpers */
-    .placeholder{color:var(--muted)}
-    .accent{color:var(--primary)}
     .note{font-size:14px;color:var(--muted)}
-    hr.sep{border:0;border-top:1px dashed rgba(255,255,255,.1);margin:8px 0}
   </style>
 </head>
 
 <body>
-  <!-- Header (shared look & feel) -->
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="../index.html">Shahina Siddiqui</a>
@@ -114,101 +102,112 @@
   </header>
 
   <main class="container">
-    <!-- Hero -->
-    <section class="hero">
-      <span class="tag">Project · Banking · Game-Based Learning</span>
-      <h1>Identifying Counterfeit Currency</h1>
-      <p class="note">A compact, practice-heavy module that helps frontline tellers spot counterfeit Indian currency with confidence.</p>
-    </section>
 
-    <!-- Brief + Audience column -->
-    <section class="grid cols-2">
-      <div class="card soft">
+    <!-- Page Title (as in your mock) -->
+    <h1>Project Name: Identifying Counterfeit Currency</h1>
+
+    <!-- Small blue brief line (outside the card, like your mock) -->
+    <p class="kicker" style="color:var(--primary);margin-top:6px;">
+      Project Brief · The client wanted an e-learning module for bank tellers to confidently detect counterfeit Indian currency.
+    </p>
+
+    <!-- Big card with Conducting Need Analysis, Findings, Defined Need + right meta -->
+    <section class="card soft" style="margin-top:10px;">
+      <div class="grid cols-2">
+
+        <!-- Left column -->
         <div class="section">
           <div class="section-head">
-            <img src="../assets/projects/counterfeit/magnifier.png" alt="Brief icon" />
-            <h2>Project Brief</h2>
+            <img src="../assets/projects/counterfeit/magnifier.png" alt="Need analysis icon" />
+            <h2>Conducting Need Analysis</h2>
           </div>
-          <p>The client needed an e-learning module for bank tellers to confidently detect counterfeit Indian currency.</p>
 
-          <div class="blocks cols-2">
-            <div class="card">
-              <div class="kicker">Conducting Need Analysis</div>
-              <ul class="list">
-                <li>Common errors tellers make in detection</li>
-                <li>Denominations posing highest risk</li>
-                <li>Feasible time on task for tellers</li>
-                <li>Compliance requirements per RBI</li>
-                <li>Policies/processes to align</li>
-              </ul>
-              <hr class="sep" />
-              <div class="kicker">Defined Need</div>
-              <p>Design a <strong>30–40 min</strong> engaging module covering all denominations, key security features and red flags, with realistic practice. Must be concise, highly interactive, and fit teller workflows.</p>
-            </div>
+          <p class="kicker">I began with a detailed needs analysis to understand the requirement in depth. This included discussions with the client’s service and operations teams to explore:</p>
+          <ul class="list">
+            <li>Common errors tellers make in counterfeit detection</li>
+            <li>Which denominations posed the greatest risk</li>
+            <li>How much time tellers could realistically devote to learning</li>
+            <li>Compliance requirements to RBI guidelines</li>
+            <li>Policies/processes to align</li>
+          </ul>
 
-            <div class="card">
-              <div class="meta">
-                <div class="box">
-                  <div class="kicker">Audience</div>
-                  <p>Frontline bank tellers handling daily cash transactions.</p>
-                </div>
-                <div class="box">
-                  <div class="kicker">Module Duration</div>
-                  <p>~40–50 minutes (self-paced)</p>
-                </div>
-                <div class="box">
-                  <div class="kicker">My Roles</div>
-                  <div class="chip-row">
-                    <span class="chip">Instructional Design</span>
-                    <span class="chip">Gamification Strategy</span>
-                    <span class="chip">Graphics & Mock-ups</span>
-                    <span class="chip">E-learning Development</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- /.blocks -->
+          <div class="box">
+            <div class="kicker">Findings from the Needs Analysis</div>
+            <p class="note" style="color:#E6EEF6">Insights were used to shape the learning time, focus areas, and practice style.</p>
+          </div>
+
+          <div class="box" style="margin-top:6px;">
+            <div class="kicker">Defined Need</div>
+            <p>30–40 minutes engaging module to help bank tellers confidently identify counterfeit currency in line with RBI guidelines. The module covers all denominations in circulation, highlights key security features and red flags, and provides practice opportunities in realistic scenarios. It fits teller workflows, is concise, highly interactive, and practice-oriented.</p>
+          </div>
         </div>
+
+        <!-- Right column (Audience + Module Duration) -->
+        <aside class="meta-col">
+          <div class="box">
+            <div class="kicker">Audience</div>
+            <p>Frontline bank tellers handling cash transactions daily.</p>
+          </div>
+          <div class="box">
+            <div class="kicker">Module Duration</div>
+            <p>40–50 minutes (self-paced)</p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- Expertise in Action strip (icon + four bullets) -->
+    <section class="card" style="margin-top:18px;">
+      <div class="ea">
+        <!-- If you later upload analysis.png, you can swap the src; this uses your existing testimonials.png as a placeholder. -->
+        <img src="../assets/projects/counterfeit/testimonials.png" alt="Expertise in Action" />
+        <ul class="list" style="margin:0">
+          <li>Instructional Design</li>
+          <li>Gamification & Learning Strategy</li>
+          <li>Graphics & Visual Mock-ups</li>
+          <li>E-learning Development</li>
+        </ul>
       </div>
     </section>
 
     <!-- Learning Design Strategy -->
-    <section class="card soft" style="margin-top:20px;">
+    <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="section-head">
           <img src="../assets/projects/counterfeit/innovation.png" alt="Strategy icon" />
           <h2>Learning Design Strategy</h2>
         </div>
 
-        <p>The module was designed as a <em>game-based experience</em> inspired by a “heist” storyline, tightly interwoven with learning content.</p>
+        <p>The module was designed as a game-based experience inspired by a “Money Heist” style narrative, where the storyline and mechanics were tightly interwoven with the learning content.</p>
 
-        <div class="bullet">
-          <ul>
-            <li>Four heist levels—each focused on one denomination.</li>
-            <li>Explore metallic printing plates and security features in depth.</li>
-            <li>Production gets disrupted; some notes are corrupted.</li>
-            <li>Learners face knowledge-check challenges to spot counterfeit notes.</li>
-          </ul>
-        </div>
+        <ul class="list">
+          <li>The experience unfolded across four heist levels, each focusing on a different denomination.</li>
+          <li>At the start of each level, learners explored the metallic printing plate and studied the denomination’s security features in depth.</li>
+          <li>Once this learning phase was complete, the heist began — the currency went into production, the process was disrupted, and some notes were corrupted.</li>
+          <li>Learners then faced a knowledge-check challenge, applying their skills to identify the counterfeit notes.</li>
+        </ul>
 
-        <div class="kicker" style="margin-top:10px">To bring this concept to life, I…</div>
-        <ul class="deliverables">
-          <li>Designed the <strong>need analysis</strong> and <strong>game-aligned design document</strong> mapped to learning objectives.</li>
-          <li>Developed a <strong>step-by-step storyboard</strong> covering flow, interactivities, and knowledge checks.</li>
-          <li>Created <strong>visual mock-ups</strong> to align game mechanics with design elements.</li>
-          <li>Authored & published SCORM packages for seamless LMS deployment.</li>
+        <p class="kicker" style="margin-top:8px;">To bring this concept to life, I:</p>
+        <ul class="list" style="margin-top:2px">
+          <li>Designed and created the design document, curating content mapped to learning objectives while minimizing cognitive load.</li>
+          <li>Developed a detailed storyboard showing step-by-step progression of game elements, content flow, interactivities, and knowledge checks.</li>
+          <li>Created visual mock-ups to align game mechanics with engaging design elements.</li>
+          <li>Authored and published the complete module as SCORM-compliant packages for seamless deployment on the client’s LMS.</li>
         </ul>
       </div>
     </section>
 
     <!-- Outcome -->
-    <section class="card soft" style="margin-top:20px;">
+    <section class="card soft" style="margin-top:18px;">
       <div class="section">
         <div class="section-head">
           <img src="../assets/projects/counterfeit/project.png" alt="Outcome icon" />
           <h2>The Outcome</h2>
         </div>
-        <p>The client appreciated the practical relevance, clean design, and how easily tellers could engage and apply the skills on the job.</p>
+
+        <p>The client appreciated the practical relevance, clean design, and how easily tellers could engage with the content and apply it on the job.</p>
+        <p class="kicker" style="color:#E6EEF6">Click on the video below to check out a few glimpses from the project.</p>
 
         <div class="media">
           <video controls preload="metadata">
@@ -216,19 +215,9 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <p class="note">Tip: keep videos ~12–25 MB for web. Add a <code>poster</code> attribute later if you upload a still image.</p>
       </div>
     </section>
 
-    <!-- Template Hints (delete when finalizing) -->
-    <section class="card" style="margin-top:20px;">
-      <h3 class="accent">Template notes (for your future projects)</h3>
-      <ul class="list">
-        <li>Duplicate this file and update: title, brief, audience, duration, bullets, deliverables, and video.</li>
-        <li>Icons are referenced from <code>../assets/projects/counterfeit/</code> to match your current repo.</li>
-        <li>Keep headings regular (not bold) to match your brand.</li>
-      </ul>
-    </section>
   </main>
 
   <!-- Footer -->
@@ -239,8 +228,16 @@
   </footer>
 
   <script>
-    // year stamp
+    // year stamp + mobile menu (close on link click)
     document.getElementById('y').textContent = new Date().getFullYear();
+    // if your js/app.js already handles menu, this is harmless
+    (function(){
+      const btn = document.querySelector('[data-menu-toggle]');
+      const menu = document.querySelector('[data-menu]');
+      if(!btn || !menu) return;
+      btn.addEventListener('click', ()=> menu.classList.toggle('open'));
+      menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', ()=> menu.classList.remove('open')));
+    })();
   </script>
 </body>
 </html>
