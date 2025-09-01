@@ -680,3 +680,45 @@ body.no-scroll {
     0 0 0 6px rgba(0,140,219,.55);                    /* clear keyboard focus */
   background: rgba(0,140,219,.10);
 }
+/* === FIX: keep the big play button contained to each card and centered === */
+.project-media{
+  position: relative;                 /* anchor for the overlay */
+  overflow: hidden;                   /* CLIP the overlay so it can't “leak” while scrolling */
+  border-radius: 14px;                /* same rounded corners */
+  box-shadow: 0 8px 28px rgba(0,0,0,.28); /* keep the nice shadow on the CARD */
+}
+
+.project-media video{
+  width: 100%;
+  display: block;
+  border-radius: inherit;             /* match corners */
+  box-shadow: none !important;        /* avoid double shadow (parent has it) */
+}
+
+/* Center the play overlay and keep it above the video */
+.project-media .play-btn,
+.project-media .play-cta,
+.project-media .video-play,
+.project-media .video-overlay{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);   /* dead center */
+  z-index: 2;
+  pointer-events: auto;               /* still clickable */
+}
+
+/* If you prefer the button near the BOTTOM instead of center, 
+   comment the block above and use this instead:
+.project-media .play-btn,
+.project-media .play-cta,
+.project-media .video-play,
+.project-media .video-overlay{
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  top: auto;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+*/
