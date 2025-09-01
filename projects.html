@@ -5,48 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Shahina Siddiqui</title>
   <link rel="stylesheet" href="./styles.css?v=2025-11" />
-  <style>
-    /* ---- Projects grid (scoped to this page only) ---- */
-    .proj-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap:26px;
-      margin: 10px 0 36px;
-    }
-    @media (max-width: 900px){ .proj-grid{ grid-template-columns: 1fr } }
-
-    .proj-card{
-      display:grid; grid-template-columns: 320px 1fr; gap:18px;
-      background:var(--panel); border-radius:14px; padding:16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,.25);
-      align-items: center;
-    }
-    @media (max-width: 900px){ .proj-card{ grid-template-columns: 1fr } }
-
-    .proj-thumb{
-      display:block; border-radius:12px; overflow:hidden; background:#0b1620;
-      box-shadow: 0 6px 18px rgba(0,0,0,.25);
-    }
-    .proj-thumb img{ width:100%; height:100%; object-fit:cover; display:block }
-
-    .proj-copy h2{ margin:0 0 6px }
-    .proj-copy p{ margin: 0 0 10px; color:#d5e2ec }
-
-    .view-journey{
-      font-weight:700;
-      color: var(--blue-1);
-      text-decoration:none;
-      display:inline-flex; align-items:center; gap:8px;
-    }
-    .view-journey:hover{ text-decoration:underline }
-  </style>
 </head>
 <body>
 
-  <!-- Backdrop for mobile nav -->
   <div class="backdrop" hidden></div>
 
-  <!-- Header -->
   <header class="site-header">
     <div class="header-row">
       <a class="brand" href="index.html">Shahina Siddiqui</a>
@@ -60,59 +23,51 @@
     </div>
   </header>
 
-  <!-- Main -->
   <main class="container">
     <h1 class="page-title">Designed for attention, built for retention</h1>
 
-    <div class="proj-grid">
+    <article class="project">
+      <div class="project-media">
+        <video controls preload="metadata" playsinline>
+          <source src="./assets/projects/counterfeit/counterfeit.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="project-copy">
+        <h2>Counterfeit Currency – Teller Training</h2>
+        <p>
+          A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy and confidence.
+          It covers Indian denominations with security features and red flags aligned with RBI guidelines. Real-world
+          scenario assessments reinforce key concepts and on-the-job application.
+        </p>
+      </div>
+    </article>
 
-      <!-- Project 1 (Counterfeit) -->
-      <article class="proj-card">
-        <a class="proj-thumb" href="projects/cc-trial.html">
-          <!-- use any thumbnail you like; 16:9 works well -->
-          <img src="./assets/projects/counterfeit/thumb.jpg" alt="Counterfeit Currency project thumbnail" />
-        </a>
-        <div class="proj-copy">
-          <h2>Identifying Counterfeit Currency</h2>
-          <p>Game-based module for bank tellers aligned with RBI guidelines — security features, red flags, and realistic scenario practice for on-the-job confidence.</p>
-          <a class="view-journey" href="projects/cc-trial.html">View Journey →</a>
+    <article class="project">
+      <div class="project-media">
+        <div class="carousel" aria-label="Vikram Bhetal gallery">
+          <img src="./assets/projects/vikram/vikram-1.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-2.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-3.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-4.jpg" alt="" />
+          <img src="./assets/projects/vikram/vikram-5.jpg" alt="" />
         </div>
-      </article>
-
-      <!-- Project 2 (example placeholder) -->
-      <article class="proj-card">
-        <a class="proj-thumb" href="projects/vikram.html">
-          <img src="./assets/projects/vikram/thumb.jpg" alt="Ethics Assessment project thumbnail" />
-        </a>
-        <div class="proj-copy">
-          <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
-          <p>A narrative-driven ethics assessment blending the Indian tale of Vikram and Bhetal with modern workplace dilemmas and tight feedback loops.</p>
-          <a class="view-journey" href="projects/vikram.html">View Journey →</a>
-        </div>
-      </article>
-
-      <!-- Project 3 (example placeholder) -->
-      <article class="proj-card">
-        <a class="proj-thumb" href="projects/another-project.html">
-          <img src="./assets/projects/another/thumb.jpg" alt="Project thumbnail" />
-        </a>
-        <div class="proj-copy">
-          <h2>Another Project Title</h2>
-          <p>One-sentence snapshot of the challenge, audience, and value delivered. Keep it crisp and benefit-focused.</p>
-          <a class="view-journey" href="projects/another-project.html">View Journey →</a>
-        </div>
-      </article>
-
-    </div>
+      </div>
+      <div class="project-copy">
+        <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
+        <p>
+          An engaging ethics assessment for a financial institution, blending the Indian tale of Vikram and Bhetal
+          with modern workplace dilemmas. The narrative weaves an ethical compass through decisions and feedback.
+        </p>
+      </div>
+    </article>
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-row">
-      <small>© 2025 Shahina Siddiqui</small>
-    </div>
-  </footer>
+ <footer class="site-footer" role="contentinfo">
+  <div class="footer-row">
+    <small>© 2025 Shahina Siddiqui</small>
+  </div>
+</footer>
 
-  <script src="js/app.js" defer></script>
+<script src="js/app.js" defer></script>
 </body>
 </html>
