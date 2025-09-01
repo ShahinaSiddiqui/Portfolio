@@ -6,15 +6,19 @@
   <title>Projects — Shahina Siddiqui</title>
   <link rel="stylesheet" href="./styles.css?v=2025-11" />
   <style>
-    /* CTA and media styling */
-    .project-cta { margin-top: 0.75rem; }
-    .view-journey { color:#008CDB; font-weight:600; text-decoration:none; border-radius:999px; padding:0.125rem 0; }
-    .view-journey:hover, .view-journey:focus { text-decoration:underline; }
-    .project-media img { display:block; width:100%; height:auto; border-radius:12px; }
-
-    /* Divider between projects */
-    .project { padding-bottom: 2rem; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .project:last-of-type { border-bottom: none; }
+    /* Subtle divider between projects */
+    .project + .project { border-top: 1px solid rgba(255,255,255,.08); margin-top: 2.25rem; padding-top: 2.25rem; }
+    .project { display:grid; grid-template-columns: minmax(280px,520px) 1fr; gap: 1.75rem; align-items:start; }
+    .project h2 { margin: 0 0 .5rem; }
+    .thumb { position:relative; border-radius:12px; overflow:hidden; background:#0f2430; border:1px solid rgba(255,255,255,.08); }
+    .thumb img, .thumb video { display:block; width:100%; height:auto; }
+    .thumb .play-overlay {
+      position:absolute; inset:0; display:grid; place-items:center; 
+      font-weight:700; background:linear-gradient(transparent, rgba(0,0,0,.35));
+      pointer-events:none;
+    }
+    .btn-link { color:#008CDB; font-weight:700; text-decoration:none; }
+    .thumb-button { appearance:none; background:none; border:0; padding:0; width:100%; cursor:pointer; }
   </style>
 </head>
 <body>
@@ -38,143 +42,143 @@
     <h1 class="page-title">Designed for attention, built for retention</h1>
 
     <!-- 1) Counterfeit -->
-    <article class="project">
+    <article class="project" data-thumb="./assets/projects/counterfeit/ThumbnailCounterfeit.png" data-video="./assets/projects/counterfeit/counterfeit.mp4">
       <div class="project-media">
-        <a href="projects/counterfeit.html">
-          <img src="./assets/projects/counterfeit/ThumbnailCounterfeit.png" alt="Thumbnail for Counterfeit Currency – Teller Training" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="Counterfeit Currency project thumbnail" src="./assets/projects/counterfeit/ThumbnailCounterfeit.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>Counterfeit Currency – Teller Training</h2>
-        <p>
-          A specialized e-learning module for bank tellers to identify counterfeit currency with accuracy and confidence.
-          It covers Indian denominations with security features and red flags aligned with RBI guidelines. Real-world
-          scenario assessments reinforce key concepts and on-the-job application.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/counterfeit.html">View Journey →</a>
-        </p>
+        <p>Game-based module for bank tellers aligned with RBI guidelines — security features, red flags, and realistic scenario practice for on-the-job confidence.</p>
+        <p><a class="btn-link" href="projects/counterfeit.html">View Journey →</a></p>
       </div>
     </article>
 
-    <!-- 2) Vikram Betal -->
-    <article class="project">
+    <!-- 2) Vikram -->
+    <article class="project" data-thumb="./assets/projects/vikram/ThumbnailVikramBetal.png" data-video="./assets/projects/vikram/VikramBetaal.mp4">
       <div class="project-media">
-        <a href="projects/vikram.html">
-          <img src="./assets/projects/vikram/ThumbnailVikramBetal.png" alt="Thumbnail for Ethics Assessment — Vikram Bhetal Inspired" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="Ethics Assessment project thumbnail" src="./assets/projects/vikram/ThumbnailVikramBetal.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>Ethics Assessment — Vikram Bhetal Inspired</h2>
-        <p>
-          A narrative-driven ethics assessment blending the Indian tale of Vikram and Bhetal with modern workplace dilemmas.
-          The storyline, decisions, and tight feedback loops help learners build an ethical compass for real scenarios.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/vikram.html">View Journey →</a>
-        </p>
+        <p>A narrative-driven ethics assessment blending the Indian tale of Vikram and Bhetal with modern workplace dilemmas and tight feedback loops.</p>
+        <p><a class="btn-link" href="projects/vikram.html">View Journey →</a></p>
       </div>
     </article>
 
-    <!-- 3) 3-in-1 Trading Account -->
-    <article class="project">
+    <!-- 3) 3-in-1 -->
+    <article class="project" data-thumb="./assets/projects/3in1TradingAccount/Thumbnail3in1.png" data-video="./assets/projects/3in1TradingAccount/3in1.mp4">
       <div class="project-media">
-        <a href="projects/3in1TradingAccount.html">
-          <img src="./assets/projects/3in1TradingAccount/Thumbnail3in1.png" alt="Thumbnail for 3-in-1 Trading Account Simulation" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="3-in-1 Trading Account thumbnail" src="./assets/projects/3in1TradingAccount/Thumbnail3in1.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>3-in-1 Trading Account Simulation</h2>
-        <p>
-          Guided, sandbox-style practice for opening and using a 3-in-1 trading account—reducing errors and improving time to proficiency
-          with stepwise hints, guardrails, and scenario-based challenges.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/3in1TradingAccount.html">View Journey →</a>
-        </p>
+        <p>Guided, sandbox-style practice for opening and using a 3-in-1 trading account—reducing errors and improving time to proficiency.</p>
+        <p><a class="btn-link" href="projects/3in1TradingAccount.html">View Journey →</a></p>
       </div>
     </article>
 
     <!-- 4) Home Loan -->
-    <article class="project">
+    <article class="project" data-thumb="./assets/projects/Home%20Loan/ThumbnailHomeLoan.png" data-video="./assets/projects/Home%20Loan/HomeLoan.mp4">
       <div class="project-media">
-        <a href="projects/Home%20Loan.html">
-          <img src="./assets/projects/Home%20Loan/ThumbnailHomeLoan.png" alt="Thumbnail for Home Loan Programs" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="Home Loan Programs thumbnail" src="./assets/projects/Home%20Loan/ThumbnailHomeLoan.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>Home Loan Programs</h2>
-        <p>
-          Role-ready enablement for branch teams: segment-wise eligibility, LTV/FOIR basics, and decision-tree practice to pitch the right product faster.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/Home%20Loan.html">View Journey →</a>
-        </p>
+        <p>Role-ready enablement for branch teams: segment-wise eligibility, quick comparisons, and decision-tree practice.</p>
+        <p><a class="btn-link" href="projects/Home%20Loan.html">View Journey →</a></p>
       </div>
     </article>
 
     <!-- 5) Indus Marathon -->
-    <article class="project">
+    <article class="project" data-thumb="./assets/projects/IndusMarathon/ThumbnailIndusMarathon.png" data-video="./assets/projects/IndusMarathon/IndusMarathon.mp4">
       <div class="project-media">
-        <a href="projects/IndusMarathon.html">
-          <img src="./assets/projects/IndusMarathon/ThumbnailIndusMarathon.png" alt="Thumbnail for Indus Marathon Learning Sprint" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="Indus Marathon thumbnail" src="./assets/projects/IndusMarathon/ThumbnailIndusMarathon.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>Indus Marathon — Learning Sprint</h2>
-        <p>
-          A fast-paced challenge series that blends micro-lessons with checkpoints, nudges, and scorekeeping to sustain momentum and recall.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/IndusMarathon.html">View Journey →</a>
-        </p>
+        <p>Micro-lessons blended with challenges, checkpoints, and nudges to sustain momentum and recall.</p>
+        <p><a class="btn-link" href="projects/IndusMarathon.html">View Journey →</a></p>
       </div>
     </article>
 
     <!-- 6) Yaksha Prashna -->
-    <article class="project">
+    <article class="project" data-thumb="./assets/projects/Yaksha%20Prashna/ThumbnailYakshaPrashna.png" data-video="./assets/projects/Yaksha%20Prashna/YakshaPrashna.mp4">
       <div class="project-media">
-        <a href="projects/Yaksha%20Prashna.html">
-          <img src="./assets/projects/Yaksha%20Prashna/ThumbnailYakshaPrashna.png" alt="Thumbnail for Yaksha Prashna ethics challenge" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="Yaksha Prashna thumbnail" src="./assets/projects/Yaksha%20Prashna/ThumbnailYakshaPrashna.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>Yaksha Prashna — Ethics Challenge</h2>
-        <p>
-          Scenario-based dilemmas inspired by the Mahabharata’s Yaksha Prashna, helping learners reason through competing priorities and values.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/Yaksha%20Prashna.html">View Journey →</a>
-        </p>
+        <p>Scenario-based dilemmas inspired by the Mahabharata’s Yaksha Prashna to build principled, practical decision-making.</p>
+        <p><a class="btn-link" href="projects/Yaksha%20Prashna.html">View Journey →</a></p>
       </div>
     </article>
 
     <!-- 7) PPT Trading Account -->
-    <article class="project">
+    <article class="project" data-thumb="./assets/projects/PPTTradingAccount/ThumbnailPPT.png" data-video="./assets/projects/PPTTradingAccount/PPT.mp4">
       <div class="project-media">
-        <a href="projects/PPTTradingAccount.html">
-          <img src="./assets/projects/PPTTradingAccount/ThumbnailPPT.png" alt="Thumbnail for PPT Trading Account Walkthrough" loading="lazy" />
-        </a>
+        <div class="thumb">
+          <button class="thumb-button" aria-label="Play video">
+            <img alt="PPT Trading Account thumbnail" src="./assets/projects/PPTTradingAccount/ThumbnailPPT.png">
+            <div class="play-overlay">▶</div>
+          </button>
+        </div>
       </div>
       <div class="project-copy">
         <h2>PPT Trading Account — Guided Walkthrough</h2>
-        <p>
-          A crisp, interaction-led walkthrough converting complex steps into bite-sized actions; perfect for classroom + asynchronous (self-paced) delivery.
-        </p>
-        <p class="project-cta">
-          <a class="view-journey" href="projects/PPTTradingAccount.html">View Journey →</a>
-        </p>
+        <p>Concise, interaction-led walkthrough converting complex account steps into bite-sized actions.</p>
+        <p><a class="btn-link" href="projects/PPTTradingAccount.html">View Journey →</a></p>
       </div>
     </article>
-
   </main>
 
   <footer class="site-footer" role="contentinfo">
-    <div class="footer-row">
-      <small>© 2025 Shahina Siddiqui</small>
-    </div>
+    <div class="footer-row"><small>© 2025 Shahina Siddiqui</small></div>
   </footer>
 
-  <script src="js/app.js" defer></script>
+  <script>
+    // Inline play on thumbnail click
+    document.querySelectorAll('.project').forEach(card => {
+      const btn = card.querySelector('.thumb-button');
+      btn?.addEventListener('click', () => {
+        const box = card.querySelector('.thumb');
+        const videoSrc = card.getAttribute('data-video');
+        if (!box || !videoSrc) return;
+        box.innerHTML = `
+          <video controls autoplay playsinline>
+            <source src="${videoSrc}" type="video/mp4">
+          </video>`;
+      });
+    });
+  </script>
 </body>
 </html>
