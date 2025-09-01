@@ -722,3 +722,48 @@ body.no-scroll {
   z-index: 2;
 }
 */
+/* === SCROLL LEAK FIX FOR BIG PLAY BUTTON ======================
+   Keeps the play icon inside its card while scrolling.
+   Safe: only touches the project cards & media blocks.
+=================================================================*/
+
+/* Each project card paints only within its own box */
+.project{
+  position: relative;
+  contain: paint;               /* prevents children from painting outside */
+}
+
+/* The media area becomes the clipping + positioning container */
+.project-media{
+  position: relative;
+  overflow: clip;               /* modern clipping */
+}
+@supports not (overflow: clip){
+  .project-media{ overflow: hidden; } /* fallback */
+}
+
+/* Force ANY play/overlay element inside .project-media to be centered
+   and absolutely positioned (overrides old fixed/sticky rules). */
+.project-media [class*="play"],
+.project-media [class*="overlay"],
+.project-media .play,
+.project-media .play-btn,
+.project-media .video-play,
+.project-media .video-overlay,
+.project-media .play-cta{
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2;
+  margin: 0 !important;
+  pointer-events: auto;
+}
+
+/* Keep the nice rounded corners/shadow on the card and avoid double shadows */
+.project-media video{
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  box-shadow: none !important;
+}
