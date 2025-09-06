@@ -767,3 +767,61 @@ body.no-scroll {
   border-radius: 14px;
   box-shadow: none !important;
 }
+/* -----------------------------------------------------------
+   A) MOBILE ALIGNMENT FOR ALL "VIEW JOURNEY" PAGES
+   Keeps the content centered with even side gutters on phones
+   (safe to apply globally; affects only layout gutters)
+----------------------------------------------------------- */
+@media (max-width: 900px){
+  main.container{
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+  /* make sure no inner blocks hang off-screen */
+  .card, .soft, .section, .findings, .media{
+    max-width: 100%;
+  }
+}
+
+/* -----------------------------------------------------------
+   B) PROJECT CARDS — PREVENT STICKY/LEAKY PLAY BUTTON
+   Centers the play overlay and clips it to the video card
+----------------------------------------------------------- */
+.project{ contain: paint; }  /* each card paints inside itself */
+
+.project-media{
+  position: relative;
+  overflow: clip;            /* clip overlay to the card while scrolling */
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.28);
+}
+@supports not (overflow: clip){
+  .project-media{ overflow: hidden; }  /* fallback */
+}
+
+.project-media video{
+  display: block;
+  width: 100%;
+  border-radius: inherit;
+  box-shadow: none !important;         /* avoid double shadows */
+}
+
+/* override any fixed/sticky rules a thumbnail script might add */
+.project-media [class*="play"],
+.project-media [class*="overlay"],
+.project-media .play,
+.project-media .play-btn,
+.project-media .video-play,
+.project-media .video-overlay{
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2;
+  margin: 0 !important;
+  pointer-events: auto;
+}
