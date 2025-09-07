@@ -198,5 +198,31 @@
       });
     });
   </script>
+  <script>
+/* Mobile menu toggler just for Projects page */
+(() => {
+  const toggle   = document.querySelector('.menu-toggle');
+  const nav      = document.getElementById('site-nav');
+  const backdrop = document.querySelector('.backdrop');
+
+  if (!toggle || !nav) return;
+
+  const setOpen = (open) => {
+    nav.classList.toggle('open', open);
+    document.body.classList.toggle('no-scroll', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (backdrop) {
+      backdrop.hidden = !open;
+      backdrop.classList.toggle('show', open);
+    }
+  };
+
+  toggle.addEventListener('click', () => setOpen(!nav.classList.contains('open')));
+  backdrop?.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 840) setOpen(false); });
+})();
+</script>
+
 </body>
 </html>
