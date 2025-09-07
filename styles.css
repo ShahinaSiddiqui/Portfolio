@@ -825,3 +825,53 @@ body.no-scroll {
   margin: 0 !important;
   pointer-events: auto;
 }
+/* --- Mobile alignment fix for project pages only --- */
+@media (max-width: 768px) {
+
+  /* stop any sideways scroll and cut-offs */
+  html, body { overflow-x: hidden; }
+
+  /* center typical wrappers on small screens */
+  .container,
+  .wrapper,
+  .project,
+  .project-section,
+  .project-card,
+  [class*="container"],
+  [class*="wrap"],
+  [class*="inner"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+
+  /* neutralize any negative margins that cause left shift */
+  [class*="offset"],
+  [class*="negative"],
+  .ml-neg, .mx-neg {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* fix common 100vw overflow issues */
+  [style*="100vw"], .w-100vw { width: 100% !important; }
+
+  /* keep media from spilling out */
+  img, video, iframe {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* if the page has a sticky play button, disable stickiness on mobile only */
+  .play-btn.sticky,
+  .play-cta.sticky {
+    position: static !important;
+    top: auto; bottom: auto; right: auto; left: auto;
+    margin-top: 12px;
+  }
+}
