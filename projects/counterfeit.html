@@ -171,6 +171,29 @@
         display: block;
       }
     }
+    /* --- FINAL MOBILE FIXES (project detail pages) --- */
+@media (max-width: 768px) {
+  /* let the icon+heading row wrap and allow the H2 to shrink/wrap */
+  .head { flex-wrap: wrap; }
+  .head h2 { min-width: 0; flex: 1 1 auto; }
+
+  /* center the blue video-cta pill neatly */
+  .video-cta {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    display: inline-block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 12px 16px !important;
+    border-radius: 999px !important;  /* pill shape */
+    white-space: normal !important;   /* allow wrapping */
+  }
+
+  /* keep the video/card neatly clipped */
+  .media { overflow: hidden; border-radius: 12px; }
+}
+
   </style>
 </head>
 <body>
