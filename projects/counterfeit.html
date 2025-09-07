@@ -115,6 +115,44 @@
     }
     .media{ background:rgba(0,0,0,.25); border:1px solid rgba(255,255,255,.08); border-radius:12px; overflow:hidden }
     .media video{ width:100%; display:block }
+
+    /* ---------------------------------------------------------
+       MOBILE ALIGNMENT PATCH (project detail page ONLY)
+       - Centers <main> with equal side gutters
+       - Ensures cards/sections/media never overflow
+       --------------------------------------------------------- */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; }
+
+      .page > main.container {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box;
+      }
+
+      .page .card,
+      .page .soft,
+      .page .section,
+      .page .findings,
+      .page .media {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box;
+      }
+
+      /* Keep media safe */
+      img, video, iframe {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -155,7 +193,6 @@
           <li>Would employees be comfortable with game mechanics being embedded in the training experience?</li>
           <li>Should the assessment be designed as a standalone quiz or integrated within the gameplay flow?</li>
           <li>What was the expected duration of the module?</li>
-        
         </ul>
 
         <hr class="thin">
@@ -193,7 +230,6 @@
     <section class="card" style="margin-top:18px;">
       <div class="section">
         <div class="head">
-          <!-- You replaced this file with your new icon while keeping the same name -->
           <img src="../assets/projects/counterfeit/Roleandskills.png?v=2" alt="My Expertise in Action">
           <h2>My Expertise in Action:</h2>
         </div>
