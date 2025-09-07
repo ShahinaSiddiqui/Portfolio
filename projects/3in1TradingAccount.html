@@ -65,6 +65,25 @@
       border:1px solid rgba(0,140,219,.35);border-radius:999px;padding:10px 16px;margin:8px auto 14px;width:max-content;font-weight:700;color:var(--blue-1)}
     .media{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
     .media video{width:100%;display:block}
+    /* --- TARGETED MOBILE FIXES (project detail pages) --- */
+@media (max-width: 768px) {
+  /* let the icon+heading row wrap and allow the H2 to shrink/wrap */
+  .head { flex-wrap: wrap; }
+  .head h2 { min-width: 0; flex: 1 1 auto; }
+
+  /* the blue note above the video must not be max-content on phones */
+  .video-cta {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    text-align: center;
+    white-space: normal;
+  }
+
+  /* keep the video/card neatly clipped */
+  .media { overflow: hidden; border-radius: 12px; }
+}
+
   </style>
 </head>
 <body>
