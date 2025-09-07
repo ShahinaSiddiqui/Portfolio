@@ -875,3 +875,89 @@ body.no-scroll {
     margin-top: 12px;
   }
 }
+/* --- FINAL MOBILE ALIGNMENT FIX FOR PROJECT DETAIL PAGES (append to end) --- */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+
+  /* Keep the main content centered with equal side gutters */
+  .page > main.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+  }
+
+  /* Ensure all cards/sections respect the gutters and don’t overflow */
+  .page .card,
+  .page .soft,
+  .page .section,
+  .page .findings,
+  .page .media {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box;
+  }
+
+  /* Neutralize any negative/offset utility that might shift layout */
+  [class*="offset"], [class*="negative"], .ml-neg, .mx-neg {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Keep media safely inside the viewport */
+  img, video, iframe {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* If any play button was sticky/fixed, unstick it on mobile */
+  .play-btn.sticky,
+  .play-cta.sticky {
+    position: static !important;
+    top: auto; right: auto; bottom: auto; left: auto;
+    margin-top: 12px;
+  }
+}
+
+/* --- PLAY BUTTON LEAK/STICKY GUARD (safe for both list & detail pages) --- */
+.project { position: relative; contain: paint; }
+
+.project-media {
+  position: relative;
+  overflow: clip;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.28);
+}
+@supports not (overflow: clip) {
+  .project-media { overflow: hidden; }
+}
+
+.project-media video {
+  width: 100%;
+  display: block;
+  border-radius: inherit;
+  box-shadow: none !important;
+}
+
+/* Force any overlay/play element to stay centered inside its own card */
+.project-media [class*="play"],
+.project-media [class*="overlay"],
+.project-media .play,
+.project-media .play-btn,
+.project-media .video-play,
+.project-media .video-overlay,
+.project-media .play-cta {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 2;
+  margin: 0 !important;
+  pointer-events: auto;
+}
