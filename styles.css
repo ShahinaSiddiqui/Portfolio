@@ -961,3 +961,6 @@ body.no-scroll {
   margin: 0 !important;
   pointer-events: auto;
 }
+@media (max-width: 840px){
+  .menu-toggle{ position: relative; z-index: 1001; }
+}
